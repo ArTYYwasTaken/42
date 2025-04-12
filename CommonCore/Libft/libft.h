@@ -6,16 +6,13 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:32:30 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/11 15:32:17 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/12 19:01:15 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <ctype.h>
-# include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
 # include <strings.h>
