@@ -14,42 +14,56 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
 	size_t	str_len;
 	char	*ptr;
 
-	i = 0;
 	str_len = ft_strlen(s);
-	if(!s)
-		return (NULL);
-	if(start >= str_len)
-	{
-		ptr = malloc(sizeof(char));
-		if (!ptr)
-			return (NULL);
-		ptr[0] = '\0';
-		return (ptr);
-	}
+	if(!s || !len || start >= str_len)
+		return(ft_strdup(""));
 	if(len > str_len - start)
     	len = str_len - start;
 	ptr = malloc((len + 1) * sizeof(char));
 	if(!ptr)
 		return (NULL);
-	while(i < len)
-	{
-		ptr[i] = s[start + i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);       
+    ft_strlcpy(ptr, &s[start], len + 1);
+	return (ptr);
 }
 /* 
 // TEST CODE
 int main()
 {
-	const char str[] = "Bankai";
-	unsigned int start = 1;
-	size_t len = 9;
-	printf("%s\n", ft_substr(str, start, len));
-	return 0;
-} */
+    // Test case 1: Normal case
+    const char str1[] = "Bankai";
+    unsigned int start1 = 1;
+    size_t len1 = 9;
+    char *result1 = ft_substr(str1, start1, len1);
+    printf("Test 1: %s\n", result1);
+    free(result1);
+
+    // Test case 2: Start index out of bounds
+    const char str2[] = "Bankai";
+    unsigned int start2 = 10;
+    size_t len2 = 5;
+    char *result2 = ft_substr(str2, start2, len2);
+    printf("Test 2: %s\n", result2);
+    free(result2);
+
+    // Test case 3: Length exceeds available characters
+    const char str3[] = "Bankai";
+    unsigned int start3 = 3;
+    size_t len3 = 10;
+    char *result3 = ft_substr(str3, start3, len3);
+    printf("Test 3: %s\n", result3);
+    free(result3);
+
+    // Test case 4: Empty string
+    const char str4[] = "";
+    unsigned int start4 = 0;
+    size_t len4 = 5;
+    char *result4 = ft_substr(str4, start4, len4);
+    printf("Test 4: %s\n", result4);
+    free(result4);
+
+    return 0;
+}
+*/

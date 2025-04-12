@@ -12,31 +12,76 @@
 
 #include "libft.h"
 
-char *ft_strtrim(char const *s1, char const *set)
+char    *ft_strtrim(char const *s1, char const *set)
 {
-	size_t i;
-	size_t start;
-	size_t end;
-	char *ptr;
+	size_t  start;
+	size_t  end;
+	char    *ptr;
 	
-	if(!s1)
+	if(!s1 || !set)
 		return (NULL);
 	start = 0;
 	end = ft_strlen(s1);
-	while(s1[start] && ft_strrchr(set, s1[start]))
+	while(s1[start] && ft_strchr(set, s1[start]))
 		start++;
-	while (end > start && ft_strrchr(set, s1[end - 1]))
+	while (end > start && ft_strchr(set, s1[end - 1]))
 		end--;
 	ptr = malloc((end - start + 1) * sizeof(char));
 	if(!ptr)
-		return (NULL);	
-	i = 0;
-	while(start < end)
-	{
-		ptr[i] = s1[start];
-		i++;
-		start++;
-	}
-	ptr[i] = '\0';
+		return (NULL);
+    ft_strlcpy(ptr, &s1[start], end - start + 1);
 	return (ptr);
 }
+/* 
+// TEST CODE
+int main() {
+    char *result;
+
+    // Test case 1: Trim spaces from both ends
+    result = ft_strtrim("   Hello, World!   ", " ");
+    printf("Test 1: '%s'\n", result);
+    free(result);
+
+    // Test case 2: Trim specific characters
+    result = ft_strtrim("xxHello, World!xx", "x");
+    printf("Test 2: '%s'\n", result);
+    free(result);
+
+    // Test case 3: No characters to trim
+    result = ft_strtrim("Hello, World!", " ");
+    printf("Test 3: '%s'\n", result);
+    free(result);
+
+    // Test case 4: Empty string
+    result = ft_strtrim("", " ");
+    printf("Test 4: '%s'\n", result);
+    free(result);
+
+    // Test case 5: Trim all characters
+    result = ft_strtrim("xxxx", "x");
+    printf("Test 5: '%s'\n", result);
+    free(result);
+
+    return 0;
+}
+
+    free(result);
+
+    // Test case 3: No characters to trim
+    result = ft_strtrim("Hello, World!", " ");
+    printf("Test 3: '%s'\n", result);
+    free(result);
+
+    // Test case 4: Empty string
+    result = ft_strtrim("", " ");
+    printf("Test 4: '%s'\n", result);
+    free(result);
+
+    // Test case 5: Trim all characters
+    result = ft_strtrim("xxxx", "x");
+    printf("Test 5: '%s'\n", result);
+    free(result);
+
+    return 0;
+}
+ */

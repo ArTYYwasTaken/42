@@ -74,7 +74,7 @@ int main() {
     printf("\n");
     
     // Copy `my_array` to `original_array` for comparison
-    memcpy(original_array, my_array, sizeof(my_array));
+    ft_memcpy(original_array, my_array, sizeof(my_array));
 
     // Print the `original_array` before using the standard `bzero`
     printf("Array before real bzero: ");
