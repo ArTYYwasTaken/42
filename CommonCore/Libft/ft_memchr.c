@@ -26,10 +26,6 @@
 // Function to search for the first occurrence of a character in a memory block
 void *ft_memchr(const void *s, int c, size_t n)
 {
-    // // Check if the input pointer is NULL
-    // if (s == NULL)
-    //     return (NULL);
-
     size_t i;
     unsigned char *str;
     unsigned char ch;

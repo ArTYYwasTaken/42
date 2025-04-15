@@ -16,7 +16,7 @@ char    *ft_strtrim(char const *s1, char const *set)
 {
 	size_t  start;
 	size_t  end;
-	char    *ptr;
+	char    *new;
 	
 	if(!s1 || !set)
 		return (NULL);
@@ -26,11 +26,11 @@ char    *ft_strtrim(char const *s1, char const *set)
 		start++;
 	while (end > start && ft_strchr(set, s1[end - 1]))
 		end--;
-	ptr = malloc((end - start + 1) * sizeof(char));
-	if(!ptr)
+	new = malloc((end - start + 1) * sizeof(char));
+	if(!new)
 		return (NULL);
-    ft_strlcpy(ptr, &s1[start], end - start + 1);
-	return (ptr);
+    ft_strlcpy(new, &s1[start], end - start + 1);
+	return (new);
 }
 /* 
 // TEST CODE
@@ -64,24 +64,4 @@ int main() {
 
     return 0;
 }
-
-    free(result);
-
-    // Test case 3: No characters to trim
-    result = ft_strtrim("Hello, World!", " ");
-    printf("Test 3: '%s'\n", result);
-    free(result);
-
-    // Test case 4: Empty string
-    result = ft_strtrim("", " ");
-    printf("Test 4: '%s'\n", result);
-    free(result);
-
-    // Test case 5: Trim all characters
-    result = ft_strtrim("xxxx", "x");
-    printf("Test 5: '%s'\n", result);
-    free(result);
-
-    return 0;
-}
- */
+*/

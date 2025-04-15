@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+    /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
@@ -21,25 +21,22 @@
 #include "libft.h"
 
 // Custom calloc function
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t num, size_t size)
 {
 	void	*p;
 
 	// Check for zero elements or size
-	if (!nmemb || !size)
-	{
-		p = malloc(0);
-		if (!p)
-			return (NULL);
-		return (p);
-	}
-
-	// Allocate memory for nmemb elements of size bytes each
-	p = malloc(nmemb * size);
+	if (!num || !size)
+        return(ft_strdup(""));
+    if(num > ((size_t) - 1) / size)
+        return (NULL);
+    else
+	// Allocate memory for num elements of size bytes each
+	    p = malloc(num * size);
 	if (!p) // Check if malloc failed
 		return (NULL);
 	// Initialize allocated memory to zero
-	ft_bzero(p, nmemb * size);
+	ft_bzero(p, num * size);
 	return (p); // Return pointer to allocated memory
 }
 /* 
@@ -81,8 +78,4 @@ int main()
 
 	return 0;
 }
-<<<<<<< HEAD
- */
-=======
 */
->>>>>>> fd11879e43bfe78cc59d6732cb8b48884b75a91b

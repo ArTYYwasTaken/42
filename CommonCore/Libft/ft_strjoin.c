@@ -17,21 +17,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if(!s1 || !s2)
 		return (NULL);
 
-	size_t	i;
-	size_t	j;
+	// size_t	i;
+	// size_t	j;
 	size_t	s1_len;
 	size_t	s2_len;
 	char	*ptr;
 
-	i = 0;
-	j = 0;
+	// i = 0;
+	// j = 0;
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
 
 	ptr = malloc((s1_len + s2_len + 1) * sizeof(char));
 	if(!ptr)
 		return (NULL);
-
     ft_memcpy(ptr, s1, s1_len);
 	ft_memcpy(ptr + s1_len, s2, s2_len);
 	// while(s1[i])
@@ -45,7 +44,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	// 	ptr[i + j] = s2[j];
 	// 	j++;
 	// }
-	// ptr[i + j] = '\0';
+	ptr[s1_len + s2_len] = '\0';
 	return (ptr);
 }
 /* 
@@ -115,9 +114,5 @@ int main()
     }
 
     return 0;
-<<<<<<< HEAD
 }
 */
-=======
-} */
->>>>>>> fd11879e43bfe78cc59d6732cb8b48884b75a91b
