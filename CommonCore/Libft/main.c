@@ -1,19 +1,28 @@
 #include "libft.h"
 
 // TEST CODE
-int main() {
-    int test_values[] = {0, 123, -123, 2147483647, -2147483648};
-    size_t num_tests = sizeof(test_values) / sizeof(test_values[0]);
+int main(void)
+{
+    char **result;
+    char *test_str = "Hello,world,this,is,a,test";
+    char delimiter = ',';
+    int i = 0;
 
-    for (size_t i = 0; i < num_tests; i++) {
-        char *result = ft_itoa(test_values[i]);
-        if (result) {
-            printf("ft_itoa(%d) = %s\n", test_values[i], result);
-            free(result); // Free the allocated memory
-        } else {
-            printf("ft_itoa(%d) failed to allocate memory\n", test_values[i]);
-        }
+    result = ft_split(test_str, delimiter);
+    if (!result)
+    {
+        printf("Error: ft_split returned NULL\n");
+        return 1;
     }
+
+    printf("Splitting string: \"%s\" by delimiter '%c'\n", test_str, delimiter);
+    while (result[i])
+    {
+        printf("Segment %d: %s\n", i, result[i]);
+        free(result[i]);
+        i++;
+    }
+    free(result);
 
     return 0;
 }
