@@ -45,7 +45,7 @@ int main()
 	// My function
     ft_memset(my_array, 'A', 10);
 	
-    printf("Array after ft_memset: ");
+    printf("\nArray after ft_memset: ");
     for (int i = 0; i < 10; i++)
 		printf("%c ", my_array[i]);
     printf("\n");
@@ -60,7 +60,7 @@ int main()
 	// Original function
 	memset(my_array, 'A', 10);
 
-	printf("Array after memset: ");
+	printf("\nArray after memset: ");
 	for (int i = 0; i < 10; i++)
 		printf("%c ", my_array[i]);
 	printf("\n");
@@ -70,7 +70,7 @@ int main()
 	printf("Array after memset with 0: ");
 	for (int i = 0; i < 10; i++)
 		printf("%d ", my_array[i]);
-	printf("\n");
+	printf("\n\n");
 	
     return 0;
 }

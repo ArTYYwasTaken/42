@@ -22,9 +22,7 @@
 
 int	ft_isdigit(int c)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	return (c > '0' && c < '9');
 }
 /* 
 // TEST CODE
@@ -38,7 +36,8 @@ int main() {
     int test6 = '!';  // Non-digit
     int test7 = ' ';  // Space character
 
-    // Testing ft_isdigit
+    // Testing my isdigit
+	printf("\n---//My isdigit//---\n\n");
     printf("ft_isdigit('%c') = %d\n", test1, ft_isdigit(test1));
     printf("ft_isdigit('%c') = %d\n", test2, ft_isdigit(test2));
     printf("ft_isdigit('%c') = %d\n", test3, ft_isdigit(test3));
@@ -47,14 +46,15 @@ int main() {
     printf("ft_isdigit('%c') = %d\n", test6, ft_isdigit(test6));
     printf("ft_isdigit('%c') = %d\n", test7, ft_isdigit(test7));
 
-    // Testing standard isdigit for comparison
+    // Testing original isdigit
+	printf("\n---//Original isdigit//---\n\n");
     printf("isdigit('%c') = %d\n", test1, isdigit(test1));
     printf("isdigit('%c') = %d\n", test2, isdigit(test2));
     printf("isdigit('%c') = %d\n", test3, isdigit(test3));
     printf("isdigit('%c') = %d\n", test4, isdigit(test4));
     printf("isdigit('%c') = %d\n", test5, isdigit(test5));
     printf("isdigit('%c') = %d\n", test6, isdigit(test6));
-    printf("isdigit('%c') = %d\n", test7, isdigit(test7));
+    printf("isdigit('%c') = %d\n\n", test7, isdigit(test7));
 
     return 0;
 }

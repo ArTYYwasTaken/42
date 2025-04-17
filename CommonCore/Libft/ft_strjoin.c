@@ -54,64 +54,64 @@ int main()
     char *result;
 
     // Test 1: Normal strings
-    printf("Test 1: Normal strings\n");
+    printf("\nTest 1: Normal strings\n");
     result = ft_strjoin("Hello, ", "World!");
-    if (result) {
+    if (result)
+	{
         printf("Result: \"%s\"\n", result);
-        free(result); // Don't forget to free the memory!
-    } else {
+        free(result);
+    } else
         printf("Memory allocation failed.\n");
-    }
 
     // Test 2: Empty string s1
     printf("\nTest 2: Empty string s1\n");
     result = ft_strjoin("", "World!");
-    if (result) {
+    if (result)
+	{
         printf("Result: \"%s\"\n", result);
         free(result);
-    } else {
+    } else
         printf("Memory allocation failed.\n");
-    }
 
     // Test 3: Empty string s2
     printf("\nTest 3: Empty string s2\n");
     result = ft_strjoin("Hello, ", "");
-    if (result) {
+    if (result)
+	{
         printf("Result: \"%s\"\n", result);
         free(result);
-    } else {
+    } else
         printf("Memory allocation failed.\n");
-    }
 
     // Test 4: Both empty strings
     printf("\nTest 4: Both empty strings\n");
     result = ft_strjoin("", "");
-    if (result) {
+    if (result)
+	{
         printf("Result: \"%s\"\n", result);
         free(result);
-    } else {
+    } else
         printf("Memory allocation failed.\n");
-    }
 
     // Test 5: NULL s1
     printf("\nTest 5: NULL s1\n");
     result = ft_strjoin(NULL, "World!");
-    if (result) {
+    if (result)
+	{
         printf("Result: \"%s\"\n", result);
         free(result);
-    } else {
+    } else
         printf("Result: NULL\n");
-    }
 
     // Test 6: NULL s2
     printf("\nTest 6: NULL s2\n");
     result = ft_strjoin("Hello,", NULL);
-    if (result) {
+    if (result)
+	{
         printf("Result: \"%s\"\n", result);
         free(result);
-    } else {
-        printf("Result: NULL\n");
-    }
+    } else
+        printf("Result: NULL\n\n");
 
     return 0;
 }

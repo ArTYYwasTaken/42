@@ -1,4 +1,4 @@
-#include "libft.h"
+/* #include "libft.h"
 #include <stdlib.h>
 
 static void free_memory(char **str, size_t count) {
@@ -172,4 +172,4 @@ int main()
     char str[] = "banana, uva, maca, pera";
     char **matriz = ft_split(str, ',');
    printf("%s", matriz[0]);
-}
+} */

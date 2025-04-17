@@ -6,15 +6,15 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:41:06 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/16 18:57:38 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/17 15:34:51 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void free_memory(char **str, size_t count)
+static void	free_memory(char **str, size_t count)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < count)
@@ -46,51 +46,51 @@ static size_t	count_words(char const *s, char c)
 	return (count);
 }
 
-static int split_str(char **str, char const *s, size_t count, char c)
+static int	split_str(char **str, char const *s, size_t count, char c)
 {
-	size_t i;
-	size_t arr_i;
-	size_t mat_index;
+	size_t	i;
+	size_t	arr_index;
+	size_t	mat_index;
 
 	i = 0;
 	mat_index = 0;
 	while (mat_index < count)
 	{
-		arr_i = 0;
+		arr_index = 0;
 		while(s[i] && s[i] == c)
 			i++;
 		while(s[i] && s[i] != c)
 		{	
-			arr_i++;
+			arr_index++;
 			i++;
 		}
-		str[mat_index] =(char *)malloc((arr_i + 1) * sizeof(char));
+		str[mat_index] =(char *)malloc((arr_index + 1) * sizeof(char));
 		if(!str[mat_index])
 		{
 		   free_memory(str, count);
-		   return 0;
+		   return (0);
 		}
 		mat_index++;
 	}
-	return 1;
+	return (1);
 }
 
-static void fill_arr(char **str,char const *s, size_t count, char c)
+static void	fill_array(char **str,char const *s, size_t count, char c)
 {
-    size_t i;
-    size_t arr_i;
-    size_t mat_index; 
+    size_t	i;
+    size_t	arr_index;
+    size_t	mat_index; 
 
     i = 0; 
     mat_index = 0;
     while (mat_index < count)
     {
-        arr_i = 0;
+        arr_index = 0;
          while(s[i] && s[i] == c)
             i++;
         while (s[i] && s[i] != c)
-            str[mat_index][arr_i++] = s[i++];
-        str[mat_index][arr_i] = '\0';
+            str[mat_index][arr_index++] = s[i++];
+        str[mat_index][arr_index] = '\0';
         mat_index++;
     }
     str[mat_index] = NULL;
@@ -98,22 +98,23 @@ static void fill_arr(char **str,char const *s, size_t count, char c)
 
 char **ft_split(char const *s, char c)
 {
-    if (!s)
+	size_t  total_words;
+	char **matriz;
+    
+	if (!s)
         return (NULL);
-
-    char **matriz;
-    size_t  total_words;
     total_words = count_words(s, c);
-    matriz = (char**)malloc((total_words + 1 )* sizeof(char *));
+    matriz = malloc((total_words + 1 ) * sizeof(char *));
     if(!matriz)
         return (NULL);
     if(!split_str(matriz, s, total_words, c))
 		return (NULL);
-    fill_arr(matriz, s, total_words, c);    
+    fill_array(matriz, s, total_words, c);    
     return (matriz);
 }
-/* 
-int main(void)
+/*
+// TEST CODE
+int main()
 {
     char **result;
     char *test_str = "Hello,world,this,is,a,test";
@@ -127,7 +128,9 @@ int main(void)
         return 1;
     }
 
-    printf("Splitting string: \"%s\" by delimiter '%c'\n", test_str, delimiter);
+    printf("\nSplitting string: \"%s\"", test_str);
+	printf("\nDelimiter: '%c'\n", delimiter);
+	printf("\n");
     while (result[i])
     {
         printf("Segment %d: %s\n", i, result[i]);
@@ -135,6 +138,8 @@ int main(void)
         i++;
     }
     free(result);
+	printf("\n");
 
     return 0;
-} */
+}
+*/

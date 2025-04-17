@@ -43,4 +43,5 @@ int main()
 	int n = 6;
 	printf("%d\n", ft_strncmp(s1, s2, n));
 	printf("%d\n", strncmp(s1, s2, n));
-} */
+}
+*/

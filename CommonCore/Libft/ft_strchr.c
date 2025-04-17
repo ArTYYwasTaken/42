@@ -45,8 +45,8 @@ int main()
     char *result_ft_strchr = ft_strchr(str, c);
     char *result_strchr = strchr(str, c);
 
-    printf("ft_strchr: %p, result: %s\n", result_ft_strchr, result_ft_strchr);
-    printf("strchr: %p, result: %s\n", result_strchr, result_strchr);
+    printf("\nft_strchr: %p, result: %s\n", result_ft_strchr, result_ft_strchr);
+    printf("\nstrchr: %p, result: %s\n\n", result_strchr, result_strchr);
 
     return 0;
 }

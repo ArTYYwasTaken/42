@@ -39,7 +39,7 @@ int main() {
 
     // Test case 1: Trim spaces from both ends
     result = ft_strtrim("   Hello, World!   ", " ");
-    printf("Test 1: '%s'\n", result);
+    printf("\nTest 1: '%s'\n", result);
     free(result);
 
     // Test case 2: Trim specific characters
@@ -59,7 +59,7 @@ int main() {
 
     // Test case 5: Trim all characters
     result = ft_strtrim("xxxx", "x");
-    printf("Test 5: '%s'\n", result);
+    printf("Test 5: '%s'\n\n", result);
     free(result);
 
     return 0;

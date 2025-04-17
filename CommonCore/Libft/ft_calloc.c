@@ -45,36 +45,34 @@ int main()
 {
 	int *my_array;
 	int *real_array;
-	int num_elements = 5; // Number of elements to allocate
-	int element_size = sizeof(int); // Size of each element
+	int num = 5; // Number of elements to allocate
+	int size = sizeof(int); // Size of each element
 
 	// Test with your ft_calloc
-	my_array = (int *)ft_calloc(num_elements, element_size);
+	my_array = ft_calloc(num, size);
 
-	if (my_array != NULL) {
-		printf("My ft_calloc: ");
-		for (int i = 0; i < num_elements; i++) {
-			printf("%d ", my_array[i]); // Print each element (should be 0)
-		}
+	if (my_array != NULL)
+	{
+		printf("\nMy ft_calloc: ");
+		for (int i = 0; i < num; i++)
+			printf("%d ", my_array[i]);
 		printf("\n");
-		free(my_array); // Important: free the memory!
-	} else {
+		free(my_array);
+	} else
 		printf("My ft_calloc failed to allocate memory.\n");
-	}
 
-	// Test with the real calloc
-	real_array = (int *)calloc(num_elements, element_size);
+	// Test with the original calloc
+	real_array = (int *)calloc(num, size);
 
-	if (real_array != NULL) {
-		printf("Real calloc: ");
-		for (int i = 0; i < num_elements; i++) {
-			printf("%d ", real_array[i]); // Print each element (should be 0)
-		}
-		printf("\n");
-		free(real_array); // Important: free the memory!
-	} else {
+	if (real_array != NULL)
+	{
+		printf("\nOriginal calloc: ");
+		for (int i = 0; i < num; i++)
+			printf("%d ", real_array[i]);
+		printf("\n\n");
+		free(real_array);
+	} else
 		printf("Real calloc failed to allocate memory.\n");
-	}
 
 	return 0;
 }

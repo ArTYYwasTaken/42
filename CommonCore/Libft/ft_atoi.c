@@ -70,6 +70,7 @@ int main() {
     char *test10 = "   123abc456";
 
     // Testing ft_atoi
+	printf("\n-----//My atoi Function//-----\n\n");
     printf("ft_atoi(\"%s\") = %d\n", test1, ft_atoi(test1));
     printf("ft_atoi(\"%s\") = %d\n", test2, ft_atoi(test2));
     printf("ft_atoi(\"%s\") = %d\n", test3, ft_atoi(test3));
@@ -81,7 +82,10 @@ int main() {
     printf("ft_atoi(\"%s\") = %d\n", test9, ft_atoi(test9));
     printf("ft_atoi(\"%s\") = %d\n", test10, ft_atoi(test10));
 
+	printf("\n");
+
     // Testing standard atoi for comparison
+	printf("-----//Original atoi Function//----\n\n");
     printf("atoi(\"%s\") = %d\n", test1, atoi(test1));
     printf("atoi(\"%s\") = %d\n", test2, atoi(test2));
     printf("atoi(\"%s\") = %d\n", test3, atoi(test3));
@@ -91,8 +95,8 @@ int main() {
     printf("atoi(\"%s\") = %d\n", test7, atoi(test7));
     printf("atoi(\"%s\") = %d\n", test8, atoi(test8));
     printf("atoi(\"%s\") = %d\n", test9, atoi(test9));
-    printf("atoi(\"%s\") = %d\n", test10, atoi(test10));
+    printf("atoi(\"%s\") = %d\n\n", test10, atoi(test10));
 
     return 0;
-}
-*/
+} */
+

@@ -49,31 +49,33 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 
 /* 
 // TEST CODE
-int main() {
+int main()
+{
     char str1[] = "Hello";
     char str2[] = "Hello";
     char str3[] = "World";
     char str4[] = "Hello!";
 
     // Test 1: Identical strings
-    printf("Test 1: Identical strings\n");
+    printf("\n---//Test 1: Identical strings//---\n");
     printf("My ft_memcmp: %d\n", ft_memcmp(str1, str2, 5));
-    printf("Real memcmp: %d\n", memcmp(str1, str2, 5));
+    printf("Original memcmp: %d\n", memcmp(str1, str2, 5));
 
     // Test 2: Different strings
-    printf("\nTest 2: Different strings\n");
+    printf("\n---//Test 2: Different strings//---\n");
     printf("My ft_memcmp: %d\n", ft_memcmp(str1, str3, 5));
-    printf("Real memcmp: %d\n", memcmp(str1, str3, 5));
+    printf("Original memcmp: %d\n", memcmp(str1, str3, 5));
 
     // Test 3: One string longer
-    printf("\nTest 3: One string longer\n");
+    printf("\n---//Test 3: One string longer//---\n");
     printf("My ft_memcmp: %d\n", ft_memcmp(str1, str4, 5));
-    printf("Real memcmp: %d\n", memcmp(str1, str4, 5));
+    printf("Original memcmp: %d\n", memcmp(str1, str4, 5));
 
     // Test 4: Empty comparison
-    printf("\nTest 4: Empty comparison\n");
+    printf("\n---//Test 4: Empty comparison//---\n");
     printf("My ft_memcmp: %d\n", ft_memcmp(str1, str3, 0));
-    printf("Real memcmp: %d\n", memcmp(str1, str3, 0));
+    printf("Original memcmp: %d\n", memcmp(str1, str3, 0));
+	printf("\n");
 
     return 0;
 }

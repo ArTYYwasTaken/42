@@ -40,7 +40,7 @@ int	main(void)
 	unsigned int start1 = 1;
 	size_t len1 = 9;
 	char *result1 = ft_substr(str1, start1, len1);
-	printf("Test 1: %s\n", result1);
+	printf("\nTest 1: %s\n", result1);
 	free(result1);
 
 	// Test case 2: Start index out of bounds
@@ -64,7 +64,7 @@ int	main(void)
 	unsigned int start4 = 0;
 	size_t len4 = 5;
 	char *result4 = ft_substr(str4, start4, len4);
-	printf("Test 4: %s\n", result4);
+	printf("Test 4: %s\n\n", result4);
 	free(result4);
 
 	return (0);

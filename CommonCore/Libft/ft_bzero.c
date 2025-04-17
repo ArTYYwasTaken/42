@@ -29,20 +29,6 @@
 void	ft_bzero(void *s, size_t n)
 {
     ft_memset(s, 0, n);
-    /*  // Check if the pointer `s` is NULL to prevent segmentation faults
-    if (s == NULL)
-        return;
-
-    size_t i;  // Declare a variable for iteration
-    unsigned char *ptr;  // Declare a pointer to iterate over the memory area
-
-    ptr = (unsigned char *)s;  // Cast the void pointer `s` to an unsigned char pointer
-    i = 0;  // Initialize the iteration variable
-    while (i < n)  // Loop through the memory area
-    {
-        ptr[i] = 0;  // Set each byte to zero
-        i++;  // Increment the iteration variable
-    } */
 }
 
 /* 

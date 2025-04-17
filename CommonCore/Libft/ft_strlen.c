@@ -34,7 +34,8 @@ size_t	ft_strlen(const char *s)
 int main()
 {
 	char str[] = "Kaio";
-	printf("%zu\n", ft_strlen(str));
-	printf("%zu\n", strlen(str));
+	printf("\n%zu\n", ft_strlen(str));
+	printf("%zu\n\n", strlen(str));
 	return 0;
-} */
+}
+*/

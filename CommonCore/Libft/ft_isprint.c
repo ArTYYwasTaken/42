@@ -22,13 +22,11 @@
 
 int	ft_isprint (int c)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
+	return (c >= 32 && c <= 126);
 }
 /*
-int main() {
-    // Test cases
+int main()
+{
     int test1 = 32;   // Space character (printable)
     int test2 = 33;   // '!' character (printable)
     int test3 = 126;  // '~' character (printable)
@@ -37,7 +35,8 @@ int main() {
     int test6 = 'A';  // Printable character
     int test7 = '\n'; // Newline character (non-printable)
 
-    // Testing ft_isprint
+    // Testing my isprint
+	printf("\n---//My issprint//---\n\n");
     printf("ft_isprint(%d) = %d\n", test1, ft_isprint(test1));
     printf("ft_isprint(%d) = %d\n", test2, ft_isprint(test2));
     printf("ft_isprint(%d) = %d\n", test3, ft_isprint(test3));
@@ -46,7 +45,8 @@ int main() {
     printf("ft_isprint('%c') = %d\n", test6, ft_isprint(test6));
     printf("ft_isprint('\\n') = %d\n", ft_isprint(test7));
 
-    // Testing standard isprint for comparison
+    // Testing my isprint
+	printf("\n---//Original isprint//---\n\n");
     printf("isprint(%d) = %d\n", test1, isprint(test1));
     printf("isprint(%d) = %d\n", test2, isprint(test2));
     printf("isprint(%d) = %d\n", test3, isprint(test3));

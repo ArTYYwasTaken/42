@@ -22,23 +22,21 @@
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 /* 
-// TEST CODE
-int main() {
-    // Test cases
-    int test1 = 'A';  // Uppercase letter
-    int test2 = 'z';  // Lowercase letter
-    int test3 = '5';  // Digit
-    int test4 = '!';  // Non-alphabetic character
-    int test5 = ' ';  // Space character
-    int test6 = 'm';  // Lowercase letter
-    int test7 = 'Z';  // Uppercase letter
+int main()
+{
+    int test1 = 'A';
+    int test2 = 'z';
+    int test3 = '5';
+    int test4 = '!';
+    int test5 = ' ';
+    int test6 = 'm';
+    int test7 = 'Z';
 
-    // Testing ft_isalpha
+    // Testing my isalpha
+	printf("\n---//My isallpha//---\n\n");
     printf("ft_isalpha('%c') = %d\n", test1, ft_isalpha(test1));
     printf("ft_isalpha('%c') = %d\n", test2, ft_isalpha(test2));
     printf("ft_isalpha('%c') = %d\n", test3, ft_isalpha(test3));
@@ -47,14 +45,15 @@ int main() {
     printf("ft_isalpha('%c') = %d\n", test6, ft_isalpha(test6));
     printf("ft_isalpha('%c') = %d\n", test7, ft_isalpha(test7));
 
-    // Testing standard isalpha for comparison
+    // Testing original isalpha
+	printf("\n---//Original isalpha//---\n\n");
     printf("isalpha('%c') = %d\n", test1, isalpha(test1));
     printf("isalpha('%c') = %d\n", test2, isalpha(test2));
     printf("isalpha('%c') = %d\n", test3, isalpha(test3));
     printf("isalpha('%c') = %d\n", test4, isalpha(test4));
     printf("isalpha('%c') = %d\n", test5, isalpha(test5));
     printf("isalpha('%c') = %d\n", test6, isalpha(test6));
-    printf("isalpha('%c') = %d\n", test7, isalpha(test7));
+    printf("isalpha('%c') = %d\n\n", test7, isalpha(test7));
 
     return 0;
 }

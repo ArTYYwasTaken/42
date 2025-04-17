@@ -45,42 +45,44 @@ void *ft_memchr(const void *s, int c, size_t n)
 }
 /* 
 // TEST CODE
-int main() {
+int main()
+{
     char my_array[] = "Hello World!";
     char search_char = 'W';
 
-    // Test with your ft_memchr
-    char *my_result = (char *)ft_memchr(my_array, search_char, sizeof(my_array));
+    // Test my memchr
+    char *my_result = ft_memchr(my_array, search_char, sizeof(my_array));
     if (my_result != NULL) {
-        printf("My ft_memchr found '%c' at: %ld\n", search_char, my_result - my_array);
+        printf("\nMy ft_memchr found '%c' at: %ld\n", search_char, my_result - my_array);
     } else {
-        printf("My ft_memchr didn't find '%c'\n", search_char);
+        printf("\nMy ft_memchr didn't find '%c'\n", search_char);
     }
 
-    // Test with the real memchr
-    char *real_result = (char *)memchr(my_array, search_char, sizeof(my_array));
+    // Test original memchr
+    char *real_result = memchr(my_array, search_char, sizeof(my_array));
     if (real_result != NULL) {
-        printf("Real memchr found '%c' at: %ld\n", search_char, real_result - my_array);
+        printf("Original memchr found '%c' at: %ld\n", search_char, real_result - my_array);
     } else {
-        printf("Real memchr didn't find '%c'\n", search_char);
+        printf("Original memchr didn't find '%c'\n", search_char);
     }
 
     // Test with a character that's not there
     search_char = 'z';
 
-    my_result = (char *)ft_memchr(my_array, search_char, sizeof(my_array));
+    my_result = ft_memchr(my_array, search_char, sizeof(my_array));
     if (my_result != NULL) {
-        printf("My ft_memchr found '%c' at: %ld\n", search_char, my_result - my_array);
+        printf("\nMy ft_memchr found '%c' at: %ld\n", search_char, my_result - my_array);
     } else {
-        printf("My ft_memchr didn't find '%c'\n", search_char);
+        printf("\nMy ft_memchr didn't find '%c'\n", search_char);
     }
 
-    real_result = (char *)memchr(my_array, search_char, sizeof(my_array));
+    real_result = memchr(my_array, search_char, sizeof(my_array));
     if (real_result != NULL) {
-        printf("Real memchr found '%c' at: %ld\n", search_char, real_result - my_array);
+        printf("Original memchr found '%c' at: %ld\n", search_char, real_result - my_array);
     } else {
-        printf("Real memchr didn't find '%c'\n", search_char);
+        printf("Original memchr didn't find '%c'\n", search_char);
     }
+	printf("\n");
     return 0;
 }
  */

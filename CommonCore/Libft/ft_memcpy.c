@@ -28,13 +28,12 @@
 // Function to copy n bytes from src to dest
 void *ft_memcpy(void *dest, const void *src, size_t n)
 {
-    // // Check for NULL pointers
-    // if (dest == NULL || src == NULL)
-    //     return (NULL);
-
     size_t i; // Loop counter
     unsigned char *dp; // Destination pointer cast to unsigned char
     unsigned char *sp; // Source pointer cast to unsigned char
+
+	if (!n || dest == src)
+		return (dest);
 
     dp = dest;
     sp = (unsigned char *)src;  // Cast src to unsigned char pointer
@@ -49,7 +48,8 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 }
 /* 
 // TEST CODE
-int main() {
+int main()
+{
     int my_source_array[5] = {10, 20, 30, 40, 50}; // Source array for custom memcpy
     int my_dest_array[5]; // Destination array for custom memcpy
 
@@ -57,36 +57,32 @@ int main() {
     int real_dest_array[5]; // Destination array for standard memcpy
 
 	// My memcpy function
-    printf("My memcpy:\n");
+    printf("\n---//My memcpy//---\n");
     printf("Source array: ");
-    for (int i = 0; i < 5; i++) {
-        printf("%d ", my_source_array[i]); // Print source array
-    }
+    for (int i = 0; i < 5; i++)
+        printf("%d ", my_source_array[i]);
     printf("\n");
 
     ft_memcpy(my_dest_array, my_source_array, sizeof(my_source_array)); // Copy using custom memcpy
 
     printf("Destination array: ");
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
         printf("%d ", my_dest_array[i]); // Print destination array
-    }
-    printf("\n\n");
+    printf("\n");
 
 	// Original memcpy function
-    printf("Real memcpy:\n");
+    printf("\n---//Original memcpy//---\n");
     printf("Source array: ");
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
         printf("%d ", real_source_array[i]); // Print source array
-    }
     printf("\n");
 
     memcpy(real_dest_array, real_source_array, sizeof(real_source_array)); // Copy using standard memcpy
 
     printf("Destination array: ");
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 5; i++)
         printf("%d ", real_dest_array[i]); // Print destination array
-    }
-    printf("\n");
+    printf("\n\n");
 
     return 0;
 }

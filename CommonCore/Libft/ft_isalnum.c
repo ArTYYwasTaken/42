@@ -27,17 +27,18 @@ int	ft_isalnum(int c)
 }
 /* 
 // TEST CODE
-int main() {
-    // Test cases
-    int test1 = 'A';  // Uppercase letter
-    int test2 = 'z';  // Lowercase letter
-    int test3 = '5';  // Digit
-    int test4 = '!';  // Non-alphanumeric character
-    int test5 = ' ';  // Space character
-    int test6 = '0';  // Digit zero
-    int test7 = '9';  // Digit nine
+int main()
+{
+    int test1 = 'A';
+    int test2 = 'z';
+    int test3 = '5';
+    int test4 = '!';
+    int test5 = ' ';
+    int test6 = '0';
+    int test7 = '9';
 
-    // Testing ft_isalnum
+    // Testing my isalnum
+	printf("---//My isalnum//---\n\n");
     printf("ft_isalnum('%c') = %d\n", test1, ft_isalnum(test1));
     printf("ft_isalnum('%c') = %d\n", test2, ft_isalnum(test2));
     printf("ft_isalnum('%c') = %d\n", test3, ft_isalnum(test3));
@@ -46,14 +47,15 @@ int main() {
     printf("ft_isalnum('%c') = %d\n", test6, ft_isalnum(test6));
     printf("ft_isalnum('%c') = %d\n", test7, ft_isalnum(test7));
 
-    // Testing standard isalnum for comparison
+    // Testing original isalnum
+	printf("\n---//Original isalnum//---\n\n");
     printf("isalnum('%c') = %d\n", test1, isalnum(test1));
     printf("isalnum('%c') = %d\n", test2, isalnum(test2));
     printf("isalnum('%c') = %d\n", test3, isalnum(test3));
     printf("isalnum('%c') = %d\n", test4, isalnum(test4));
     printf("isalnum('%c') = %d\n", test5, isalnum(test5));
     printf("isalnum('%c') = %d\n", test6, isalnum(test6));
-    printf("isalnum('%c') = %d\n", test7, isalnum(test7));
+    printf("isalnum('%c') = %d\n\n", test7, isalnum(test7));
 
     return 0;
 }

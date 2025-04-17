@@ -28,14 +28,12 @@
 
 void *ft_memmove(void *dest, const void *src, size_t n)
 {
-    // Check for NULL pointers to avoid undefined behavior
-    if (!dest || !src)
-        return NULL;
-
     size_t i;
     unsigned char *dp;
     const unsigned char *sp;
 
+	if (!n)
+		return (dest);
     // Cast the destination and source pointers to unsigned char pointers
     dp = (unsigned char *)dest;
     sp = (const unsigned char *)src;
