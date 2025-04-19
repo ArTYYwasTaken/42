@@ -8,9 +8,10 @@ ft_toupper.c ft_tolower.c ft_strchr.c ft_strdup.c ft_atoi.c ft_strrchr.c\
 ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_calloc.c ft_substr.c\
 ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c\
 ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstclear.c\
+BONUS = ft_lstnew.c
+# ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstclear.c\
 ft_lstiter.c ft_lstmap.c ft_lstadd_back.c ft_lstdelone.c
-OBJS = $(filter-out main.o, $(SRCS:.c=.o))
+OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS:.c=.o)
 MAIN = main
 
@@ -23,6 +24,7 @@ $(NAME): $(OBJS)
 
 bonus: $(BONUS_OBJS) $(OBJS)
 	@ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+	@echo "Bonus check"
 
 $(MAIN): $(NAME)
 	@$(CC) $(FLAGS) -I. $(MAIN).c -L. -lft $< -o $@
@@ -32,10 +34,15 @@ $(MAIN): $(NAME)
 	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS) $(MAIN)
+	@rm -f $(BONUS_OBJ) $(OBJS) $(MAIN)
 	@echo "Objs pa mrd"
+	@echo "bonus pa mrd"
 
-fclean: clean
+clean_bonus:
+	@rm -f $(BONUS_OBJS) $(OBJS)
+	@echo "bonus pa mrd"
+
+fclean: clean clean_bonus
 	@rm -f $(NAME)
 	@echo "Lib pa mrd"
 

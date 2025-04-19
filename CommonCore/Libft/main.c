@@ -1,31 +1,20 @@
 #include "libft.h"
 
-char example_function(unsigned int index, char c) {
-    // For demonstration, alternate case based on index
-    if (index % 2 == 0)
-	{
-        // Convert to uppercase if index is even
-        if (c >= 'a' && c <= 'z')
-            return c - 32;
-    } else {
-        // Convert to lowercase if index is odd
-        if (c >= 'A' && c <= 'Z')
-            return c + 32;
-    }
-    return c;
-}
-
-int main()
+// TEST CODE
+int main(void)
 {
-    char *original = "hello world";
-    char *result = ft_strmapi(original, example_function);
+    char *str = "Hello, World!";
+    t_list *node = ft_lstnew(str);
 
-    if (result)
-	{
-        printf("\nOriginal: %s\n", original);
-        printf("Transformed: %s\n\n", result);
-        free(result);
-    } else
-        printf("Error: Memory allocation failed.\n\n");
+    if (!node)
+    {
+        printf("Failed to allocate memory for new list node.\n");
+        return 1;
+    }
+    if (node->content == NULL)
+        printf("Node content is NULL.\n");
+    else
+        printf("Node content: %s\n", (char *)node->content);
+    free(node);
     return 0;
 }

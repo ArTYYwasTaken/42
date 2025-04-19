@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:32:30 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/17 17:12:07 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/19 12:49:57 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <unistd.h>
 # include <stddef.h>
 # include <ctype.h>
+# include <fcntl.h>
 
 // Part 1 - Libc functions
 int		ft_isalpha(int c);
@@ -66,8 +67,8 @@ typedef struct	s_list
 	struct s_list	*next;
 }	t_list;
 
-// t_list		*ft_lstnew(void *content);
-// void		ft_lstadd_front(t_list **list, t_list *new);
+t_list		*ft_lstnew(void *content);
+void		ft_lstadd_front(t_list **list, t_list *new);
 // int			ft_lstsize(t_list *list);
 // t_list		*ft_lstlast(t_list *list);
 // void		ft_lstadd_back(t_list **list, t_list *new);
