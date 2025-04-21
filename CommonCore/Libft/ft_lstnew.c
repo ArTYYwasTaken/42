@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:35:03 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/19 15:06:20 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/21 14:59:51 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_list	*ft_lstnew(void *content)
 	if (!new)
 		return (NULL);
 	new->content = content;
-	new->content = NULL;
+	new->next = NULL;
 	return (new);
 }
 /* 

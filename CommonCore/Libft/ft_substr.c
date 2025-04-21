@@ -20,8 +20,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	str_len;
 	char	*ptr;
 
+	if (!s)
+		return (NULL);
 	str_len = ft_strlen(s);
-	if (!s || !len || start >= str_len)
+	if (!len || start >= str_len)
 		return (ft_strdup(""));
 	if (len > str_len - start)
 		len = str_len - start;
