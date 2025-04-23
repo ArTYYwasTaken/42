@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 16:24:15 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 17:15:42 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/23 21:56:08 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	ft_lstsize(t_list *lst)
 {
 	int	i;
 
-	// if (!lst)
-	// 	return (NULL);
+	if (!lst)
+		return (0);
 	i = 0;
 	while (lst)
 	{

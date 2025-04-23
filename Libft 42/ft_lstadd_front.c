@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:21:28 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 19:49:42 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/23 22:22:05 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	{
 		if (!*lst)
 			*lst = new;
-		new->next = *lst;
-		*lst = new;
+		else
+		{
+			new->next = *lst;
+			*lst = new;
+		}
 	}
 }
 /* 

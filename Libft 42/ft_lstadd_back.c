@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:32:16 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 17:33:32 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/23 22:21:36 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	if (!*lst)
 		*lst = new;
-	last = ft_lstlast(*lst);
-	last->next = new;
+	else
+	{
+		last = ft_lstlast(*lst);
+		last->next = new;
+	}
 }
 /* 
 // TEST CODE

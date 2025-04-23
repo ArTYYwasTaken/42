@@ -28,7 +28,7 @@ void	*ft_calloc(size_t num, size_t size)
 	void	*p;
 
 	if (!num || !size)
-		return (ft_strdup(""));
+		return (p = malloc(0));
 	if (num > ((size_t) - 1) / size)
 		return (NULL);
 	else
