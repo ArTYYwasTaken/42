@@ -27,7 +27,7 @@ t_list	*ft_lstnew(void *content)
 // TEST CODE
 int main(void)
 {
-    char *str = "Hello, World!";
+    char *str = "Sosuke Aizen";
     t_list *node = ft_lstnew(str);
 
     if (!node)
