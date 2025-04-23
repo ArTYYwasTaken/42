@@ -1,51 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 16:24:15 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 17:15:42 by kemontei         ###   ########.fr       */
+/*   Created: 2025/04/14 14:17:26 by kemontei          #+#    #+#             */
+/*   Updated: 2025/04/23 20:27:18 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	i;
+	unsigned int	i;
 
-	// if (!lst)
-	// 	return (NULL);
 	i = 0;
-	while (lst)
+	while (s[i])
 	{
-		lst = lst->next;
+		f(i, &s[i]);
 		i++;
 	}
-	return (i);
 }
 /* 
 // TEST CODE
+void example_function(unsigned int index, char *c)
+{
+    if (*c >= 'a' && *c <= 'z')
+        *c = *c - 32;
+    printf("Character at index %u: %c\n", index, *c);
+}
+
 int main()
 {
-	t_list *node1 = ft_lstnew("Kurosaki");
-	t_list *node2 = ft_lstnew("Ichigo");
-	t_list *node3 = ft_lstnew("Sosuke");
-	t_list *node4 = ft_lstnew("Aizen");
-	int size;
+    char str[] = "sosuke aizen";
 
-	node1->next = node2;
-	node2->next = node3;
-	node3->next = node4;
-	size = ft_lstsize(node1);
+    printf("\nOriginal string: %s\n\n", str);
+    ft_striteri(str, example_function);
+    printf("\nModified string: %s\n\n", str);
 
-	printf("List size: %d\n", size);
-	free(node1);
-	free(node2);
-	free(node3);
-	free(node4);
-	return 0;
+    return 0;
 }
  */

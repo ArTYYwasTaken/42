@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 19:05:02 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 18:03:56 by kemontei         ###   ########.fr       */
+/*   Created: 2025/04/07 20:15:59 by kemontei          #+#    #+#             */
+/*   Updated: 2025/04/23 20:15:43 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_putchar_fd(char c, int fd)
 {
-	if (!lst || !del)
-		return ;
-	(del)(lst->content);
-	free(lst);
+	write(fd, &c, 1);
 }
 /* 
 // TEST CODE
 int main()
 {
-	
+	int fd = open("kaio.txt", O_WRONLY | O_TRUNC);
+	char str[] = "Kaio";
+	for (size_t i = 0; i < ft_strlen(str); i++)
+		ft_putchar_fd(str[i], fd);
+	close(fd);
 }
 */

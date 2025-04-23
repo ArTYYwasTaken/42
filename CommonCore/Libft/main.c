@@ -1,48 +1,34 @@
 #include "libft.h"
 
-// TEST CODE
 int main()
 {
     t_list *node;
-	t_list *node2;
-	t_list *new;
-	t_list *head;
-	t_list *temp;
+    t_list *node2;
+    t_list *node3;
 
 	node = ft_lstnew("Bleach");
 	node2 = ft_lstnew("Naruto");
-	new = ft_lstnew("One Piece");
-	node->next = node2;
-	
-	head = node;
-	temp = head;
-	
-	printf("\n---//Before Changes//---\n");
-	while(temp)
-	{
-		printf("%s\n", temp->content);
-		temp = temp->next;
-	}
+	node3 = ft_lstnew("One Piece");
 
-	ft_lstadd_back(&head, new);
-	temp = head;
+    node->next = node2;
+    node2->next = node3;
 
-	printf("\n---//After Changes//---\n");
-	while(temp)
-	{
-		printf("%s\n", temp->content);
-		temp = temp->next;
-	}
-	printf("\n");
-
+	t_list *head = node;
 	t_list *current = head;
-	t_list *next;
 
-	while (current)
-    {
-        next = current->next;
-        free(current);
-        current = next;
-    }
+	printf("\n---//Node Contents//---\n");
+	while(current)
+	{
+		printf("%s\n", (char *)current->content);
+		current = current->next;
+	}
+
+    ft_lstclear(&node, free);
+
+    // Check if the list is cleared
+    if (!node)
+        printf("List cleared successfully\n");
+    else
+        printf("List not cleared\n");
     return 0;
 }

@@ -25,6 +25,7 @@
 char	*ft_strchr(const char *s, int c)
 {
 	size_t	i;
+
 	i = 0;
 	while (s[i])
 	{
@@ -42,11 +43,11 @@ int main()
 {
     char str[] = "arthur";
     char c = 't';
-    char *result_ft_strchr = ft_strchr(str, c);
-    char *result_strchr = strchr(str, c);
+    char *res_my_strchr = ft_strchr(str, c);
+    char *res_strchr = strchr(str, c);
 
-    printf("\nft_strchr: %p, result: %s\n", result_ft_strchr, result_ft_strchr);
-    printf("\nstrchr: %p, result: %s\n\n", result_strchr, result_strchr);
+    printf("\nft_strchr: %p, result: %s\n", res_my_strchr, res_my_strchr);
+    printf("\nstrchr: %p, result: %s\n\n", res_strchr, res_strchr);
 
     return 0;
 }
