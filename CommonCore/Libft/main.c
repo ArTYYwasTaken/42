@@ -1,48 +1,48 @@
 #include "libft.h"
 
-
 // TEST CODE
-int	main(void)
+int main()
 {
-	// Test case 1: Normal case
-	const char str1[] = "Bankai";
-	unsigned int start1 = 1;
-	size_t len1 = 9;
-	char *result1 = ft_substr(str1, start1, len1);
-	printf("\nTest 1: %s\n", result1);
-	free(result1);
+    t_list *node;
+	t_list *node2;
+	t_list *new;
+	t_list *head;
+	t_list *temp;
 
-	// Test case 2: Start index out of bounds
-	const char str2[] = "Bankai";
-	unsigned int start2 = 10;
-	size_t len2 = 5;
-	char *result2 = ft_substr(str2, start2, len2);
-	printf("Test 2: %s\n", result2);
-	free(result2);
-
-	// Test case 3: Length exceeds available characters
-	const char str3[] = "Bankai";
-	unsigned int start3 = 3;
-	size_t len3 = 10;
-	char *result3 = ft_substr(str3, start3, len3);
-	printf("Test 3: %s\n", result3);
-	free(result3);
+	node = ft_lstnew("Bleach");
+	node2 = ft_lstnew("Naruto");
+	new = ft_lstnew("One Piece");
+	node->next = node2;
 	
-	// Test case 5: Empty string
-	const char str4[] = "";
-	unsigned int start4 = 0;
-	size_t len4 = 5;
-	char *result4 = ft_substr(str4, start4, len4);
-	printf("Test 4: %s\n", result4);
-	free(result4);
+	head = node;
+	temp = head;
+	
+	printf("\n---//Before Changes//---\n");
+	while(temp)
+	{
+		printf("%s\n", temp->content);
+		temp = temp->next;
+	}
 
-	// Test case 4: NULL pointer
-	const char *str5 = NULL;
-	unsigned int start5 = 0;
-	size_t len5 = 5;
-	char *result5 = ft_substr(str5, start5, len5);
-	printf("Test 5: %s\n\n", result5);
-	free(result5);
+	ft_lstadd_back(&head, new);
+	temp = head;
 
-	return (0);
+	printf("\n---//After Changes//---\n");
+	while(temp)
+	{
+		printf("%s\n", temp->content);
+		temp = temp->next;
+	}
+	printf("\n");
+
+	t_list *current = head;
+	t_list *next;
+
+	while (current)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+    return 0;
 }

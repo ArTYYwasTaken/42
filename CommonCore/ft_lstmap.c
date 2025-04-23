@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 20:15:59 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/19 12:48:57 by kemontei         ###   ########.fr       */
+/*   Created: 2025/04/23 12:23:39 by marvin            #+#    #+#             */
+/*   Updated: 2025/04/23 12:23:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_putchar_fd(char c, int fd)
+t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	write(fd, &c, 1);
+    t_list  *new;
+    
+    return (new);
 }
-/* 
-// TEST CODE
-int main()
-{
-	int fd = open("kaio.txt", O_WRONLY | O_TRUNC);
-	char str[] = "Kaio";
-	for (size_t i = 0; i < ft_strlen(str); i++)
-		ft_putchar_fd(str[i], fd);
-	close(fd);
-}
-*/

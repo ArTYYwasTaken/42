@@ -28,10 +28,10 @@ int	ft_lstsize(t_list *lst)
 // TEST CODE
 int main()
 {
-	t_list *node1 = ft_lstnew("K");
-	t_list *node2 = ft_lstnew("E");
-	t_list *node3 = ft_lstnew("L");
-	t_list *node4 = ft_lstnew("L");
+	t_list *node1 = ft_lstnew("Kurosaki");
+	t_list *node2 = ft_lstnew("Ichigo");
+	t_list *node3 = ft_lstnew("Sosuke");
+	t_list *node4 = ft_lstnew("Aizen");
 	int size;
 
 	node1->next = node2;
