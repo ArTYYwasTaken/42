@@ -10,6 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+    DESCRIPTION:
+	The ft_lstmap() function applies the function f to each node of the list
+	lst, and creates a new list with the results of the function applications.
+	The new list is created using the function ft_lstnew(). If the application
+	of the function f fails, the function del is called on the content of the
+	new node, and the new list is cleared using ft_lstclear().
+
+    PARAMETERS:
+	- t_list *lst: A pointer to the head of the list.
+	- void *(*f)(void *): A pointer to the function to be applied to each node's
+	  content.
+	- void (*del)(void *): A pointer to the function to be called to delete the
+	  content of a node if the application of f fails.
+
+    RETURN VALUE:
+	- A pointer to the new list created by applying f to each node's content.
+	  If the application of f fails, NULL is returned and the new list is
+	  cleared.
+	  If lst is NULL, NULL is returned.
+	  If f or del is NULL, NULL is returned.
+*/
+
 #include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))

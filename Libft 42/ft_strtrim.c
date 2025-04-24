@@ -10,6 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+    DESCRIPTION:
+    The ft_strtrim() function allocates sufficient memory for a new string,
+    which is the result of the concatenation of s1 and s2. It trims the
+    characters specified in the set from both ends of the string s1.
+
+    PARAMETERS:
+    - char const *s1: The string to be trimmed.
+    - char const *set: The set of characters to be trimmed from both ends of s1.
+
+    RETURN VALUE:
+    The ft_strtrim() function returns a pointer to the newly allocated string,
+    or NULL if the allocation fails.
+    If s1 is NULL or set is NULL, it returns NULL.
+*/
+
 #include "libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)

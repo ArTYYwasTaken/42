@@ -10,6 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+    DESCRIPTION:
+	The ft_putendl_fd() function writes the string s to the file descriptor fd
+	followed by a newline character.
+
+    PARAMETERS:
+	- char *s: The string to be written.
+	- int fd: The file descriptor where the string will be written.
+
+    RETURN VALUE:
+	None. The function does not return a value.
+*/
+
 #include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)

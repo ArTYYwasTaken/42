@@ -16,9 +16,9 @@
     The memory areas may overlap; copying is done in a non-destructive manner.
 
     PARAMETERS:
-    - dest: Pointer to the destination memory area.
-    - src: Pointer to the source memory area.
-    - n: Number of bytes to copy.
+    - void *dest: Pointer to the destination memory area.
+    - const void *src: Pointer to the source memory area.
+    - size_t n: Number of bytes to copy.
 
     RETURN VALUE:
     Returns a pointer to the destination memory area 'dest'.
@@ -43,28 +43,38 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			dp[i] = sp[i];
 	}
 	else
-	{
-		i = 0;
-		while (i < n)
-		{
-			dp[i] = sp[i];
-			i++;
-		}
-	}
+        ft_memcpy(dp, sp, n);
 	return (dest);
 }
 /*
 // TEST CODE
-void print_memory(const char *label, const unsigned char *mem, size_t n) {
+void print_memory(const char *label, const unsigned char *mem, size_t n)
+{
     printf("%s: ", label);
-    for (size_t i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++)
         printf("%02x ", mem[i]);
-    }
     printf("\n");
 }
 
 void test_memmove(const char *test_name, unsigned char *dest1,
-	unsigned char *dest2, const unsigned char *src, size_t n) {
+	unsigned char *dest2, const unsigned char *src, size_t n)
+Memory addresses:
+[100][101][102][103][104][105][106][107][108][109]
+  S    S    S    S    S    ?    ?    ?    ?    ?
+src:   ^-------------------^
+dest:           ^-------------------^Memory addresses:
+[100][101][102][103][104][105][106][107][108][109]
+  S    S    S    S    S    ?    ?    ?    ?    ?
+src:   ^-------------------^
+dest:           ^-------------------^Memory addresses:
+[100][101][102][103][104][105][106][107][108][109]
+  S    S    S    S    S    ?    ?    ?    ?    ?
+src:   ^-------------------^
+dest:           ^-------------------^Memory addresses:
+[100][101][102][103][104][105][106][107][108][109]
+  S    S    S    S    S    ?    ?    ?    ?    ?
+src:   ^-------------------^
+dest:           ^-------------------^{
     printf("Test: %s\n", test_name);
 
     // Use the standard memmove

@@ -16,6 +16,11 @@
 	to by s for the first instance of c. Both c and the bytes of the memory area
 	pointed to by s are interpreted as unsigned char.
 
+    PARAMETERS:
+    - const void *s: A pointer to the memory area to be scanned.
+    - int c: The character (byte value) to be searched for.
+    - size_t n: The number of bytes to be scanned.
+
     RETURN VALUE:
     The ft_memchr function returns a pointer to the matching byte or NULL if the
 	character does not occur in the given memory area.

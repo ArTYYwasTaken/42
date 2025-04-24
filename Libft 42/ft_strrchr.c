@@ -11,11 +11,15 @@
 /* ************************************************************************** */
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_strrchr finds the last occurrence of character c in
 	string str.
 
-	RETURN VALUE :
+	PARAMETERS:
+	- const char *s : The string to be searched.
+	- int c : The character to be found.
+
+	RETURN VALUE:
 	A pointer to the last occurrence of c in str.
 	NULL if c is not found.
 */

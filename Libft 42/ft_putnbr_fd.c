@@ -10,6 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+    DESCRIPTION:
+	The ft_putnbr_fd() function writes the integer n to the file descriptor fd.
+	It handles negative numbers and the special case of INT_MIN (-2147483648).
+
+    PARAMETERS:
+	- int n: The integer to be written.
+	- int fd: The file descriptor where the integer will be written.
+
+    RETURN VALUE:
+	The ft_putnbr_fd() function does not return a value.
+*/
+
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)

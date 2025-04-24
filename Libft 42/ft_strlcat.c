@@ -11,16 +11,20 @@
 /* ************************************************************************** */
 
 /*
-	DESCRIPTION:
-	The function ft_strlcat appends the given string src to the end of 
-	dest. It will append at most size and nul-terminate the result.
+    DESCRIPTION:
+	The strlcat() function appends the string src to the end of dest. It will
+	append at most size - strlen(dest) - 1 characters, null-terminating the
+	result.
 
-	Note : space for the terminating \0 character must be included in size.
+    PARAMETERS:
+	- char *dest: The destination string to which src will be appended.
+	- const char *src: The source string to be appended to dest.
+	- size_t size: The size of the destination buffer.
 
-	RETURN VALUE:
-	The total length of the string that it tried to create : the initial
-	length of dest + the length of src, with the goal to facilitate
-	truncaction detection.
+    RETURN VALUE:
+	The strlcat() function returns the total length of the string it tried to
+	append, which is the initial length of dest plus the length of src. If the
+	dest buffer is too small, it returns size + strlen(src).
 */
 
 #include "libft.h"

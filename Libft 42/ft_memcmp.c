@@ -18,6 +18,11 @@
 	n bytes of s1 is found, respectively, to be less than, to match, or be
 	greater than the first n bytes of s2.
 
+    PARAMETERS:
+    - const void *s1: A pointer to the first memory area to be compared.
+    - const void *s2: A pointer to the second memory area to be compared.
+    - size_t n: The number of bytes to be compared.
+
     RETURN VALUE:
     Returns an integer less than, equal to, or greater than zero if the first n
 	bytes of s1 is found, respectively, to be less than, to match, or be greater

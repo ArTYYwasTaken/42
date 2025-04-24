@@ -10,6 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+    DESCRIPTION:
+    The ft_lstnew() function creates a new node for a linked list.
+    It allocates memory for the new node, sets its content to the given value,
+    and initializes its next pointer to NULL.
+    The content of the new node is set to the value passed as an argument.
+
+    PARAMETERS:
+    - void *content: The content to be set in the new node.
+
+    RETURN VALUE:
+    The function returns a pointer to the newly created node.
+    If the memory allocation fails, it returns NULL.
+*/
+
 #include "libft.h"
 
 t_list	*ft_lstnew(void *content)

@@ -11,13 +11,16 @@
 /* ************************************************************************** */
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	This function ft_strlcpy copies up to size - 1 characters from the given
 	string src to the given string dest, nul-terminating the result.
 
-	Note : space for the terminating \0 character must be included in size.
+	PARAMETERS:
+	- char *dest : The destination string where the src string will be copied.
+	- const char *src : The source string to be copied.
+	- size_t size : The size of the destination buffer.
 
-	RETURN VALUE :
+	RETURN VALUE:
 	The total length of the string that it tried to create : the length of
 	src, with the goal to facilitate truncaction detection.
 */

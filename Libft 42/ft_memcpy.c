@@ -16,11 +16,11 @@
 	to the memory area pointed to by dest. 
 
 	PARAMETERS:
-	- dest: A pointer to the destination memory area where the content is to be
-	copied.
-	- src: A pointer to the source memory area from which the content is to be
-	copied.
-	- n: The number of bytes to copy from the source to the destination.
+	- void *dest: A pointer to the destination memory area where the content is
+		to becopied.
+	- const void *src: A pointer to the source memory area from which the
+		content is to be copied.
+	- size_t n: The number of bytes to copy from the source to the destination.
 
 	RETURN VALUE:
 	The function returns a pointer to the destination memory area (dest).

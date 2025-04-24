@@ -12,10 +12,13 @@
 
 /*
 	DESCRIPTION:
-	Custom implementation of the calloc function, which allocates memory for an
-	array of nmemb elements of size bytes each and initializes all bytes in the
-	allocated storage to zero.
+	The ft_calloc function allocates memory for an array of num elements of
+	size bytes each and initializes all bytes in the allocated memory to zero.
 
+	PARAMETERS:
+	- num: The number of elements to allocate.
+	- size: The size of each element in bytes.
+	
 	RETURN VALUE:
 	Returns a pointer to the allocated memory, or NULL if the allocation fails.
 */

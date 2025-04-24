@@ -11,11 +11,17 @@
 /* ************************************************************************** */
 
 /*
-	DESCRIPTION:
-	
+    DESCRIPTION:
+	The ft_memset() function fills the first n bytes of the memory area pointed
+	to by s with the constant byte c.
 
-	RETURN VALUE:
-	
+    PARAMETERS:
+	- void *s: Pointer to the memory area to be filled.
+	- int c: The value to be set (converted to an unsigned char).
+	- size_t n: The number of bytes to be set to the value.
+
+    RETURN VALUE:
+	The ft_memset() function returns a pointer to the memory area s.
 */
 
 #include "libft.h"
@@ -30,9 +36,7 @@ void	*ft_memset(void *s, int c, size_t n)
 	value = (unsigned char)c;
 	i = 0;
 	while (i < n)
-	{
 		ptr[i++] = value;
-	}
 	return (s);
 }
 /* 

@@ -15,6 +15,9 @@
 	The function ft_strlen measures the length of the given string str,
 	excluding the terminating \0 character.
 
+	PARAMETERS:
+	- const char *s: The string whose length is to be measured.
+
 	RETURN VALUE:
 	The number of bytes in the string str.
 */

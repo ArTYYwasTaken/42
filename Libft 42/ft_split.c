@@ -10,6 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+    DESCRIPTION:
+	The ft_split() function splits a string into an array of strings based on a
+	delimiter character. It allocates memory for the resulting array and each
+	string.
+	The last element of the array is set to NULL.
+
+    PARAMETERS:
+	- char const *s: The string to be split.
+	- char c: The delimiter character used to split the string.
+
+    RETURN VALUE:
+	The ft_split() function returns a pointer to the array of strings. If the
+	allocation fails or if the input string is NULL, it returns NULL.
+*/
+
 #include "libft.h"
 
 static void	free_memory(char **str, size_t count)

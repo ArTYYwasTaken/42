@@ -10,6 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+    DESCRIPTION:
+	The ft_lstlast() function returns the last node of the list.
+	It traverses the list until it finds the last node, which is the node whose
+	next pointer is NULL.
+
+    PARAMETERS:
+	- t_list *lst: A pointer to the head of the list.
+
+    RETURN VALUE:
+	The last node of the list. If the list is empty, it returns NULL.
+*/
+
 #include "libft.h"
 
 t_list	*ft_lstlast(t_list *lst)

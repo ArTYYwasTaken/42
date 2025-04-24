@@ -10,6 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+    DESCRIPTION:
+	The ft_lstsize() function counts the number of nodes in a linked list.
+	It traverses the list starting from the head node and increments a counter
+	for each node encountered until it reaches the end of the list (NULL).
+
+    PARAMETERS:
+	- t_list *lst: A pointer to the head of the list.
+
+    RETURN VALUE:
+	The function returns the number of nodes in the list.
+	If the list is empty (NULL), it returns 0.
+*/
+
 #include "libft.h"
 
 int	ft_lstsize(t_list *lst)

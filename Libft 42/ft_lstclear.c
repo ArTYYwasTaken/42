@@ -10,6 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+    DESCRIPTION:
+	The function ft_lstclear clears a linked list by deleting all its elements.
+	It takes a pointer to the head of the list and a function pointer to delete
+	the content of each element.
+	It frees the memory allocated for each element and sets the head pointer to
+	NULL.
+
+    PARAMETERS:
+	- t_list **lst: A pointer to the head of the list.
+	- void (*del)(void *): A function pointer to the function that deletes the
+	  content of each element.
+
+    RETURN VALUE:
+	- None.
+	- The function modifies the list in place, so it does not return anything.
+*/
+
 #include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
@@ -17,9 +35,9 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	t_list	*current;
 	t_list	*next;
 
-	current = *lst;
 	if (!del || !lst || !*lst)
 		return ;
+	current = *lst;
 	while (current)
 	{
 		next = current->next;
@@ -33,7 +51,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 //TEST CODE
 int main()
 {
-    // Create a linked list with three nodes
     t_list *node;
     t_list *node2;
     t_list *node3;
@@ -57,7 +74,6 @@ int main()
 
     ft_lstclear(&node, free);
 
-    // Check if the list is cleared
     if (!node)
         printf("List cleared successfully\n");
     else

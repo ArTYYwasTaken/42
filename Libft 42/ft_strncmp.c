@@ -11,11 +11,16 @@
 /* ************************************************************************** */
 
 /*
-	DESCRIPTION :
+	DESCRIPTION:
 	The function ft_strncmp compares the first n bytes of the given strings
 	s1 and s2.
 
-	RETURN VALUE :
+	PARAMETERS:
+	- const char *s1: The first string to be compared.
+	- const char *s2: The second string to be compared.
+	- size_t n: The number of bytes to compare.
+
+	RETURN VALUE:
 	An integer less than, equal to, or greater than zero if one of the first
 	n bytes of s1 is found to be less than, to match, or to be greater than 
 	s2.

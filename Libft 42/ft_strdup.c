@@ -11,16 +11,16 @@
 /* ************************************************************************** */
 
 /*
-	DESCRIPTION:
-	This file contains the implementation of a custom string duplication
-	function `ft_strdup` which mimics the behavior of the standard `strdup`
-	function. It also includes helper functions to calculate string length and
-	to copy strings safely.
+    DESCRIPTION:
+    The strdup() function allocates sufficient memory for a copy of the string
+    s, does the copy, and returns a pointer to it.
 
-	RETURN VALUE:
-	The `ft_strdup` function returns a pointer to a newly allocated string which
-	is a duplicate of the input string.
-	If memory allocation fails, it returns NULL.
+    PARAMETERS:
+    - constant char *s: The string to be duplicated.
+
+    RETURN VALUE:
+    The strdup() function returns a pointer to the duplicated string, or NULL
+    if the allocation fails.
 */
 
 #include "libft.h"
