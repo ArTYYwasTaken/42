@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 15:35:03 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 16:44:56 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/24 21:44:26 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ t_list	*ft_lstnew(void *content)
 	return (new);
 }
 /* 
-// TEST CODE
 int main(void)
 {
     t_list *node = ft_lstnew("Sosuke Aizen");
@@ -53,4 +52,4 @@ int main(void)
     free(node);
     return 0;
 }
- */
+*/

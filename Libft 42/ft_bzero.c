@@ -30,7 +30,6 @@ void	ft_bzero(void *s, size_t n)
 	ft_memset(s, 0, n);
 }
 /* 
-// TEST CODE
 int main()
 {
     int my_array[] = {10, 20, 30, 40, 50};
@@ -62,4 +61,4 @@ int main()
 
     return 0;
 }
- */
+*/

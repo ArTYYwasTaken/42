@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:40:53 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 22:22:53 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/24 20:34:31 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,15 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(n % 10 + 48, fd);
 	}
 }
+/*
+// TEST CODE
+int main ()
+{
+	int fd = open("kaio.txt", O_TRUNC | O_WRONLY);
+	if (fd == -1)
+		return (1);
+	int nb = 5;
+	ft_putnbr_fd(nb, fd);
+	close(fd);
+}
+*/

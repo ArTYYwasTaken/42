@@ -2,14 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+
-	+:+     */
-/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+
-	+#+        */
-/*                                                +#+#+#+#+#+
-	+#+           */
-/*   Created: 2025/04/09 14:46:12 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/09 14:46:12 by kemontei         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/24 20:28:03 by kemontei          #+#    #+#             */
+/*   Updated: 2025/04/24 20:28:03 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,42 +46,29 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(ptr, &s[start], len + 1);
 	return (ptr);
 }
-/*
-// TEST CODE
-int	main(void)
+/* 
+int	main()
 {
-	// Test case 1: Normal case
-	const char str1[] = "Bankai";
-	unsigned int start1 = 1;
-	size_t len1 = 9;
-	char *result1 = ft_substr(str1, start1, len1);
-	printf("\nTest 1: %s\n", result1);
-	free(result1);
+	// Test 1: Normal case
+	char *s1 = ft_substr("Bankai", 1, 9);
+	printf("\nTest 1: %s\n", s1);
+	free(s1);
 
-	// Test case 2: Start index out of bounds
-	const char str2[] = "Bankai";
-	unsigned int start2 = 10;
-	size_t len2 = 5;
-	char *result2 = ft_substr(str2, start2, len2);
-	printf("Test 2: %s\n", result2);
-	free(result2);
+	// Test 2: start > strlen
+	char *s2 = ft_substr("Bankai", 10, 5);
+	printf("Test 2: %s\n", s2);
+	free(s2);
 
-	// Test case 3: Length exceeds available characters
-	const char str3[] = "Bankai";
-	unsigned int start3 = 3;
-	size_t len3 = 10;
-	char *result3 = ft_substr(str3, start3, len3);
-	printf("Test 3: %s\n", result3);
-	free(result3);
+	// Test 3: Length exceeds available characters
+	char *s3 = ft_substr("Bankai", 3, 10);
+	printf("Test 3: %s\n", s3);
+	free(s3);
 
-	// Test case 4: Empty string
-	const char str4[] = "";
-	unsigned int start4 = 0;
-	size_t len4 = 5;
-	char *result4 = ft_substr(str4, start4, len4);
-	printf("Test 4: %s\n\n", result4);
-	free(result4);
+	// Test 4: Empty string
+	char *s4 = ft_substr("", 0, 5);
+	printf("Test 4: %s\n\n", s4);
+	free(s4);
 
 	return (0);
 }
-*/
+ */

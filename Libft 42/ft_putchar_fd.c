@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:15:59 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 20:15:43 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/24 21:25:13 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_putchar_fd(char c, int fd)
 	write(fd, &c, 1);
 }
 /* 
-// TEST CODE
 int main()
 {
 	int fd = open("kaio.txt", O_WRONLY | O_TRUNC);

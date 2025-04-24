@@ -38,7 +38,6 @@ char	*ft_strdup(const char *s)
 	return (arr);
 }
 /* 
-// TEST CODE
 int main()
 {
     char *my_copy;
@@ -55,8 +54,8 @@ int main()
 
     if (my_copy && real_copy)
 	{
-        printf("My ft_strdup: \"%s\"\n", my_copy);
-        printf("Original strdup: \"%s\"\n", real_copy);
+        printf("My ft_strdup: %s\n", my_copy);
+        printf("Original strdup: %s\n", real_copy);
         free(my_copy);
         free(real_copy);
     } else
@@ -69,8 +68,8 @@ int main()
 
     if (my_copy && real_copy)
 	{
-        printf("My ft_strdup: \"%s\"\n", my_copy);
-        printf("Original strdup: \"%s\"\n", real_copy);
+        printf("My ft_strdup: %s\n", my_copy);
+        printf("Original strdup: %s\n", real_copy);
         free(my_copy);
         free(real_copy);
     } else
@@ -83,12 +82,12 @@ int main()
 
     if (my_copy && real_copy)
 	{
-        printf("My ft_strdup: \"%s\"\n", my_copy);
-        printf("Original strdup: \"%s\"\n\n", real_copy);
+        printf("My ft_strdup: %s\n", my_copy);
+        printf("Original strdup: %s\n\n", real_copy);
         free(my_copy);
         free(real_copy);
     } else
         printf("Memory allocation failed.\n\n");
     return 0;
 }
-*/
+ */

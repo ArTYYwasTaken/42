@@ -45,7 +45,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (ptr);
 }
 /* 
-// TEST CODE
 int main()
 {
     char *result;
@@ -57,7 +56,8 @@ int main()
 	{
         printf("Result: \"%s\"\n", result);
         free(result);
-    } else
+    }
+	else
         printf("Memory allocation failed.\n");
 
     // Test 2: Empty string s1
@@ -67,7 +67,8 @@ int main()
 	{
         printf("Result: \"%s\"\n", result);
         free(result);
-    } else
+    }
+	else
         printf("Memory allocation failed.\n");
 
     // Test 3: Empty string s2
@@ -77,7 +78,8 @@ int main()
 	{
         printf("Result: \"%s\"\n", result);
         free(result);
-    } else
+    }
+	else
         printf("Memory allocation failed.\n");
 
     // Test 4: Both empty strings
@@ -87,7 +89,8 @@ int main()
 	{
         printf("Result: \"%s\"\n", result);
         free(result);
-    } else
+    }
+	else
         printf("Memory allocation failed.\n");
 
     // Test 5: NULL s1
@@ -97,7 +100,8 @@ int main()
 	{
         printf("Result: \"%s\"\n", result);
         free(result);
-    } else
+    }
+	else
         printf("Result: NULL\n");
 
     // Test 6: NULL s2
@@ -107,9 +111,10 @@ int main()
 	{
         printf("Result: \"%s\"\n\n", result);
         free(result);
-    } else
+    }
+	else
         printf("Result: NULL\n\n");
 
     return 0;
 }
-*/
+ */

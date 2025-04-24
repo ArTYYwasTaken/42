@@ -2,14 +2,11 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+        
-	+:+     */
-/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+      
-	+#+        */
-/*                                                +#+#+#+#+#+  
-	+#+           */
-/*   Created: 2025/04/09 14:46:33 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/09 14:46:33 by kemontei         ###   ########.fr       */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/24 20:27:53 by kemontei          #+#    #+#             */
+/*   Updated: 2025/04/24 20:27:53 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +29,11 @@ int	ft_tolower(int c)
 	return (c);
 }
 /*
-// TEST CODE
 int	main(void)
 {
 	char c = 'Z';
 	printf("%c\n", ft_tolower(c));
 	printf("%c\n", tolower(c));
 	return (0);
-} */
+}
+*/

@@ -45,11 +45,10 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 /* 
-// TEST CODE
 int main()
 {
 	char s1[] = "Arthur";
-	char s2[] = "Arthur";
+	char s2[] = "Arthxr";
 	int n = 6;
 	printf("\n%d\n", ft_strncmp(s1, s2, n));
 	printf("\n%d\n\n", strncmp(s1, s2, n));

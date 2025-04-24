@@ -42,7 +42,6 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 /*
-// TEST CODE
 int main()
 {
     char str[] = "arthur";

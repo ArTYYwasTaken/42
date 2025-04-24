@@ -49,35 +49,35 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (new);
 }
 /* 
-// TEST CODE
-int main() {
+int main()
+{
     char *result;
 
-    // Test case 1: Trim spaces from both ends
-    result = ft_strtrim("   Hello, World!   ", " ");
+    // Test 1: Trim spaces both ends
+    result = ft_strtrim("   Sosuke.Aizen   ", " ");
     printf("\nTest 1: '%s'\n", result);
     free(result);
 
-    // Test case 2: Trim specific characters
-    result = ft_strtrim("xxHello, World!xx", "x");
+    // Test 2: Trim x
+    result = ft_strtrim("xxSosuke.Aizenxx", "x");
     printf("Test 2: '%s'\n", result);
     free(result);
 
-    // Test case 3: No characters to trim
-    result = ft_strtrim("Hello, World!", " ");
+    // Test 3: No characters to trim
+    result = ft_strtrim("Sosuke.Aizen", " ");
     printf("Test 3: '%s'\n", result);
     free(result);
 
-    // Test case 4: Empty string
+    // Test 4: Empty string
     result = ft_strtrim("", " ");
     printf("Test 4: '%s'\n", result);
     free(result);
 
-    // Test case 5: Trim all characters
+    // Test 5: Trim all characters
     result = ft_strtrim("xxxx", "x");
     printf("Test 5: '%s'\n\n", result);
     free(result);
 
     return 0;
 }
-*/
+ */

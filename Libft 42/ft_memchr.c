@@ -46,13 +46,11 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (NULL);
 }
 /* 
-// TEST CODE
 int main()
 {
-    char my_array[] = "Hello World!";
-    char search_char = 'W';
+    char my_array[] = "Sosuke Aizen";
+    char search_char = 'k';
 
-    // Test my memchr
     char *my_result = ft_memchr(my_array, search_char, sizeof(my_array));
     if (my_result)
 	{
@@ -70,7 +68,7 @@ int main()
 	else
         printf("Original memchr didn't find '%c'\n", search_char);
 
-    search_char = 'z';
+    search_char = 'x';
 
     my_result = ft_memchr(my_array, search_char, sizeof(my_array));
     if (my_result)

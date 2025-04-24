@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 19:10:42 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 19:14:23 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/24 21:44:11 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	*lst = NULL;
 }
 /* 
-//TEST CODE
 int main()
 {
     t_list *node;
@@ -80,4 +79,4 @@ int main()
         printf("List not cleared\n");
     return 0;
 }
- */
+*/

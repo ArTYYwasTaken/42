@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:08:45 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 17:26:26 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/24 21:43:13 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 /* 
-// TEST CODE
 int main()
 {
 	t_list *node1 = ft_lstnew("Kaio");

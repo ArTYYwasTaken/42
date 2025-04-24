@@ -47,13 +47,12 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (ps1[i] - ps2[i]);
 }
 /* 
-// TEST CODE
 int main()
 {
-    char str1[] = "Hello";
-    char str2[] = "Hello";
-    char str3[] = "World";
-    char str4[] = "Hello!";
+    char str1[] = "Sosuke";
+    char str2[] = "Sosuke";
+    char str3[] = "Aizen";
+    char str4[] = "Sosuke Aizen";
 
     // Test 1: Identical strings
     printf("\n\n---//Test 1: Identical strings//---\n");
@@ -78,4 +77,4 @@ int main()
 
     return 0;
 }
- */
+*/

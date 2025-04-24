@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 14:17:26 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 20:27:18 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/24 21:00:41 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	}
 }
 /* 
-// TEST CODE
-void example_function(unsigned int index, char *c)
+void caps(unsigned int index, char *c)
 {
     if (*c >= 'a' && *c <= 'z')
-        *c = *c - 32;
+        *c -= 32;
     printf("Character at index %u: %c\n", index, *c);
 }
 
@@ -54,7 +53,7 @@ int main()
     char str[] = "sosuke aizen";
 
     printf("\nOriginal string: %s\n\n", str);
-    ft_striteri(str, example_function);
+    ft_striteri(str, caps);
     printf("\nModified string: %s\n\n", str);
 
     return 0;

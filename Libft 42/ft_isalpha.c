@@ -25,7 +25,6 @@ int	ft_isalpha(int c)
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 /* 
-// TEST CODE
 int main()
 {
     int test1 = 'A';

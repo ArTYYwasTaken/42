@@ -34,7 +34,6 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 /* 
-// TEST CODE
 int main()
 {
 	char str[] = "Kaio";

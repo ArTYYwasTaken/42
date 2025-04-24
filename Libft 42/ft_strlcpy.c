@@ -45,18 +45,14 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	return (srclen);
 }
 /* 
-// TEST CODE
 int main()
 {
     const char *src = "Aoi Ashito";
     char dest[20];
-    size_t size = sizeof(dest);
     size_t result;
 
-    // Call ft_strlcpy and store the result
-    result = ft_strlcpy(dest, src, size);
+    result = ft_strlcpy(dest, src, sizeof(dest));
 
-    // Print the results
     printf("\nSource: %s\n", src);
     printf("Destination: %s\n", dest);
     printf("Length of source: %zu\n\n", result);

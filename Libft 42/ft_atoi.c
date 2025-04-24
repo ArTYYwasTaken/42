@@ -12,9 +12,8 @@
 
 /*
     DESCRIPTION:
-    The function ft_atoi converts a string (a sequence of characters) into an
-	integer (a whole number).
-    It handles spaces, tabs, newlines, plus and minus signs, and digits.
+    The function ft_atoi converts a string into an integer.
+    It handles spaces, tabs, newlines, - and + signs, and digits.
 
     RETURN VALUE:
     The converted integer.
@@ -52,14 +51,14 @@ int main() {
     // Test cases
     char *test1 = " --1234a5";
     char *test2 = "42";
-    char *test3 = "   +2147483647";
-    char *test4 = "   -2147483648";
-    char *test5 = "   0";
-    char *test6 = "   +0";
-    char *test7 = "   -0";
-    char *test8 = "   +000123";
-    char *test9 = "   -000123";
-    char *test10 = "   123abc456";
+    char *test3 = " +2147483647";
+    char *test4 = " -2147483648";
+    char *test5 = " 0";
+    char *test6 = " +0";
+    char *test7 = " -0";
+    char *test8 = " +000123";
+    char *test9 = " -000123";
+    char *test10 = " 123abc456";
 
     // Testing ft_atoi
 	printf("\n-----//My atoi Function//-----\n\n");

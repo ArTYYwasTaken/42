@@ -25,7 +25,6 @@ int	ft_isascii(int c)
 	return (c >= 0 && c <= 127);
 }
 /* 
-// TEST CODE
 int main()
 {
 	int test1 = 68;

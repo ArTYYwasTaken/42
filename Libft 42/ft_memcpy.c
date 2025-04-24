@@ -47,7 +47,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	return (dest);
 }
 /* 
-// TEST CODE
 int main()
 {
     int my_source_array[5] = {10, 20, 30, 40, 50};
@@ -86,4 +85,4 @@ int main()
 
     return 0;
 }
- */
+*/

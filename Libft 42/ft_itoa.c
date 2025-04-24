@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:38:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 19:08:32 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/24 21:43:48 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,23 +76,21 @@ char	*ft_itoa(int n)
 	return (result);
 }
 /* 
-// TEST CODE
 int main()
 {
-    int test_values[] = {0, 123, -123, 2147483647, -2147483648};
-    size_t num_tests = sizeof(test_values) / sizeof(test_values[0]);
+    int test[] = {0, 123, -123, 2147483647, -2147483648};
 
-    for (size_t i = 0; i < num_tests; i++)
+    for (size_t i = 0; i < 5; i++)
 	{
-        char *result = ft_itoa(test_values[i]);
+        char *result = ft_itoa(test[i]);
         if (result)
 		{
-            printf("\nft_itoa(%d) = %s\n", test_values[i], result);
+            printf("\nft_itoa(%d) = %s\n", test[i], result);
             free(result);
         } else
-            printf("ft_itoa(%d) failed to allocate memory\n", test_values[i]);
+            printf("ft_itoa(%d) failed to allocate memory\n", test[i]);
     }
 	printf("\n");
     return 0;
 }
- */
+*/

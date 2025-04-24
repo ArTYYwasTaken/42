@@ -49,41 +49,39 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	return (dest_len + src_len);
 }
 /* 
-// TEST CODE
-int main() {
-    char dest[20] = "Hello";
-    const char *src = " World!";
+int main()
+{
+    char dest[20] = "Sosuke";
+    const char *src = " Aizen";
     size_t size = sizeof(dest);
 
-    printf("\nBefore strlcat: dest = \"%s\"\n", dest);
+    printf("\nBefore strlcat: dest = %s\n", dest);
 
     size_t result = ft_strlcat(dest, src, size);
 
-    printf("After strlcat: dest = \"%s\"\n", dest);
-    printf("Total length attempted: %zu\n", result);
+    printf("After strlcat: dest = %s\n", dest);
+    printf("Total length: %zu\n", result);
 
-    // Test with a smaller buffer
     char small_dest[10] = "Hi";
     size_t small_size = sizeof(small_dest);
 
-    printf("\nBefore strlcat with small buffer: dest = \"%s\"\n", small_dest);
+    printf("\nBefore strlcat with small buffer: dest = %s\n", small_dest);
 
     result = ft_strlcat(small_dest, src, small_size);
 
-    printf("After strlcat with small buffer: dest = \"%s\"\n", small_dest);
-    printf("Total length attempted: %zu\n", result);
+    printf("After strlcat with small buffer: dest = %s\n", small_dest);
+    printf("Total length: %zu\n", result);
 
-    // Test with an empty source
-    char empty_src_dest[20] = "Hello";
+    char empty_src_dest[20] = "Aizen";
     const char *empty_src = "";
 
-    printf("\nBefore strlcat with empty source: dest = \"%s\"\n",
+    printf("\nBefore strlcat with empty source: dest = %s\n",
 	empty_src_dest);
 
     result = ft_strlcat(empty_src_dest, empty_src, size);
 
-    printf("After strlcat with empty source: dest = \"%s\"\n", empty_src_dest);
-    printf("Total length attempted: %zu\n\n", result);
+    printf("After strlcat with empty source: dest = %s\n", empty_src_dest);
+    printf("Total length: %zu\n\n", result);
 
     return 0;
 }

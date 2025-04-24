@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 18:32:16 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/23 22:21:36 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/24 21:43:40 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 }
 /* 
-// TEST CODE
 int main()
 {
     t_list *node;
@@ -87,4 +86,4 @@ int main()
     }
     return 0;
 }
- */
+*/

@@ -40,7 +40,6 @@ void	*ft_memset(void *s, int c, size_t n)
 	return (s);
 }
 /* 
-// TEST CODE
 int main()
 {
     char my_array[10];

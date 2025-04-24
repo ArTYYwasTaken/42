@@ -42,7 +42,6 @@ void	*ft_calloc(size_t num, size_t size)
 	return (p);
 }
 /* 
-// TEST CODE
 int main()
 {
 	int *my_array;
