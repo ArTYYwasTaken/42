@@ -39,7 +39,7 @@ t_list	*ft_lstnew(void *content)
 	return (new);
 }
 /* 
-int main(void)
+int main()
 {
     t_list *node = ft_lstnew("Sosuke Aizen");
 

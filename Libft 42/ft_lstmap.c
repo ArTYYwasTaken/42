@@ -60,68 +60,59 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (newhead);
 }
-/*
-// TEST CODE
-static void	*put_a(void *content)
+/* 
+static void *put_a_copy(void *content)
 {
-	char	*str;
-
-	str = (char *)content;
-	str[0] = 'a';
-	return (str);
+    char *str = (char *)content;
+    char *new_str = strdup(str);
+    if (!new_str)
+        return NULL;
+    new_str[0] = 'a';
+    return new_str;
 }
 
-static void	free_content(void *content)
+int	main()
 {
-	free(content);
-}
-
-int	main(void)
-{
-	t_list *node1;
 	t_list *node2;
-	t_list *node3;
-	t_list *node4;
-	t_list *node5;
-	t_list *temp;
-	t_list *new_list;
-	t_list *head = NULL;
+    t_list *node3;
+    t_list *node4;
+    t_list *node5;
+    t_list *current;
+    t_list *new_list;
+    t_list *head = NULL;
 
-	node1 = ft_lstnew(ft_strdup("1"));
-	node2 = ft_lstnew(ft_strdup("2"));
-	node3 = ft_lstnew(ft_strdup("3"));
-	node4 = ft_lstnew(ft_strdup("4"));
-	node5 = ft_lstnew(ft_strdup("5"));
+    head = ft_lstnew(strdup("1"));
+    node2 = ft_lstnew(strdup("2"));
+    node3 = ft_lstnew(strdup("3"));
+    node4 = ft_lstnew(strdup("4"));
+    node5 = ft_lstnew(strdup("5"));
 
-	ft_lstadd_back(&head, node1);
-	ft_lstadd_back(&head, node2);
-	ft_lstadd_back(&head, node3);
-	ft_lstadd_back(&head, node4);
-	ft_lstadd_back(&head, node5);
+    ft_lstadd_back(&head, node2);
+    ft_lstadd_back(&head, node3);
+    ft_lstadd_back(&head, node4);
+    ft_lstadd_back(&head, node5);
 
-	temp = head;
-	printf("Lista original:\n");
-	while (temp)
-	{
-		printf("\n%s\n", (char *)temp->content);
-		temp = temp->next;
-	}
+    printf("Lista original:\n");
+    current = head;
+    while (current)
+    {
+        printf("%s\n", (char *)current->content);
+        current = current->next;
+    }
 
-	new_list = ft_lstmap(head, put_a, free_content);
+    new_list = ft_lstmap(head, put_a_copy, free);
 
-	temp = new_list;
-	printf("Lista nova:\n");
-	while (temp)
-	{
-		printf("\n%s\n", (char *)temp->content);
-		temp = temp->next;
-	}
-	ft_lstclear(&new_list, free);
-	free(node1);
-	free(node2);
-	free(node3);
-	free(node4);
-	free(node5);
+    printf("Lista nova:\n");
+    current = new_list;
+    while (current)
+    {
+        printf("%s\n", (char *)current->content);
+        current = current->next;
+    }
 
+    ft_lstclear(&head, free);
+    ft_lstclear(&new_list, free);
+
+    return 0;
 }
 */

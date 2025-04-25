@@ -52,11 +52,6 @@ void put_a(void *content)
 
 int	main(void)
 {
-		while (s[i])
-		{
-			str[i] = (f)(i, s[i]);
-			i++;
-		}
 	t_list *node1;
 	t_list *node2;
 	t_list *node3;

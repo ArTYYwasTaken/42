@@ -36,19 +36,19 @@ t_list	*ft_lstlast(t_list *lst)
 /* 
 int main()
 {
-	t_list *node1 = ft_lstnew("Kaio");
+	t_list *head = ft_lstnew("Kaio");
 	t_list *node2 = ft_lstnew("Rafinha");
 	t_list *node3 = ft_lstnew("Nata");
 	t_list *node4 = ft_lstnew("Kelle");
 	t_list *last;
 
-	node1->next = node2;
+	head->next = node2;
 	node2->next = node3;
 	node3->next = node4;
-	last = ft_lstlast(node1);
+	last = ft_lstlast(head);
 
 	printf("\n---//Last node//---\n%s\n\n", (char *)last->content);
-	free(node1);
+	free(head);
 	free(node2);
 	free(node3);
 	free(node4);
