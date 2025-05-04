@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfchar.c                                    :+:      :+:    :+:   */
+/*   ft_printfpointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 16:46:05 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/01 20:42:40 by kemontei         ###   ########.fr       */
+/*   Created: 2025/05/03 20:35:13 by marvin            #+#    #+#             */
+/*   Updated: 2025/05/03 20:35:13 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include "libft.h"
 
-int	ft_printchar(char c)
+int	ft_printfpointer(void *ptr)
 {
-	unsigned char	res;
-	int				total;
+	int		total;
+	char	*str;
 
 	total = 0;
-	res = (unsigned char)c;
-	total = write(1, &res, 1);
+	if (!ptr)
+	{
+		total += write(1, "(nil)", 5);
+		return (total);
+	}
+	str = ft_luitoa_base((unsigned long int)ptr, "0123456789abcdef");
+	if (!str)
+		return (-1);
+	total += write(1, str, ft_strlen(str));
+	free(str);
 	return (total);
 }

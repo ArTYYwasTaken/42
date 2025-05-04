@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "printf.h"
 #include "libft.h"
 
 int	ft_printstring(const char *str)

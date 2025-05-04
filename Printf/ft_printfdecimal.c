@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "printf.h"
 #include "libft.h"
 
 int	ft_printfdecimal(int num)
@@ -20,5 +21,6 @@ int	ft_printfdecimal(int num)
 	total = 0;
 	str = ft_itoa(num);
 	total = write(1, str, ft_strlen(str));
+	free (str);
 	return (total);
 }

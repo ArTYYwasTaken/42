@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printfchar.c                                    :+:      :+:    :+:   */
+/*   ft_printfhexadecimal.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/01 16:46:05 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/01 20:42:40 by kemontei         ###   ########.fr       */
+/*   Created: 2025/05/03 19:13:47 by marvin            #+#    #+#             */
+/*   Updated: 2025/05/03 19:13:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include "libft.h"
 
-int	ft_printchar(char c)
+int ft_printfhexadecimal(unsigned int num, char c)
 {
-	unsigned char	res;
-	int				total;
+	int		total;
+	char	*str;
 
 	total = 0;
-	res = (unsigned char)c;
-	total = write(1, &res, 1);
+	if (c == 'x')
+		str = ft_itoa_base(num, "0123456789abcdef");
+	else if (c == 'X')
+		str = ft_itoa_base(num, "0123456789ABCDEF");
+	if (!str)
+		return (-1);
+	total = write(1, str, ft_strlen(str));
+	free (str);
 	return (total);
 }

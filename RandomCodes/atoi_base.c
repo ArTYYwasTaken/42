@@ -42,7 +42,8 @@ int ft_atoi_base(const char *str, int str_base) {
 
     return (result * sign);
 }
-int		main(void)
+
+int		main()
 {
 	printf("%d\n", ft_atoi_base("011", 2));
 	printf("%d\n", ft_atoi_base("16", 8));
