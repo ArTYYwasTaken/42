@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:35:15 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/05 16:02:52 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/05/05 16:29:52 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_printf(const char *str, ...)
 	int		count;
 	size_t	i;
 
-	if (!str)
+	if (!str || (str[0] == '%' && str[1] == '\0'))
 		return (-1);
 	count = 0;
 	i = 0;

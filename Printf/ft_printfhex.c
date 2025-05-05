@@ -21,7 +21,7 @@ int	ft_printfhex(unsigned int num, char c)
 	count = 0;
 	if (c == 'x')
 		str = ft_itoa_base(num, "0123456789abcdef");
-	else if (c == 'X')
+	else
 		str = ft_itoa_base(num, "0123456789ABCDEF");
 	if (!str)
 		return (-1);
