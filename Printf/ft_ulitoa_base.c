@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ulitoa_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 22:26:56 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/03 22:26:56 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/05 13:36:08 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static void	ft_putnbrbase_str(unsigned long int n, char *base, char *str, size_t
 	str[(*i)++] = base[n % base_len];
 }
 
-char    *ft_luitoa_base(unsigned long int num, char *base)
+char    *ft_ulitoa_base(unsigned long int num, char *base)
 {
 	char			*result;
 	size_t			i;

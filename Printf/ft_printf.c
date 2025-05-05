@@ -6,14 +6,14 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:35:15 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/01 20:42:31 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/05/05 13:28:57 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include "libft.h"
 
-int	check_conversions(va_list args, char c)
+static int	check_conversions(va_list args, char c)
 {
 	int 	total;
 
@@ -31,7 +31,7 @@ int	check_conversions(va_list args, char c)
 	else if (c == 'p')
 	{
 		total += write(1, "0x", 2);
-		total += ft_printfpointer(va_arg(args, unsigned long long),);
+		total += ft_printfpointer(va_arg(args, unsigned long long));
 	}
 	else if (c == '%')
 		total += write(1, "%", 1);
@@ -40,7 +40,7 @@ int	check_conversions(va_list args, char c)
 
 static int	handle_regular_chars(const char *str, size_t *i)
 {
-    int total;
+    int	total;
 
 	total = 0;
     while (str[*i] && str[*i] != '%')

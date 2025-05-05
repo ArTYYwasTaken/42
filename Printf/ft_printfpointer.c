@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printfpointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 20:35:13 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/03 20:35:13 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/05 13:25:10 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_printfpointer(void *ptr)
 		total += write(1, "(nil)", 5);
 		return (total);
 	}
-	str = ft_luitoa_base((unsigned long int)ptr, "0123456789abcdef");
+	str = ft_ulitoa_base((unsigned long int)ptr, "0123456789abcdef");
 	if (!str)
 		return (-1);
 	total += write(1, str, ft_strlen(str));
