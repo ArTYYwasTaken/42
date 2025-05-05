@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 22:26:56 by marvin            #+#    #+#             */
-/*   Updated: 2025/05/05 13:36:08 by kemontei         ###   ########.fr       */
+/*   Created: 2025/05/03 22:26:56 by kemontei          #+#    #+#             */
+/*   Updated: 2025/05/05 15:52:08 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,24 @@ static size_t	num_length(unsigned long int n, size_t base_len)
 	return (i);
 }
 
-static void	ft_putnbrbase_str(unsigned long int n, char *base, char *str, size_t *i, size_t base_len)
+static void	ft_putnbrbase_str(unsigned long int n, size_t base_len, ...)
 {
+	va_list	args;
+	char	*base;
+	char	*str;
+	size_t	*i;
+
+	va_start(args, base_len);
+	base = va_arg(args, char *);
+	str = va_arg(args, char *);
+	i = va_arg(args, size_t *);
 	if (n >= base_len)
-		ft_putnbrbase_str(n / base_len, base, str, i, base_len);
+		ft_putnbrbase_str(n / base_len, base_len, base, str, i);
 	str[(*i)++] = base[n % base_len];
+	va_end(args);
 }
 
-char    *ft_ulitoa_base(unsigned long int num, char *base)
+char	*ft_ulitoa_base(unsigned long int num, char *base)
 {
 	char			*result;
 	size_t			i;

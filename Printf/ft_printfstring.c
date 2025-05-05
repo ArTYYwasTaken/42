@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 17:36:33 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/01 20:42:53 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/05/05 15:53:54 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,14 @@
 
 int	ft_printstring(const char *str)
 {
-	int	total;
+	int	count;
 
-	total = 0;
-	total += write(1, str, ft_strlen(str));
-	return (total);
+	if (!str)
+	{
+		count += (write(1, "(null)", 6));
+		return (count);
+	}
+	count = 0;
+	count += write(1, str, ft_strlen(str));
+	return (count);
 }

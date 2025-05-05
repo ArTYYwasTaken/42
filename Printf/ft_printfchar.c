@@ -6,20 +6,19 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:46:05 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/01 20:42:40 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/05/05 15:43:07 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 #include "libft.h"
 
-int	ft_printchar(char c)
+int	ft_printchar(int c)
 {
 	unsigned char	res;
-	int				total;
+	int				count;
 
-	total = 0;
 	res = (unsigned char)c;
-	total = write(1, &res, 1);
-	return (total);
+	count = write(1, &res, 1);
+	return (count);
 }
