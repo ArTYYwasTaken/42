@@ -28,6 +28,6 @@ int     ft_printfpointer(void *ptr);
 // Helper functions
 char	*ft_uitoa(unsigned int n);
 char	*ft_itoa_base(unsigned int num, char *base);
-char    *ft_luitoa_base(unsigned long int num, char *base);
+char    *ft_ulitoa_base(unsigned long int num, char *base);
 
 #endif
