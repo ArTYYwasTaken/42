@@ -6,24 +6,9 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 14:21:28 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/24 21:44:08 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:04:17 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-    DESCRIPTION:
-	The function ft_lstadd_front adds a new element to the front of a linked
-	list.
-	It takes a pointer to the head of the list and a pointer to the new element.
-
-    PARAMETERS:
-	- t_list **lst: A pointer to the head of the list.
-	- t_list *new: A pointer to the new element to be added.
-
-    RETURN VALUE:
-	- None.
-	- The function modifies the list in place, so it does not return anything.
-*/
 
 #include "libft.h"
 

@@ -10,20 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-    DESCRIPTION:
-    The ft_strjoin() function allocates sufficient memory for a new string,
-    which is the result of the concatenation of s1 and s2.
-
-    PARAMETERS:
-    - const char *s1: The first string to be concatenated.
-    - const char *s2: The second string to be concatenated.
-
-    RETURN VALUE:
-    The ft_strjoin() function returns a pointer to the newly allocated string,
-    or NULL if the allocation fails.
-*/
-
 #include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)

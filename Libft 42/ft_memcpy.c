@@ -10,22 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	DESCRIPTION:
-	The ft_memcpy function copies n bytes from the memory area pointed to by src
-	to the memory area pointed to by dest. 
-
-	PARAMETERS:
-	- void *dest: A pointer to the destination memory area where the content is
-		to becopied.
-	- const void *src: A pointer to the source memory area from which the
-		content is to be copied.
-	- size_t n: The number of bytes to copy from the source to the destination.
-
-	RETURN VALUE:
-	The function returns a pointer to the destination memory area (dest).
-*/
-
 #include "libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)

@@ -6,22 +6,9 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:40:53 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/24 20:34:31 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:13:09 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-    DESCRIPTION:
-	The ft_putnbr_fd() function writes the integer n to the file descriptor fd.
-	It handles negative numbers and the special case of INT_MIN (-2147483648).
-
-    PARAMETERS:
-	- int n: The integer to be written.
-	- int fd: The file descriptor where the integer will be written.
-
-    RETURN VALUE:
-	The ft_putnbr_fd() function does not return a value.
-*/
 
 #include "libft.h"
 
@@ -42,7 +29,6 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 /*
-// TEST CODE
 int main ()
 {
 	int fd = open("kaio.txt", O_TRUNC | O_WRONLY);

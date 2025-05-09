@@ -10,23 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	DESCRIPTION:
-	The function ft_strnstr searches the first n bytes of the given string
-	s1 for the first occurence of the full string s2.
-	Characters that appear after \0 are not searched.
-
-	PARAMETERS:
-	- const char *big : The string to be searched.
-	- const char *little : The string to be found.
-	- size_t len : The number of bytes to be searched.
-
-	RETURN VALUE:
-	A pointer to the first character of the first occurrence of s2.
-	A pointer to s1 if s2 is empty.
-	NULL if s2 occurs nowhere in s1.
-*/
-
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)

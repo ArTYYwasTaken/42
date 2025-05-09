@@ -10,19 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-    DESCRIPTION:
-    The `ft_bzero` function sets the first `n` bytes of the memory area
-    pointed to by `s` to zero.
-
-    PARAMETERS:
-    - s: A pointer to the memory area to be filled with zeros.
-    - n: The number of bytes to be set to zero.
-
-    RETURN VALUE:
-    This function does not return a value.
-*/
-
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)

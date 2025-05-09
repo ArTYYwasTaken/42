@@ -6,32 +6,9 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:23:39 by marvin            #+#    #+#             */
-/*   Updated: 2025/04/24 21:44:20 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/25 18:21:05 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-    DESCRIPTION:
-	The ft_lstmap() function applies the function f to each node of the list
-	lst, and creates a new list with the results of the function applications.
-	The new list is created using the function ft_lstnew(). If the application
-	of the function f fails, the function del is called on the content of the
-	new node, and the new list is cleared using ft_lstclear().
-
-    PARAMETERS:
-	- t_list *lst: A pointer to the head of the list.
-	- void *(*f)(void *): A pointer to the function to be applied to each node's
-	  content.
-	- void (*del)(void *): A pointer to the function to be called to delete the
-	  content of a node if the application of f fails.
-
-    RETURN VALUE:
-	- A pointer to the new list created by applying f to each node's content.
-	  If the application of f fails, NULL is returned and the new list is
-	  cleared.
-	  If lst is NULL, NULL is returned.
-	  If f or del is NULL, NULL is returned.
-*/
 
 #include "libft.h"
 
@@ -67,7 +44,7 @@ static void *put_a_copy(void *content)
     char *new_str = strdup(str);
     if (!new_str)
         return NULL;
-    new_str[0] = 'a';
+    new_str[0] = 'A';
     return new_str;
 }
 
@@ -92,8 +69,9 @@ int	main()
     ft_lstadd_back(&head, node4);
     ft_lstadd_back(&head, node5);
 
-    printf("Lista original:\n");
     current = head;
+
+    printf("Lista original:\n");
     while (current)
     {
         printf("%s\n", (char *)current->content);
@@ -101,9 +79,9 @@ int	main()
     }
 
     new_list = ft_lstmap(head, put_a_copy, free);
+    current = new_list;
 
     printf("Lista nova:\n");
-    current = new_list;
     while (current)
     {
         printf("%s\n", (char *)current->content);

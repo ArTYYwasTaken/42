@@ -10,19 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-    DESCRIPTION:
-    The strdup() function allocates sufficient memory for a copy of the string
-    s, does the copy, and returns a pointer to it.
-
-    PARAMETERS:
-    - constant char *s: The string to be duplicated.
-
-    RETURN VALUE:
-    The strdup() function returns a pointer to the duplicated string, or NULL
-    if the allocation fails.
-*/
-
 #include "libft.h"
 
 char	*ft_strdup(const char *s)

@@ -6,22 +6,9 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:15:59 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/24 21:25:13 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:58:26 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-    DESCRIPTION:
-	The ft_putchar_fd() function writes the character c to the file descriptor
-	fd.
-
-    PARAMETERS:
-	- char c: The character to be written.
-	- int fd: The file descriptor where the character will be written.
-
-    RETURN VALUE:
-	The ft_putchar_fd() function does not return a value.
-*/
 
 #include "libft.h"
 

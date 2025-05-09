@@ -6,26 +6,9 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 15:15:27 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/24 20:47:23 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:10:38 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-    DESCRIPTION:
-	The ft_strmapi() function applies the function f to each character of the
-	string s, passing its index as the first argument. It creates a new string
-	that is the result of applying f to each character of s.
-
-    PARAMETERS:
-	- char const *s: The string to be transformed.
-	- char (*f)(unsigned int, char): The function to be applied to each
-	  character of the string. It takes an unsigned int (the index) and a char
-	  (the character at that index) and returns a char.
-
-    RETURN VALUE:
-	The ft_strmapi() function returns a pointer to the newly allocated string,
-	or NULL if the allocation fails.
-*/
 
 #include "libft.h"
 

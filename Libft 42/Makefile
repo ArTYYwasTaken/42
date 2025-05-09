@@ -33,7 +33,6 @@ bonus: .bonus
 clean:
 	@rm -f $(BONUS_OBJ) $(OBJS)
 	@echo "Objs pa mrd"
-	@echo "bonus pa mrd"
 
 clean_bonus:
 	@rm -f $(BONUS_OBJS) .bonus

@@ -6,25 +6,9 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:41:06 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/24 21:24:21 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/25 18:11:24 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-    DESCRIPTION:
-	The ft_split() function splits a string into an array of strings based on a
-	delimiter character. It allocates memory for the matrizing array and each
-	string.
-	The last element of the array is set to NULL.
-
-    PARAMETERS:
-	- char const *s: The string to be split.
-	- char c: The delimiter character used to split the string.
-
-    RETURN VALUE:
-	The ft_split() function returns a pointer to the array of strings. If the
-	allocation fails or if the input string is NULL, it returns NULL.
-*/
 
 #include "libft.h"
 
@@ -116,9 +100,13 @@ char	**ft_split(char const *s, char c)
 {
 	size_t	total_words;
 	char	**matriz;
+	char	**p;
 
 	if (!s)
-		return (NULL);
+	{
+		p = malloc(0);
+		return (p);
+	}
 	total_words = count_words(s, c);
 	matriz = malloc((total_words + 1) * sizeof(char *));
 	if (!matriz)
@@ -132,7 +120,7 @@ char	**ft_split(char const *s, char c)
 int main()
 {
     char **matriz;
-	char *str = "Kaio,bué,paia";
+	char *str = NULL;
     char delimiter = ',';
     size_t i = 0;
 
@@ -148,7 +136,7 @@ int main()
     printf("\n");
     while (matriz[i])
     {
-        printf("Segment %d: %s\n", i, matriz[i]);
+        printf("Segment %zu: %s\n", i, matriz[i]);
         free(matriz[i]);
         i++;
     }

@@ -10,25 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-    DESCRIPTION:
-    The ft_memcmp function compares the first n bytes of the memory areas s1 and
-	s2.
-    It returns an integer less than, equal to, or greater than zero if the first
-	n bytes of s1 is found, respectively, to be less than, to match, or be
-	greater than the first n bytes of s2.
-
-    PARAMETERS:
-    - const void *s1: A pointer to the first memory area to be compared.
-    - const void *s2: A pointer to the second memory area to be compared.
-    - size_t n: The number of bytes to be compared.
-
-    RETURN VALUE:
-    Returns an integer less than, equal to, or greater than zero if the first n
-	bytes of s1 is found, respectively, to be less than, to match, or be greater
-	than the first n bytes of s2.
-*/
-
 #include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)

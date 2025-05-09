@@ -10,20 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	DESCRIPTION:
-	The function ft_strchr finds the first occurence of character c in
-	string str.
-
-	PARAMETERS:
-	- const char *s: The string to be searched.
-	- int c: The character to be searched for.
-
-	RETURN VALUE:
-	A pointer to the first occurence of c in str.
-	NULL if c is not found.
-*/
-
 #include "libft.h"
 
 char	*ft_strchr(const char *s, int c)

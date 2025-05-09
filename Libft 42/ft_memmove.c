@@ -10,20 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-    DESCRIPTION:
-    Copies 'n' bytes from memory area 'src' to memory area 'dest'.
-    The memory areas may overlap; copying is done in a non-destructive manner.
-
-    PARAMETERS:
-    - void *dest: Pointer to the destination memory area.
-    - const void *src: Pointer to the source memory area.
-    - size_t n: Number of bytes to copy.
-
-    RETURN VALUE:
-    Returns a pointer to the destination memory area 'dest'.
-*/
-
 #include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)

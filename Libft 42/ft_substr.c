@@ -10,22 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-    DESCRIPTION:
-	The ft_substr() function allocates sufficient memory for a substring of
-	the string s, starting from the index start and with a maximum length of
-	len.
-
-    PARAMETERS:
-	- char const *s: The string from which the substring will be extracted.
-	- unsigned int start: The starting index of the substring.
-	- size_t len: The maximum length of the substring.
-
-    RETURN VALUE:
-	The ft_substr() function returns a pointer to the newly allocated substring,
-	or NULL if the allocation fails.
-*/
-
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -50,7 +34,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 int	main()
 {
 	// Test 1: Normal case
-	char *s1 = ft_substr("Bankai", 1, 9);
+	char *s1 = ft_substr("Bankai", 0, 9);
 	printf("\nTest 1: %s\n", s1);
 	free(s1);
 
@@ -71,4 +55,4 @@ int	main()
 
 	return (0);
 }
- */
+*/

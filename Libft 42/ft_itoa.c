@@ -6,23 +6,9 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/09 14:38:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/04/24 21:43:48 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:04:54 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-/*
-    DESCRIPTION:
-	The function ft_itoa converts an integer to a string representation.
-	It handles negative numbers and the special case of INT_MIN (-2147483648).
-	It allocates memory for the resulting string and returns a pointer to it.
-
-    PARAMETERS:
-	- int n: The integer to be converted to a string.
-
-    RETURN VALUE:
-	- A pointer to the newly allocated string representing the integer.
-	- NULL if memory allocation fails.
-*/
 
 #include "libft.h"
 
