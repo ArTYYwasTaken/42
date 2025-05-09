@@ -12,80 +12,105 @@
 
 #include "get_next_line.h"
 
-static size_t	count_words(char const *s, char c)
+size_t	gnl_strlen(const char *str)
 {
 	size_t	i;
-	size_t	count;
 
 	i = 0;
-	count = 0;
-	while (s[i])
+	if (!str)
+		return (0);
+	while (str[i])
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] && s[i] != c)
-		{
-			count++;
-			while (s[i] && s[i] != c)
-				i++;
-		}
+		if (str[i++] == '\n')
+			break ;
 	}
-	return (count);
+	return (i);
 }
 
-static char	*allocate_word(char const *s, char c, size_t *index)
+char	*gnl_strjoin(char *s1, char *s2)
 {
-	size_t	start;
-	size_t	len;
-	char	*word;
-
-	start = *index;
-	len = 0;
-	while (s[*index] && s[*index] != c)
-	{
-		(*index)++;
-		len++;
-	}
-	word = (char *)malloc(len + 1);
-	if (!word)
-		return (NULL);
-	word[len] = '\0';
-	while (len--)
-		word[len] = s[start + len];
-	return (word);
-}
-
-static void	free_memory(char **words, size_t i)
-{
-	while (i--)
-		free(words[i]);
-	free(words);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**words;
-	size_t	word_count;
+	char	*str;
 	size_t	i;
-	size_t	index;
+	size_t	j;
 
-	if (!s)
-		return (NULL);
-	word_count = count_words(s, c);
-	words = (char **)malloc((word_count + 1) * sizeof(char *));
-	if (!words)
+	str = malloc(gnl_strlen(s1) + gnl_strlen(s2) + 1);
+	if (!str)
 		return (NULL);
 	i = 0;
-	index = 0;
-	while (i < word_count)
+	while (s1 && s1[i])
 	{
-		while (s[index] == c)
-			index++;
-		words[i] = allocate_word(s, c, &index);
-		if (!words[i])
-			return (free_memory(words, i), NULL);
+		str[i] = s1[i];
 		i++;
 	}
-	words[i] = NULL;
-	return (words);
+	j = 0;
+	while (s2[j])
+	{
+		str[i++] = s2[j];
+		if (s2[j++] == '\n')
+			break ;
+	}
+	str[i] = '\0';
+	free (s1);
+	return (str);
 }
+
+char	*gnl_strchr(const char *str, int c)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
+		i++;
+	}
+	if ((char)c == '\0')
+		return ((char *)&str[i]);
+	return (NULL);
+}
+
+void	update_buffer(char *buffer, size_t start, size_t buffer_size)
+{
+	size_t	i;
+
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
+		i++;
+	if (buffer[i] == '\n')
+		i++;
+	while (i < buffer_size && buffer[i])
+		buffer[start++] = buffer[i++];
+	while (start < buffer_size)
+		buffer[start++] = '\0';
+}
+/*
+--//Antigo//--
+void	update_buffer(char *buffer, size_t j)
+{
+	size_t i;
+	size_t buffer_size;
+	char *temp;
+
+	i = 0;
+	buffer_size = gnl_strlen(buffer);
+	temp = NULL;
+	while (buffer[i] != '\n')
+		i++;
+	if (buffer[i] == '\n')
+	{
+		i++;
+		while (i < buffer_size)
+			temp[j++] = buffer[i++];
+	}
+	i = 0;
+	while (i < buffer_size)
+		buffer[i++] = '\0';
+	i = 0;
+	while (temp[i])
+	{
+		buffer[i] = temp[i];
+		i++;
+	}
+}
+*/
