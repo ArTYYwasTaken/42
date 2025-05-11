@@ -83,34 +83,13 @@ void	update_buffer(char *buffer, size_t start, size_t buffer_size)
 		buffer[start++] = buffer[i++];
 	while (start < buffer_size)
 		buffer[start++] = '\0';
-}
-/*
---//Antigo//--
-void	update_buffer(char *buffer, size_t j)
+} 
+
+void	clean_buffer(char *buffer, size_t buffer_size)
 {
 	size_t i;
-	size_t buffer_size;
-	char *temp;
 
-	i = 0;
-	buffer_size = gnl_strlen(buffer);
-	temp = NULL;
-	while (buffer[i] != '\n')
-		i++;
-	if (buffer[i] == '\n')
-	{
-		i++;
-		while (i < buffer_size)
-			temp[j++] = buffer[i++];
-	}
-	i = 0;
+	i = 0;	
 	while (i < buffer_size)
 		buffer[i++] = '\0';
-	i = 0;
-	while (temp[i])
-	{
-		buffer[i] = temp[i];
-		i++;
-	}
 }
-*/

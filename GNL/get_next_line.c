@@ -21,7 +21,7 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	line = NULL;
-	chars_read = 1;
+	chars_read = BUFFER_SIZE + 1;
 	while (1)
 	{
 		if (buffer[0] == '\0')
@@ -32,10 +32,10 @@ char	*get_next_line(int fd)
 			return (line);
 		buffer[chars_read] = '\0';
 		line = gnl_strjoin(line, buffer);
-		if (!line)
-			return (NULL);
-		if (gnl_strchr(buffer, '\n') != NULL)
-			break ;
+		if (!line || gnl_strchr(buffer, '\n'))
+    		break ;
+		else
+			clean_buffer(buffer, sizeof(buffer));
 	}
 	update_buffer(buffer, 0, sizeof(buffer));
 	return (line);
