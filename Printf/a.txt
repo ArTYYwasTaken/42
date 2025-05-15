@@ -1,14 +1,15 @@
 # Variables
 NAME = libftprintf.a
-LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libft.a
-INCLUDES = -I./include -I./libft/libft.a
-CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+INCLUDE = include
+LIBFT = libft
+SRC_DIR = src/
+OBJ_DIR = obj/
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -I$(INCLUDE)
 RM = rm -f
 AR = ar rcs
 
-# Colors
+# Colors for terminal output
 DEF_COLOR = \033[0;39m
 GRAY = \033[0;90m
 RED = \033[0;91m
@@ -72,3 +73,51 @@ norm:
 
 # Phony targets to avoid conflicts with files
 .PHONY: all clean fclean re norm
+
+# Color variables
+colors1 = \033[0;32m
+colors2 = \033[0;33m
+colors3 = \033[0;31m
+colors4 = \033[0m
+
+# Compiler and flags
+CC = cc
+CFLAGS = -Wall -Werror -Wextra -g
+
+# Target and source files
+NAME = libftprintf.a
+SRCS = ft_printf.c ft_printfchar.c ft_printftstring.c ft_printfhex.c \
+       ft_printfdecimal.c ft_printfpointer.c ft_printfunsigned.c ft_uitoa.c \
+       ft_itoa_base.c ft_ulitoa_base.c
+OBJS = $(SRCS:.c=.o)
+
+# Libft path
+LIBFT = libft
+LIBFT_LIB = $(LIBFT)/libft.a
+
+# Targets
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	@echo "$(colors1)Compiling libft...$(colors4)"
+	@make -C $(LIBFT)
+	@echo "$(colors1)Creating $(NAME)...$(colors4)"
+	@ar rcs $(NAME) $(OBJS) $(LIBFT_LIB)
+
+%.o: %.c
+	@echo "$(colors2)Compiling $<...$(colors4)"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	@echo "$(colors3)Cleaning object files...$(colors4)"
+	@rm -f $(OBJS)
+	@make clean -C $(LIBFT)
+
+fclean: clean
+	@echo "$(colors3)Removing $(NAME)...$(colors4)"
+	@rm -f $(NAME)
+	@make fclean -C $(LIBFT)
+
+re: fclean all
+
+.PHONY: all clean fclean re

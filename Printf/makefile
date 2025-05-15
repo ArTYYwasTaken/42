@@ -3,8 +3,10 @@ NAME = libftprintf.a
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 INCLUDES = -I./include -I./libft/libft.a
-CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+SRC_DIR = src/
+OBJ_DIR = obj/
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -I$(INCLUDE)
 RM = rm -f
 AR = ar rcs
 
