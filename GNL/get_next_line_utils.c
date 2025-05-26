@@ -6,11 +6,9 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/07 16:15:46 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/14 19:54:55 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/05/19 18:18:24 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "get_next_line.h"
 
 #include "get_next_line.h"
 
