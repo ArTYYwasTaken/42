@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:37:41 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/15 19:54:43 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/05/27 15:14:02 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 // Conversion functions
 int		ft_printf(const char *str, ...);
-int		ft_printchar(int c);
-int		ft_printstring(const char *str);
+int		ft_printfchar(int c);
+int		ft_printfstring(const char *str);
 int		ft_printfdecimal(int num);
-int		printfunsigned(unsigned int num);
+int		ft_printfunsigned(unsigned int num);
 int		ft_printfhex(unsigned int num, char c);
 int		ft_printfpointer(void *ptr);
 

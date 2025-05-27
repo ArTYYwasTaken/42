@@ -6,11 +6,11 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 20:08:29 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/05 16:50:21 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/05/27 15:13:09 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include "libft.h"
 
 int	ft_printfdecimal(int num)
@@ -22,7 +22,7 @@ int	ft_printfdecimal(int num)
 	str = ft_itoa(num);
 	if (!str)
 		return (-1);
-	count = write(1, str, ft_strlen(str));
+	count += write(1, str, ft_strlen(str));
 	free (str);
 	return (count);
 }

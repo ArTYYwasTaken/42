@@ -13,12 +13,18 @@ ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS:.c=.o)
 
+# Colors
+DEF_COLOR = \033[0;39m
+LIGHT_BLUE = \033[38;2;85;205;252m
+PINK = \033[38;2;247;168;184m
+WHITE = \033[38;2;255;255;255m
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS)
-	@echo "Library check"
-	@echo "Objs check"
+	@echo "$(LIGHT_BLUE)Library check$(DEF_COLOR)"
+	@echo "$(PINK)Objs check$(DEF_COLOR)"
 
 bonus: .bonus
 
@@ -32,14 +38,14 @@ bonus: .bonus
 
 clean:
 	@rm -f $(BONUS_OBJ) $(OBJS)
-	@echo "Objs pa mrd"
+	@echo "$(PINK)Objs pa mrd$(DEF_COLOR)"
 
 clean_bonus:
 	@rm -f $(BONUS_OBJS) .bonus
-	@echo "bonus pa mrd"
+	@echo "$(WHITE)bonus pa mrd$(DEF_COLOR)"
 
 fclean: clean clean_bonus
 	@rm -f $(NAME)
-	@echo "Lib pa mrd"
+	@echo "$(PINK)Lib pa mrd${DEF_COLOR}"
 
 re: fclean all

@@ -6,11 +6,11 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 22:26:56 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/05 15:52:08 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/05/27 15:18:50 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 #include "libft.h"
 
 static size_t	num_length(unsigned long int n, size_t base_len)
@@ -58,7 +58,7 @@ char	*ft_ulitoa_base(unsigned long int num, char *base)
 	if (!result)
 		return (NULL);
 	i = 0;
-	ft_putnbrbase_str(num, base, result, &i, base_len);
+	ft_putnbrbase_str(num, base_len, base, result, &i);
 	result[i] = '\0';
 	return (result);
 }

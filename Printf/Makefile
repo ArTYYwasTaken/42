@@ -1,74 +1,52 @@
 # Variables
+INCDIR = ./includes/
+SRCDIR = ./srcs/
+OBJDIR = ./objs/
+LIBDIR = ./Libft/
+SRC_FILES = ft_printf.c ft_printfchar.c ft_printfstring.c ft_printfhex.c \
+            ft_printfdecimal.c ft_printfpointer.c ft_printfunsigned.c ft_uitoa.c \
+            ft_itoa_base.c ft_ulitoa_base.c
+SRC = $(addprefix $(SRCDIR), $(SRC_FILES))
+OBJS = $(addprefix $(OBJDIR), $(notdir $(SRC:.c=.o)))
 NAME = libftprintf.a
-LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libft.a
-INCLUDES = -I./include -I./libft/libft.a
+NAMELFT = libft.a
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
 AR = ar rcs
+MAKE = make
 
 # Colors
 DEF_COLOR = \033[0;39m
-GRAY = \033[0;90m
-RED = \033[0;91m
-GREEN = \033[0;92m
-YELLOW = \033[0;93m
-BLUE = \033[0;94m
-MAGENTA = \033[0;95m
-CYAN = \033[0;96m
-WHITE = \033[0;97m
+LIGHT_BLUE = \033[38;2;85;205;252m
+PINK = \033[38;2;247;168;184m
+WHITE = \033[38;2;255;255;255m
 
-# Source and object files
-SRC_FILES = ft_printf.c ft_printfchar.c ft_printftstring.c ft_printfhex.c \
-            ft_printfdecimal.c ft_printfpointer.c ft_printfunsigned.c ft_uitoa.c \
-            ft_itoa_base.c ft_ulitoa_base.c
-SRC = $(addprefix $(SRC_DIR), $(SRC_FILES))
-OBJ = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
+all: $(NAMELFT) $(NAME)
 
-# Object directory flag
-OBJF = .cache_exists
+$(NAMELFT):
+	@$(MAKE) -C $(LIBDIR)
 
-# Default target
-all: $(NAME)
+$(NAME): $(OBJS) $(NAMELFT)
+	@$(AR) $(NAME) $(OBJS)
+	@echo "$(PINK)Library $(NAME) created successfully.$(DEF_COLOR)"
+	@echo "$(LIGHT_BLUE)Objects compiled successfully.$(DEF_COLOR)"
 
-# Create the library
-$(NAME): $(OBJ)
-	@make -C $(LIBFT)
-	@cp libft/libft.a .
-	@mv libft.a $(NAME)
-	@$(AR) $(NAME) $(OBJ)
-	@echo "$(GREEN)ft_printf compiled!$(DEF_COLOR)"
+$(OBJDIR)%.o: $(SRCDIR)%.c
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS) -c -I$(INCDIR) -I$(LIBDIR) $< -o $@
+	@echo "$(WHITE)Compiling...$(DEF_COLOR)"
 
-# Compile source files into object files
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
-	@echo "$(YELLOW)Compiling: $< $(DEF_COLOR)"
-	@$(CC) $(CFLAGS) -c $< -o $@
-
-# Create object directory if it doesn't exist
-$(OBJF):
-	@mkdir -p $(OBJ_DIR)
-
-# Clean object files
 clean:
-	@$(RM) -rf $(OBJ_DIR)
-	@make clean -C $(LIBFT)
-	@echo "$(BLUE)ft_printf object files cleaned!$(DEF_COLOR)"
+	@$(RM) $(OBJS)
+	@cd $(LIBDIR) && $(MAKE) clean
+	@echo "$(LIGHT_BLUE)printf objs pa mrd$(DEF_COLOR)"
 
-# Full clean, including the library
 fclean: clean
-	@$(RM) -f $(NAME)
-	@$(RM) -f $(LIBFT)/libft.a
-	@echo "$(CYAN)ft_printf executable files cleaned!$(DEF_COLOR)"
-	@echo "$(CYAN)libft executable files cleaned!$(DEF_COLOR)"
+	@$(RM) $(NAME)
+	@cd $(LIBDIR) && $(MAKE) fclean
+	@echo "$(LIGHT_BLUE)libftprintf pa mrd$(DEF_COLOR)"
 
-# Rebuild everything
 re: fclean all
-	@echo "$(GREEN)Cleaned and rebuilt everything for ft_printf!$(DEF_COLOR)"
 
-# Check code style
-norm:
-	@norminette $(SRC) $(INCLUDE) $(LIBFT) | grep -v Norme -B1 || true
-
-# Phony targets to avoid conflicts with files
-.PHONY: all clean fclean re norm
+.PHONY: all clean fclean re
