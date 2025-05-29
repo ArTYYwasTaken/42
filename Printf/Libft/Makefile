@@ -31,7 +31,7 @@ bonus: .bonus
 .bonus: $(BONUS_OBJS) $(OBJS)
 	@ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 	@touch .bonus
-	@echo "Bonus check"
+	@echo "$(WHITE)Bonus check$(DEF_COLOR)"
 
 %.o: %.c
 	@$(CC) $(FLAGS) -c $< -o $@

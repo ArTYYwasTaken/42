@@ -28,6 +28,8 @@ $(NAMELFT):
 	@$(MAKE) -C $(LIBDIR)
 
 $(NAME): $(OBJS) $(NAMELFT)
+	@$(MAKE) bonus -C $(LIBDIR)
+	@mv $(LIBDIR)$(NAMELFT) $(NAME)
 	@$(AR) $(NAME) $(OBJS)
 	@echo "$(PINK)Library $(NAME) created successfully.$(DEF_COLOR)"
 	@echo "$(LIGHT_BLUE)Objects compiled successfully.$(DEF_COLOR)"

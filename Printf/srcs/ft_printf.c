@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 16:35:15 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/27 16:33:52 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/05/29 18:01:57 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
-int	main()
+/* int	main()
 {
 
 	char c = 'A';
@@ -152,4 +152,4 @@ int	main()
 	printf("caracteres impressos: %d\n", r10);
 	r10 = printf("%%\n");
 	printf("caracteres impressos: %d\n", r10);
-}
+} */
