@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 19:55:34 by kemontei          #+#    #+#             */
-/*   Updated: 2025/05/14 19:56:25 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/06/05 17:23:44 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*gnl_strjoin(char *s1, char *s2)
 
 	str = malloc(gnl_strlen(s1) + gnl_strlen(s2) + 1);
 	if (!str)
-		return (free(s1), NULL);
+		return (NULL);
 	i = 0;
 	while (s1 && s1[i])
 	{
@@ -59,14 +59,17 @@ char	*gnl_strchr(const char *str, int c)
 	size_t	i;
 
 	i = 0;
-	while (str[i])
+	if (str)
 	{
-		if (str[i] == (char)c)
+		while (str[i])
+		{
+			if (str[i] == (char)c)
+				return ((char *)&str[i]);
+			i++;
+		}
+		if ((char)c == '\0')
 			return ((char *)&str[i]);
-		i++;
 	}
-	if ((char)c == '\0')
-		return ((char *)&str[i]);
 	return (NULL);
 }
 
@@ -76,21 +79,12 @@ void	update_buffer(char *buffer)
 	size_t	j;
 
 	i = 0;
+	j = 0;
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
 	if (buffer[i] == '\n')
 		i++;
-	j = 0;
 	while (buffer[i])
 		buffer[j++] = buffer[i++];
 	buffer[j] = '\0';
-}
-
-void	clean_buffer(char *buffer)
-{
-	size_t	i;
-
-	i = 0;
-	while (buffer[i])
-		buffer[i++] = '\0';
 }
