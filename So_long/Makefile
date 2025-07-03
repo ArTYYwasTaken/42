@@ -5,13 +5,13 @@ OBJDIR = ./objs/
 LIBSDIR = ./libs/
 LIBFTDIR = $(LIBSDIR)Libft/
 MLIBXDIR = $(LIBSDIR)minilibx-linux/
-SRC_FILES = so_long.c
+SRC_FILES = gamestart.c so_long.c
 SRC = $(addprefix $(SRCDIR), $(SRC_FILES))
 OBJS = $(addprefix $(OBJDIR), $(notdir $(SRC:.c=.o)))
 NAME = so_long
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-MLX_FLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
+# MLX_FLAGS = -Lminilibx-linux -lmlx -lXext -lX11 -lm -lz
 RM = rm -f
 MAKE = make
 
@@ -25,7 +25,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
 	@$(MAKE) -s -C $(LIBFTDIR)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFTDIR)libft.a $(MLX_FLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFTDIR)libft.a -o $(NAME)
 	@echo "$(PINK)Program $(NAME) created successfully.$(DEF_COLOR)"
 	@echo "$(LIGHT_BLUE)Objects compiled successfully.$(DEF_COLOR)"
 
@@ -39,16 +39,20 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 
 clean:
 	@$(RM) $(OBJS)
-	@cd $(LIBFTDIR) && $(MAKE) clean
-	@cd $(MLIBXDIR) && $(MAKE) clean
 	@rmdir $(OBJDIR)
+	@$(MAKE) clean -C $(LIBFTDIR)
+	@$(MAKE) clean -C $(MLIBXDIR)
 	@echo "$(LIGHT_BLUE)so_long objs pa mrd$(DEF_COLOR)"
+
+mlxclean:
+	@rm -rf $(MLIBXDIR)
+	@echo "MLX deleted"
 
 fclean: clean
 	@$(RM) $(NAME)
-	@cd $(LIBFTDIR) && $(MAKE) fclean
-	@cd $(MLIBXDIR) && $(MAKE) fclean
-	@echo "$(LIGHT_BLUE)so_long lib pa mrd$(DEF_COLOR)"
+	@$(MAKE) fclean -C $(LIBFTDIR)
+	@$(MAKE) fclean -C $(MLIBXDIR)
+	@echo "$(LIGHT_BLUE)so_long pa mrd$(DEF_COLOR)"
 
 re: fclean all
 
