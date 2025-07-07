@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/03 18:31:12 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/07/07 18:34:13 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct map_stuff
 
 typedef struct player_stuff
 {
-	char **player;
 	int x;
 	int y;
 	
@@ -36,12 +35,14 @@ typedef struct game
 {
 	t_map *map;
 	t_player *player;
-	char *temp;
 	int col;
 	int exit;
 	
 } t_game;
 
 int gamestart (t_game *game, char *mapfile);
+int map_fileformat(char *mapfile);
+int map_getheight(t_game *game);
+int map_gridfill(t_game *game);
 
 #endif
