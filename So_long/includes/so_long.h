@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/07 18:34:13 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/07/09 19:21:58 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,28 +21,34 @@ typedef struct map_stuff
 	char **grid;
 	int height;
 	int width;
+	int player_x;
+	int player_y;
+	int col;
+	int exit_x;
+	int exit_y;
 	
 } t_map;
-
-typedef struct player_stuff
-{
-	int x;
-	int y;
-	
-} t_player;
 
 typedef struct game
 {
 	t_map *map;
-	t_player *player;
-	int col;
 	int exit;
-	
+
 } t_game;
 
-int gamestart (t_game *game, char *mapfile);
+t_map *gamestart(char *mapfile);
 int map_fileformat(char *mapfile);
-int map_getheight(t_game *game);
-int map_gridfill(t_game *game);
+int map_getheight(char *mapfile);
+t_map *map_gridfill(t_map *map, char *mapfile);
+void clean_map(t_map *map);
+void displaygrid(t_map *map);
+int	map_validation(t_map *map);
+int	mv_borders(t_map *map);
+int mv_characters(t_map *map);
+int	mv_player(t_map *map);
+int	mv_exit(t_map *map);
+int	mv_collectables(t_map *map);
+int mv_path(t_map *map);
+int mv_floodfill(t_map *map, int x, int y, int collectables);
 
 #endif
