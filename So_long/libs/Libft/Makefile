@@ -30,8 +30,7 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 	@echo "$(WHITE)Compiling...$(DEF_COLOR)"
 
 clean:
-	@$(RM) $(OBJS)
-	@rmdir $(OBJDIR)
+	@rm -rf $(OBJDIR)
 	@echo "$(LIGHT_BLUE)libft objs pa mrd$(DEF_COLOR)"
 
 fclean: clean

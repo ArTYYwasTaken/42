@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:48:14 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/09 19:45:49 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/07/14 17:25:10 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ int mv_floodfill(t_map *map, int x, int y, int collectables)
 	static int	col;
 	static int	exit;
 
-	col = 0;
-	exit = 0;
 	if (map->grid[y][x] == '1')
 		return (0);
 	if (map->grid[y][x] == 'C')
@@ -55,7 +53,6 @@ int mv_floodfill(t_map *map, int x, int y, int collectables)
 	mv_floodfill(map, x - 1, y, collectables);
 	mv_floodfill(map, x, y + 1, collectables);
 	mv_floodfill(map, x, y - 1, collectables);
-	ft_printf("exit:%d\tcol:%d\n", exit, col);
 	if (exit == 1 && col == collectables)
 		return (1);
 	return (0);

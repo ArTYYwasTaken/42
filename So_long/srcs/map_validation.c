@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 18:22:44 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/09 19:23:01 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/07/14 17:25:06 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	mv_exit(t_map *map)
 	}
 	if (count != 1)
 		return (0);
-	ft_printf("--//exit/--\nx:%d\ty:%d\n", map->exit_x, map->exit_y);
+	ft_printf("--//exit/--\nx:%d\ty:%d\n\n", map->exit_x, map->exit_y);
 	return (1);
 }
 
@@ -127,7 +127,7 @@ int	map_validation(t_map *map)
 	if (!mv_exit(map))
 		return (perror("Failed exit requirement"), 0);
 	if (!mv_collectables(map))
-		return (perror("Failed collectables requirement"), 0);
+		return (perror("Failed to meet collectables requirement"), 0);
 	if (!mv_path(map))
 		return (perror("Invalid path"), 0);
 	return (1);
