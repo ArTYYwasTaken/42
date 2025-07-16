@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/15 19:45:49 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:31:32 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,38 @@ typedef struct map
 	
 } t_map;
 
+typedef void* t_sprite;
+
+typedef struct animated_sprite
+{
+    t_sprite	*frames;
+    int			frame_count;
+
+} t_animated_sprite;
+
 typedef struct image
 {
-	void **dialga;
-	void **palkia;
-	void **giratina;
-	void *exit;
-	void *floor;
-	void *leftwall;
-	void *rightwall;
-	void *upperwall;
-	void *lowerwall;
-	void *upleftcorner;
-	void *uprightcorner;
-	void *outleftlwrcorner;
-	void *outleftuprcorner;
-	void *outrightlwrcorner;
-	void *outrightuppercorner;
+	t_animated_sprite	dialga;
+    t_animated_sprite	palkia;
+    t_animated_sprite	giratina;
+    t_sprite	exit;
+    t_sprite	floor;
+    t_sprite	W_wall;
+    t_sprite	E_wall;
+    t_sprite	N_wall;
+    t_sprite	S_wall;
+    t_sprite	NW_corner;
+    t_sprite	NE_corner;
+    t_sprite	outSW_corner;
+    t_sprite	outNW_corner;
+    t_sprite	outSE_corner;
+    t_sprite	outNE_corner;
 	
 } t_image;
 
 typedef struct game
 {
+	t_image img;
 	t_map *map;
 	void *mlx;
 	void *win;
@@ -76,6 +86,10 @@ int	mv_exit(t_map *map);
 int	mv_collectables(t_map *map);
 int mv_path(t_map *map);
 int mv_floodfill(t_map *map, int x, int y, int collectables);
-int mv_width(t_map *map);
+void gamestart_map(t_game *game, t_map *map);
+void gamestart_poke(t_image image, t_game *game, t_map *map);
+void pokeframes(t_animated_sprite pokemon, char *name, t_game *game,
+				t_map *map);
+void cleanframes(t_animated_sprite pokemon, int frame);
 
 #endif

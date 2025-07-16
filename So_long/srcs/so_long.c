@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:53 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/14 17:54:12 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/07/16 21:09:39 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main(int argc, char **argv)
 					game->map->height * PX, "PokeLong");
 	if(!game->win)	
 		return (free(game->win), ft_printf("Merda na window"));
+	gamestart_map(game, game->map);
 	
 	free(game->map);
 	free (game);

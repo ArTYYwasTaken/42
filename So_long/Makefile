@@ -5,7 +5,7 @@ OBJDIR = ./objs/
 LIBSDIR = ./libs/
 LIBFTDIR = $(LIBSDIR)Libft/
 MLIBXDIR = $(LIBSDIR)minilibx-linux/
-SRC_FILES = gamestart.c so_long.c map_validation.c map_validation2.c
+SRC_FILES = gamestart.c so_long.c map_validation.c map_validation2.c sprite_related.c
 SRC = $(addprefix $(SRCDIR), $(SRC_FILES))
 OBJS = $(addprefix $(OBJDIR), $(notdir $(SRC:.c=.o)))
 NAME = so_long
@@ -25,7 +25,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
 	@$(MAKE) -s -C $(LIBFTDIR)
-	@$(MAKE) -C $(MLIBXDIR)
+	@$(MAKE) -s -C $(MLIBXDIR)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFTDIR)libft.a $(MLX_FLAGS) -o $(NAME)
 	@echo "$(PINK)Program $(NAME) created successfully.$(DEF_COLOR)"
 	@echo "$(LIGHT_BLUE)Objects compiled successfully.$(DEF_COLOR)"
@@ -40,8 +40,8 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 
 clean:
 	@rm -rf $(OBJDIR)
-	@$(MAKE) clean -C $(LIBFTDIR)
-	@cd $(MLIBXDIR) && $(MAKE) clean
+	@$(MAKE) clean -s -C $(LIBFTDIR)
+	@cd $(MLIBXDIR) && $(MAKE) -s clean
 	@echo "$(LIGHT_BLUE)so_long objs pa mrd$(DEF_COLOR)"
 
 mlxclean:
@@ -50,7 +50,7 @@ mlxclean:
 
 fclean: clean
 	@$(RM) $(NAME)
-	@$(MAKE) fclean -C $(LIBFTDIR)
+	@$(MAKE) fclean -s -C $(LIBFTDIR)
 	@echo "$(LIGHT_BLUE)so_long pa mrd$(DEF_COLOR)"
 
 re: fclean all
