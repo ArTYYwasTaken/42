@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/18 18:13:26 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/07/18 19:39:50 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int mv_path(t_map *map);
 int mv_floodfill(t_map *map, int x, int y, int collectables);
 void gamestart_map(t_game *game);
 void gamestart_poke(t_image *image, t_game *game);
-void pokeframes(t_animated_sprite *pokemon, char *name, t_game *game);
+int pokeframes(t_animated_sprite *pokemon, char *name, t_game *game);
 void cleanframes(t_animated_sprite *pokemon, int frame);
 
 #endif
