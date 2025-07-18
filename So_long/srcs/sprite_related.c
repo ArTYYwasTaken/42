@@ -6,52 +6,56 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:50:33 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/16 21:12:10 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/07/18 19:00:18 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	cleanframes(t_animated_sprite pokemon, int frame)
+void	cleanframes(t_animated_sprite *pokemon, int frame)
 {
 	int	i;
 
 	i = 0;
 	while (i < frame)
-		free (pokemon.frames[i++]);
+		free (pokemon->frames[i++]);
+	free(pokemon->frames);
+	pokemon->frames = NULL;
 }
 
-void	pokeframes(t_animated_sprite pokemon, char *name, 
-					t_game *game, t_map *map)
+void	pokeframes(t_animated_sprite *pokemon, char *name, t_game *game)
 {
 	int		i;
-	int		width;
-	int		height;
+	int		size;
 	char	filename[75];
 
+	size = PX;
 	i = 0;
-	width = map->width * PX;
-	height = map->height * PX;
-	while (i < pokemon.frame_count)
+	pokemon->frames = malloc(sizeof(t_sprite) * pokemon->frame_count);
+	if (!pokemon->frames)
+		return (perror("Failed to allocate poke frames"));
+	while (i < pokemon->frame_count)
 	{
 		sprintf(filename, "../sprites/Pokemons/%s/%s_%d.png", name, name, i);
-		pokemon.frames[i] = mlx_xpm_file_to_image(game->mlx, filename,
-				&width, &height);
+		pokemon->frames[i] = mlx_xpm_file_to_image(game->mlx, filename,
+				&size, &size);
+		if (!pokemon->frames[i])
+			return (cleanframes(pokemon, i));
 		i++;
 	}
 }
 
-void	gamestart_poke(t_image image, t_game *game, t_map *map)
+void	gamestart_poke(t_image *image, t_game *game)
 {
-	image.dialga.frame_count = 118;
-	image.palkia.frame_count = 78;
-	image.giratina.frame_count = 78;
-	pokeframes(image.dialga, "dialga", game, map);
-	pokeframes(image.palkia, "palkia", game, map);
-	pokeframes(image.giratina, "giratina", game, map);
+	image->dialga.frame_count = 118;
+	image->palkia.frame_count = 78;
+	image->giratina.frame_count = 78;
+	pokeframes(&image->dialga, "dialga", game);
+	pokeframes(&image->palkia, "palkia", game);
+	pokeframes(&image->giratina, "giratina", game);
 }
 
-void	gamestart_map(t_game *game, t_map *map)
+void	gamestart_map(t_game *game)
 {
 	int	size;
 
@@ -80,5 +84,5 @@ void	gamestart_map(t_game *game, t_map *map)
 			"../sprites/WB/outerSEcorner.png", &size, &size);
 	game->img.outSW_corner = mlx_xpm_file_to_image(game->mlx,
 			"../sprites/WB/outerSWcorner.png", &size, &size);
-	gamestart_poke(game->img, game, map);
+	gamestart_poke(&game->img, game);
 }
