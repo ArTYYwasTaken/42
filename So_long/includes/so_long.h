@@ -37,33 +37,41 @@ typedef void* t_sprite;
 
 typedef struct animated_sprite
 {
-    t_sprite	*frames;
-    int			frame_count;
+	t_sprite	*frames;
+	int			frame_count;
 
 } t_animated_sprite;
+
+typedef struct player
+{
+	int			player_frame;
+	int			player_frame_count;
+	t_sprite	*player_sprites;
+} t_player;
 
 typedef struct image
 {
 	t_animated_sprite	dialga;
-    t_animated_sprite	palkia;
-    t_animated_sprite	giratina;
-    t_sprite	exit;
-    t_sprite	floor;
-    t_sprite	W_wall;
-    t_sprite	E_wall;
-    t_sprite	N_wall;
-    t_sprite	S_wall;
-    t_sprite	NW_corner;
-    t_sprite	NE_corner;
-    t_sprite	outSW_corner;
-    t_sprite	outNW_corner;
-    t_sprite	outSE_corner;
-    t_sprite	outNE_corner;
+	t_animated_sprite	palkia;
+	t_animated_sprite	giratina;
+	t_sprite	exit;
+	t_sprite	floor;
+	t_sprite	W_wall;
+	t_sprite	E_wall;
+	t_sprite	N_wall;
+	t_sprite	S_wall;
+	t_sprite	NW_corner;
+	t_sprite	NE_corner;
+	t_sprite	outSW_corner;
+	t_sprite	outNW_corner;
+	t_sprite	outSE_corner;
+	t_sprite	outNE_corner;
 	
 } t_image;
 
 typedef struct game
 {
+	t_player player;
 	t_image img;
 	t_map *map;
 	void *mlx;

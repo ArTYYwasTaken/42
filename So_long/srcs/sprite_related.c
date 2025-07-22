@@ -36,7 +36,7 @@ int	pokeframes(t_animated_sprite *pokemon, char *name, t_game *game)
 		return (perror("Failed to allocate poke frames"), 0);
 	while (i < pokemon->frame_count)
 	{
-		sprintf(filename, "../sprites/Pokemons/%s/%s_%d.png", name, name, i);
+		sprintf(filename, "../sprites/Pokemons/%s/%s_%d.xpm", name, name, i);
 		pokemon->frames[i] = mlx_xpm_file_to_image(game->mlx, filename,
 				&size, &size);
 		if (!pokemon->frames[i])
@@ -65,28 +65,28 @@ void	gamestart_map(t_game *game)
 
 	size = PX;
 	game->img.floor = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/floor.png", &size, &size);
+			"../sprites/WB/floor.xpm", &size, &size);
 	game->img.exit = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/exit.png", &size, &size);
+			"../sprites/WB/exit.xpm", &size, &size);
 	game->img.W_wall = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/Ewall.png", &size, &size);
+			"../sprites/WB/Ewall.xpm", &size, &size);
 	game->img.S_wall = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/Swall.png", &size, &size);
+			"../sprites/WB/Swall.xpm", &size, &size);
 	game->img.E_wall = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/Wwall.png", &size, &size);
+			"../sprites/WB/Wwall.xpm", &size, &size);
 	game->img.N_wall = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/Nwall.png", &size, &size);
+			"../sprites/WB/Nwall.xpm", &size, &size);
 	game->img.NW_corner = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/NWwall.png", &size, &size);
+			"../sprites/WB/NWwall.xpm", &size, &size);
 	game->img.NE_corner = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/NEwall.png", &size, &size);
+			"../sprites/WB/NEwall.xpm", &size, &size);
 	game->img.outNE_corner = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/outerNEcorner.png", &size, &size);
+			"../sprites/WB/outerNEcorner.xpm", &size, &size);
 	game->img.outNW_corner = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/outerNWcorner.png", &size, &size);
+			"../sprites/WB/outerNWcorner.xpm", &size, &size);
 	game->img.outSE_corner = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/outerSEcorner.png", &size, &size);
+			"../sprites/WB/outerSEcorner.xpm", &size, &size);
 	game->img.outSW_corner = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/outerSWcorner.png", &size, &size);
+			"../sprites/WB/outerSWcorner.xpm", &size, &size);
 	gamestart_poke(&game->img, game);
 }
