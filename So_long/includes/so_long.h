@@ -17,20 +17,26 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <mlx.h>
+# include <time.h>
 
 # define PX 128
+# define NUM_BOLDERS 2
+# define NUM_POKE 3
 
-typedef struct map
+typedef struct s_map
 {
-	char **grid;
-	int height;
-	int width;
-	int player_x;
-	int player_y;
-	int col;
-	int exit_x;
-	int exit_y;
-	
+	char		**grid;
+	int			height;
+	int			width;
+	int			player_x;
+	int			player_y;
+	int			col;
+	int			exit_x;
+	int			exit_y;
+	int			moves;
+	t_player	player;
+	t_image		img;
+
 } t_map;
 
 typedef void* t_sprite;
@@ -42,61 +48,102 @@ typedef struct animated_sprite
 
 } t_animated_sprite;
 
-typedef struct player
+typedef struct s_collectable
+{
+	int	x;
+	int	y;
+	int	pokemon_type;
+	int	frame;
+
+} t_collectable;
+
+typedef struct s_player
 {
 	int			player_frame;
 	int			player_frame_count;
-	t_sprite	*player_sprites;
+	t_sprite	Down0;
+	t_sprite	Down1;
+	t_sprite	Down2;
+	t_sprite	Up0;
+	t_sprite	Up1;
+	t_sprite	Up2;
+	t_sprite	Left0;
+	t_sprite	Left1;
+	t_sprite	Left2;
+	t_sprite	Right0;
+	t_sprite	Right1;
+	t_sprite	Right2;
+	int			x;
+	int			y;
+
 } t_player;
 
-typedef struct image
+typedef struct s_image
 {
 	t_animated_sprite	dialga;
 	t_animated_sprite	palkia;
 	t_animated_sprite	giratina;
-	t_sprite	exit;
-	t_sprite	floor;
-	t_sprite	W_wall;
-	t_sprite	E_wall;
-	t_sprite	N_wall;
-	t_sprite	S_wall;
-	t_sprite	NW_corner;
-	t_sprite	NE_corner;
-	t_sprite	outSW_corner;
-	t_sprite	outNW_corner;
-	t_sprite	outSE_corner;
-	t_sprite	outNE_corner;
+	t_sprite			exit;
+	t_sprite			floor;
+	t_sprite			W_wall;
+	t_sprite			E_wall;
+	t_sprite			N_wall;
+	t_sprite			S_wall;
+	t_sprite			NW_corner;
+	t_sprite			NE_corner;
+	t_sprite			outSW_corner;
+	t_sprite			outNW_corner;
+	t_sprite			outSE_corner;
+	t_sprite			outNE_corner;
+	t_sprite			bolder_1;
+	t_sprite			bolder_2;
 	
 } t_image;
 
-typedef struct game
+typedef struct s_game
 {
-	t_player player;
-	t_image img;
-	t_map *map;
-	void *mlx;
-	void *win;
-	int exit;
+	t_collectable	col;
+	t_player		player;
+	t_image			img;
+	t_map			*map;
+	void			*mlx;
+	void			*win;
+	int				exit;
 
 } t_game;
 
-t_map *gamestart(char *mapfile);
-int map_fileformat(char *mapfile);
-int map_getheight(char *mapfile);
-t_map *map_gridfill(t_map *map, char *mapfile);
-void clean_map(t_map *map);
-void displaygrid(t_map *map);
-int	map_validation(t_map *map);
-int	mv_borders(t_map *map);
-int mv_characters(t_map *map);
-int	mv_player(t_map *map);
-int	mv_exit(t_map *map);
-int	mv_collectables(t_map *map);
-int mv_path(t_map *map);
-int mv_floodfill(t_map *map, int x, int y, int collectables);
-void gamestart_map(t_game *game);
-void gamestart_poke(t_image *image, t_game *game);
-int pokeframes(t_animated_sprite *pokemon, char *name, t_game *game);
-void cleanframes(t_animated_sprite *pokemon, int frame);
+t_map		*gamestart(char *mapfile);
+int			map_fileformat(char *mapfile);
+int			map_getheight(char *mapfile);
+t_map		*map_gridfill(t_map *map, char *mapfile);
+void		clean_map(t_map *map);
+void		displaygrid(t_map *map);
+int			map_validation(t_map *map);
+int			mv_borders(t_map *map);
+int			mv_characters(t_map *map);
+int			mv_player(t_map *map);
+int			mv_exit(t_map *map);
+int			mv_collectables(t_map *map);
+int			mv_path(t_map *map);
+int			mv_floodfill(t_map *map, int x, int y, int collectables);
+void		gamestart_map(t_game *game);
+void		gamestart_poke(t_image *image, t_game *game);
+void		gamestart_player(t_player player, t_game *game, int size);
+int			pokeframes(t_animated_sprite *pokemon, char *name, t_game *game);
+void		print_error(char *msg);
+void		randomization(t_map *map, t_collectable *col, int *col_count);
+void		bolder_rand(t_map *map, int y, int x);
+void		poke_rand(t_collectable *col, int y, int x, int *i);
+void		free_game(t_game *game);
+void		clean_pokeframes(t_animated_sprite *pokemon, int frame);
+void		clean_player(t_player *player, void *mlx);
+void		clean_images(t_image *img, void *mlx);
+void		clean_map(t_map *map);
+t_sprite	wall_placement(t_image img,t_map *map, int y, int x);
+void 		draw_sprite(t_game *game, t_sprite sprite, int y, int x);
+int 		find_pokemon_index(t_game *game, int x, int y);
+t_sprite	poke_tiles(t_game *game, t_collectable *col, int y, int x);
+void		draw_map_row(t_game *game, t_collectable *col, int y);
+void 		draw_map(t_game *game, t_collectable *col);
 
 #endif

@@ -12,17 +12,6 @@
 
 #include "so_long.h"
 
-void	cleanframes(t_animated_sprite *pokemon, int frame)
-{
-	int	i;
-
-	i = 0;
-	while (i < frame)
-		free (pokemon->frames[i++]);
-	free(pokemon->frames);
-	pokemon->frames = NULL;
-}
-
 int	pokeframes(t_animated_sprite *pokemon, char *name, t_game *game)
 {
 	int		i;
@@ -33,7 +22,7 @@ int	pokeframes(t_animated_sprite *pokemon, char *name, t_game *game)
 	i = 0;
 	pokemon->frames = malloc(sizeof(t_sprite) * pokemon->frame_count);
 	if (!pokemon->frames)
-		return (perror("Failed to allocate poke frames"), 0);
+		return (print_error("Failed to allocate poke frames"), 0);
 	while (i < pokemon->frame_count)
 	{
 		sprintf(filename, "../sprites/Pokemons/%s/%s_%d.xpm", name, name, i);
@@ -52,11 +41,39 @@ void	gamestart_poke(t_image *image, t_game *game)
 	image->palkia.frame_count = 79;
 	image->giratina.frame_count = 79;
 	if (!pokeframes(&image->dialga, "dialga", game))
-		perror("Failed to load Dialga frames\n");
+		print_error("Failed to load Dialga frames");
 	if (!pokeframes(&image->palkia, "palkia", game))
-		perror("Failed to load Palkia frames\n");
+		print_error("Failed to load Palkia frames");
 	if (!pokeframes(&image->giratina, "giratina", game))
-		perror("Failed to load Giratina frames\n");
+		print_error("Failed to load Giratina frames");
+}
+
+void	gamestart_player(t_player player, t_game *game, int size)
+{
+	player.Down0 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/S0_Player.xpm", &size, &size);
+	player.Down1 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/S1_Player.xpm", &size, &size)
+	player.Down2 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/S3_Player.xpm", &size, &size)
+	player.Left0 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/W0_Player.xpm", &size, &size)
+	player.Left1 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/W1_Player.xpm", &size, &size)
+	player.Left2 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/W3_Player.xpm", &size, &size)
+	player.Right0 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/E0_Player.xpm", &size, &size)
+	player.Right1 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/E1_Player.xpm", &size, &size)
+	player.Right2 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/E3_Player.xpm", &size, &size)
+	player.Up0 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/N0_Player.xpm", &size, &size)
+	player.Up1 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/N1_Player.xpm", &size, &size)
+	player.Up2 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/Player/N3_Player.xpm", &size, &size)
 }
 
 void	gamestart_map(t_game *game)
@@ -80,13 +97,19 @@ void	gamestart_map(t_game *game)
 			"../sprites/WB/NWwall.xpm", &size, &size);
 	game->img.NE_corner = mlx_xpm_file_to_image(game->mlx,
 			"../sprites/WB/NEwall.xpm", &size, &size);
-	game->img.outNE_corner = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/outerNEcorner.xpm", &size, &size);
-	game->img.outNW_corner = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/outerNWcorner.xpm", &size, &size);
-	game->img.outSE_corner = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/outerSEcorner.xpm", &size, &size);
-	game->img.outSW_corner = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/outerSWcorner.xpm", &size, &size);
-	gamestart_poke(&game->img, game);
+	game->img.bolder_1 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/WB/bolder1.xpm", &size, &size);
+	game->img.bolder_2 = mlx_xpm_file_to_image(game->mlx,
+			"../sprites/WB/bolder2.xpm", &size, &size);
+	gamestart_poke(&game->map->img, game);
+	gamestart_player(&game->map->player, game, size);
 }
+
+	// game->img.outNE_corner = mlx_xpm_file_to_image(game->mlx,
+	// 		"../sprites/WB/outerNEcorner.xpm", &size, &size);
+	// game->img.outNW_corner = mlx_xpm_file_to_image(game->mlx,
+	// 		"../sprites/WB/outerNWcorner.xpm", &size, &size);
+	// game->img.outSE_corner = mlx_xpm_file_to_image(game->mlx,
+	// 		"../sprites/WB/outerSEcorner.xpm", &size, &size);
+	// game->img.outSW_corner = mlx_xpm_file_to_image(game->mlx,
+	// 		"../sprites/WB/outerSWcorner.xpm", &size, &size);

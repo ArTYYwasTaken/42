@@ -5,7 +5,9 @@ OBJDIR = ./objs/
 LIBSDIR = ./libs/
 LIBFTDIR = $(LIBSDIR)Libft/
 MLIBXDIR = $(LIBSDIR)minilibx-linux/
-SRC_FILES = gamestart.c so_long.c map_validation.c map_validation2.c sprite_related.c
+SRC_FILES = 1-so_long.c 2-gamestart.c 3-map_validation.c 4-map_validation2.c 5-file_to_image.c\
+6-randomization.c 7-char_to_game.c cleaning_functions.c display_errors.c display_errors.c\
+
 SRC = $(addprefix $(SRCDIR), $(SRC_FILES))
 OBJS = $(addprefix $(OBJDIR), $(notdir $(SRC:.c=.o)))
 NAME = so_long

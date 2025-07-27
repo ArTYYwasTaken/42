@@ -119,16 +119,16 @@ int	mv_borders(t_map *map)
 int	map_validation(t_map *map)
 {
 	if (!mv_borders(map))
-		return (perror("Failed borders validation"), 0);
+		return (print_error("Failed borders validation"), 0);
 	if (!mv_characters(map))
-		return (perror("Invalid characters found"), 0);
+		return (print_error("Invalid characters found"), 0);
 	if (!mv_player(map))
-		return (perror("Failed player requirement"), 0);
+		return (print_error("Failed player requirement"), 0);
 	if (!mv_exit(map))
-		return (perror("Failed exit requirement"), 0);
+		return (print_error("Failed exit requirement"), 0);
 	if (!mv_collectables(map))
-		return (perror("Failed to meet collectables requirement"), 0);
+		return (print_error("Failed to meet collectables requirement"), 0);
 	if (!mv_path(map))
-		return (perror("Invalid path"), 0);
+		return (print_error("Invalid path"), 0);
 	return (1);
 }

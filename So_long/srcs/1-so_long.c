@@ -17,23 +17,25 @@ int main(int argc, char **argv)
 	t_game	*game;
 
 	if (argc != 2)
-		return (ft_printf("Invalid Number of Arguments"));
+		return (print_error("Invalid Number of Arguments"), 1);
 	game = malloc(sizeof(t_game));
 	if (!game)
-		return (0);
+		return (print_error("Failed to allocate gane"), 1);
 	game->map = gamestart(argv[1]);
 	if (!game->map)
-		return (free(game), ft_printf("Merda\n"));
+		return (free_game(game), print_error("Merda no mapa\n"));
+	game->collectables = malloc(sizeof(t_collectable) * game->map->col);
+    if (!game->collectables)
+        return (free_game(game), print_error("Collectable alloc failed\n"), 1);
+	randomization(game->map, game->collectables, &game->map->col);
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		return (free(game), ft_printf("Merda no mlx"));
+		return (free_game(game), print_error("Merda no mlx"), 1);
 	game->win = mlx_new_window(game->mlx, game->map->width * PX,
 					game->map->height * PX, "PokeLong");
 	if(!game->win)	
-		return (free(game->win), ft_printf("Merda na window"));
+		return (free_game(game), print_error("Merda na window"), 1);
 	gamestart_map(game);
 	
-	free(game->map);
-	free (game);
 	return (ft_printf("Trnql\n"));
 }

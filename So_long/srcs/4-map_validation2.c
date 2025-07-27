@@ -34,7 +34,7 @@ int	mv_collectables(t_map *map)
 	map->col = collectables;
 	if (collectables < 1)
 		return (0);
-	return (1);
+	return (collectables);
 }
 
 int mv_floodfill(t_map *map, int x, int y, int collectables)
@@ -66,10 +66,10 @@ int mv_path(t_map *map)
 
 	mapdup = malloc(sizeof(t_map));
 	if (!mapdup)
-		return (perror("Failed to allocate mapdup"), free(mapdup), 0);
+		return (print_error("Failed to allocate mapdup"), free(mapdup), 0);
 	mapdup->grid = malloc((map->height + 1) * sizeof(char *));
 	if (!mapdup->grid)
-		return (perror("Failed to allocate mapdup grid"), free(mapdup), 0);
+		return (print_error("Failed to allocate mapdup grid"), free(mapdup), 0);
 	mapdup->grid[map->height] = NULL;
 	y = 0;
 	while (y < map->height)

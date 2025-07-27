@@ -12,22 +12,6 @@
 
 #include "so_long.h"
 
-void clean_map(t_map *map)
-{
-	size_t	i;
-
-	i = 0;
-	if (map->grid)
-	{
-		
-		while (map->grid[i])
-			free(map->grid[i++]);
-		free(map->grid);
-	}
-	if (map)
-		free(map);
-}
-
 int map_fileformat(char *mapfile)
 {
 	char	*pastdot;
@@ -48,7 +32,7 @@ int map_getheight(char *mapfile)
 	
 	fd = open(mapfile, O_RDONLY);
 	if (fd < 0)
-		return (perror("Invalid fd"), 0);
+		return (print_error("Invalid fd"), 0);
 	count = 0;
 	while (1)
 	{
@@ -80,7 +64,7 @@ t_map *map_gridfill(t_map *map, char *mapfile)
 
 	fd = open(mapfile, O_RDONLY);
 	if (fd < 0)
-		return (perror ("Invalid fd"), NULL);
+		return (print_error("Invalid fd"), NULL);
 	map->grid[map->height] = NULL;
 	y = 0;
 	while (y < map->height)
@@ -103,19 +87,19 @@ t_map *gamestart(char *mapfile)
 	
 	map = malloc(sizeof(t_map));
 	if (!map)
-		return (perror("Failed to allocate map"), free(map), NULL);
+		return (print_error("Failed to allocate map"), free(map), NULL);
 	if (!map_fileformat(mapfile))
-		return (perror("Invalid file format"), free(map), NULL);
+		return (print_error("Invalid file format"), free(map), NULL);
 	map->height = map_getheight(mapfile);
 	if (map->height <= 2)
-		return (perror("Below map height required"), free(map), NULL);
+		return (print_error("Below map height required"), free(map), NULL);
 	map->grid = malloc((map->height + 1) * sizeof(char *));
 	if (!map->grid)
-		return (perror("Failed to allocate map grid"), free(map), NULL);
+		return (print_error("Failed to allocate map grid"), free(map), NULL);
 	map = map_gridfill(map, mapfile);
 	if (!map->grid)
-		return (perror("Failed to load map"), clean_map(map), NULL);
+		return (print_error("Failed to load map"), clean_map(map), NULL);
 	if (!map_validation(map))
-		return (perror("Failed map validation"), clean_map(map), NULL);
+		return (print_error("Failed map validation"), clean_map(map), NULL);
 	return (map);
 }
