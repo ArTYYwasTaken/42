@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   displayer_errors.c                                 :+:      :+:    :+:   */
+/*   game_ending.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>              +#+  +:+       +#+    */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/24 19:30:09 by kemontei            #+#    #+#           */
-/*   Updated: 2025/07/24 19:30:10 by kemontei           ###   ########.fr     */
+/*   Created: 2025/07/30 05:44:00 by marvin            #+#    #+#             */
+/*   Updated: 2025/07/30 05:44:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <so_long.h>
+#include "so_long.h"
 
-void	print_error(char *msg)
+void    game_won(t_game *game)
 {
-	char	*header;
+    free_game(game);
+    win_message();
+    kakashi_thumbsup();
+}
 
-	header = "\033[1;31m🛑Error\033[0m\n";
-	write(2, header, ft_strlen(header));
-	ft_putstr_fd(msg, 2);
-	write(2, "\n", 1);
+void    game_lost(t_game *game)
+{
+    free_game(game);
+    lose_message();
+    rope();
+    rope2();
 }

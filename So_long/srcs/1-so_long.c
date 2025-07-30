@@ -36,6 +36,7 @@ int main(int argc, char **argv)
 	if(!game->win)	
 		return (free_game(game), print_error("Merda na window"), 1);
 	gamestart_map(game);
-	
-	return (ft_printf("Trnql\n"));
+	mlx_loop_hook(game->mlx, game_loop, game);
+	mlx_key_hook(game->mlx, key_inputs, game);
+	mlx_loop(game->mlx);
 }

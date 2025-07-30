@@ -104,12 +104,3 @@ void	gamestart_map(t_game *game)
 	gamestart_poke(&game->map->img, game);
 	gamestart_player(&game->map->player, game, size);
 }
-
-	// game->img.outNE_corner = mlx_xpm_file_to_image(game->mlx,
-	// 		"../sprites/WB/outerNEcorner.xpm", &size, &size);
-	// game->img.outNW_corner = mlx_xpm_file_to_image(game->mlx,
-	// 		"../sprites/WB/outerNWcorner.xpm", &size, &size);
-	// game->img.outSE_corner = mlx_xpm_file_to_image(game->mlx,
-	// 		"../sprites/WB/outerSEcorner.xpm", &size, &size);
-	// game->img.outSW_corner = mlx_xpm_file_to_image(game->mlx,
-	// 		"../sprites/WB/outerSWcorner.xpm", &size, &size);
