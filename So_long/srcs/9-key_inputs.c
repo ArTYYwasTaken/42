@@ -12,19 +12,6 @@
 
 #include "so_long.h"
 
-// void	move_resume(t_map *map, int y, int x, int key)
-// {
-// 	if (key = W || key == UP)
-// 		y -= 1;
-// 	if (key = S || key == DOWN)
-// 		y += 1;
-// 	if (key = A || key == LEFT)
-// 		x -= 1;
-// 	if (key = W || key == RIGHT)
-// 		x += 1;
-// 	map->moves++;
-// }
-
 void	check_col_exit(t_game *game, char tile)
 {
 	if (tile == 'C')
@@ -32,7 +19,7 @@ void	check_col_exit(t_game *game, char tile)
 		tile == '0';
 		game->map->col--;
 	}
-	if (tile == 'E')
+	else if (tile == 'E')
 	{
 		if (game->map->col == 0)
 			return (game_won(game));
@@ -45,11 +32,11 @@ void 	handle_enter(t_game *game, int y, int x)
 {
 	if (game->map->LastInput == 'N')
 		check_col_exit(game, game->map->grid[y - 1][x]);
-	if (game->map->LastInput == 'S')
+	else if (game->map->LastInput == 'S')
 		check_col_exit(game, game->map->grid[y + 1][x]);
-	if (game->map->LastInput == 'W')
+	else if (game->map->LastInput == 'W')
 		check_col_exit(game, game->map->grid[y][x - 1]);
-	if (game->map->LastInput == 'E')
+	else if (game->map->LastInput == 'E')
 		check_col_exit(game, game->map->grid[y][x + 1]);
 	else
 		return ;
@@ -62,15 +49,15 @@ void	key_inputs(int keycode, void *param)
 	game = param;
 	if (keycode == W || keycode == UP)
 		move_up(game);
-	if (keycode == A || keycode == LEFT)
+	else if (keycode == A || keycode == LEFT)
 		move_left(game);
-	if (keycode == S || keycode == DOWN)
+	else if (keycode == S || keycode == DOWN)
 		move_down(game);
-	if (keycode == D || keycode == RIGHT)
+	else if (keycode == D || keycode == RIGHT)
 		move_right(game);
-	if (keycode == ENTER)
+	else if (keycode == ENTER)
 		handle_enter(game, game->map->player_y, game->map->player_x);
-	if (keycode == ESC)
+	else if (keycode == ESC)
 	{
 		game_lost(game);
 		exit(EXIT_SUCCESS);
