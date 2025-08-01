@@ -78,7 +78,7 @@ int	game_loop(t_game *game)
 	animation_timer++;
 	if (animation_timer >= 10)
 	{
-		animate_pokemon(game);
+		animate_pokemon(game->collectables, game->map->col, game->img);
 		animation_timer = 0;
 	}
 	draw_map(game, game->collectables);

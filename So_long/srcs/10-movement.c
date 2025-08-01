@@ -20,7 +20,7 @@ void    move_up(t_game *game)
     y = game->map->player_y;
     x = game->map->player_x;
     if (map->grid[y - 1][x] == 'C' || map->grid[y - 1][x] == 'E'
-	|| map->grid[y - 1][x] == '1')
+	    || map->grid[y - 1][x] == '1')
     {
 		game->map->moves++;
         game->map->grid[y][x] = '0'
@@ -31,7 +31,7 @@ void    move_up(t_game *game)
     move_animation_up(game, y, x);
 	game->map->player_y = y;
 	game->map->player_x = x;
-	game->map->LastInput = 'N';
+	game->map->last_input = 'N';
 }
 
 void    move_down(t_game *game)
@@ -42,7 +42,7 @@ void    move_down(t_game *game)
     y = game->map->player_y;
     x = game->map->player_x;
     if (map->grid[y + 1][x] == 'C' || map->grid[y + 1][x] == 'E'
-	|| map->grid[y + 1][x] == '1')
+	    || map->grid[y + 1][x] == '1')
     {
 		game->map->moves++;
         game->map->grid[y][x] = '0'
@@ -53,7 +53,7 @@ void    move_down(t_game *game)
     move_animation_down(game, y, x);
 	game->map->player_y = y;
 	game->map->player_x = x;
-	game->map->LastInput = 'S';
+	game->map->last_input = 'S';
 }
 
 void    move_left(t_game *game)
@@ -75,7 +75,7 @@ void    move_left(t_game *game)
     move_animation_left(game, y, x);
 	game->map->player_y = y;
 	game->map->player_x = x;
-	game->map->LastInput = 'W';
+	game->map->last_input = 'W';
 }
 
 void    move_right(t_game *game)
@@ -97,5 +97,5 @@ void    move_right(t_game *game)
     move_animation_right(game, y, x);
 	game->map->player_y = y;
 	game->map->player_x = x;
-	game->map->LastInput = 'E';
+	game->map->last_input = 'E';
 }

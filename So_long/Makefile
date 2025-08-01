@@ -6,7 +6,9 @@ LIBSDIR = ./libs/
 LIBFTDIR = $(LIBSDIR)Libft/
 MLIBXDIR = $(LIBSDIR)minilibx-linux/
 SRC_FILES = 1-so_long.c 2-gamestart.c 3-map_validation.c 4-map_validation2.c 5-file_to_image.c\
-6-randomization.c 7-char_to_game.c cleaning_functions.c display_errors.c display_errors.c\
+6-randomization.c 7-game_loop.c 8-draw_map_utils.c 9-key_inputs.c 10-movement.c\
+11-movement_animation.c cleaning_free_game.c cleaning_functions.c display_messages.c game_ending.c\
+win-lose_messages
 
 SRC = $(addprefix $(SRCDIR), $(SRC_FILES))
 OBJS = $(addprefix $(OBJDIR), $(notdir $(SRC:.c=.o)))

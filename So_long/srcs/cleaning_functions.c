@@ -36,7 +36,7 @@ void	clean_pokeframes(t_animated_sprite *pokemon, int frame)
 	if (!pokemon || !pokemon->frames)
 		return ;
 	while (i < frame)
-		free (pokemon->frames[i++]);
+		free(pokemon->frames[i++]);
 	free(pokemon->frames);
 	pokemon->frames = NULL;
 }
@@ -72,7 +72,7 @@ void	clean_images(t_image *img, void *mlx)
 
 void	clean_player(t_player *player, void *mlx)
 {
-	if (!img || !mlx)
+	if (!player || !mlx)
 		return ;
 	if (player->Down0)
 		mlx_destroy_image(mlx, player->Down0);
@@ -86,6 +86,10 @@ void	clean_player(t_player *player, void *mlx)
 		mlx_destroy_image(mlx, player->Left1);
 	if (player->Left2)
 		mlx_destroy_image(mlx, player->Left2);
+}
+
+void	clean_player2(t_player *player, void *mlx)
+{
 	if (player->Right0)
 		mlx_destroy_image(mlx, player->Right0);
 	if (player->Right1)
@@ -98,21 +102,4 @@ void	clean_player(t_player *player, void *mlx)
 		mlx_destroy_image(mlx, player->Up1);
 	if (player->Up2)
 		mlx_destroy_image(mlx, player->Up2);
-}
-
-void	free_game(t_game *game)
-{
-	if (!game)
-		return ;
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	if (game->mlx)
-		mlx_destroy_display(game->mlx);
-	clean_images(&game->img, game->mlx);
-	clean_player(&game->player, game->mlx);
-	if (game->collectables)
-		free(game->collectables);
-	if (game->map)
-		clean_map(game->map);
-	free(game);
 }

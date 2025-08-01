@@ -29,7 +29,7 @@ int	pokeframes(t_animated_sprite *pokemon, char *name, t_game *game)
 		pokemon->frames[i] = mlx_xpm_file_to_image(game->mlx, filename,
 				&size, &size);
 		if (!pokemon->frames[i])
-			return (cleanframes(pokemon, i), 0);
+			return (clean_pokeframes(pokemon, i), 0);
 		i++;
 	}
 	return (1);
@@ -53,27 +53,27 @@ void	gamestart_player(t_player player, t_game *game, int size)
 	player.Down0 = mlx_xpm_file_to_image(game->mlx,
 			"../sprites/Player/S0_Player.xpm", &size, &size);
 	player.Down1 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/S1_Player.xpm", &size, &size)
+			"../sprites/Player/S1_Player.xpm", &size, &size);
 	player.Down2 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/S3_Player.xpm", &size, &size)
+			"../sprites/Player/S3_Player.xpm", &size, &size);
 	player.Left0 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/W0_Player.xpm", &size, &size)
+			"../sprites/Player/W0_Player.xpm", &size, &size);
 	player.Left1 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/W1_Player.xpm", &size, &size)
+			"../sprites/Player/W1_Player.xpm", &size, &size);
 	player.Left2 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/W3_Player.xpm", &size, &size)
+			"../sprites/Player/W3_Player.xpm", &size, &size);
 	player.Right0 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/E0_Player.xpm", &size, &size)
+			"../sprites/Player/E0_Player.xpm", &size, &size);
 	player.Right1 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/E1_Player.xpm", &size, &size)
+			"../sprites/Player/E1_Player.xpm", &size, &size);
 	player.Right2 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/E3_Player.xpm", &size, &size)
+			"../sprites/Player/E3_Player.xpm", &size, &size);
 	player.Up0 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/N0_Player.xpm", &size, &size)
+			"../sprites/Player/N0_Player.xpm", &size, &size);
 	player.Up1 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/N1_Player.xpm", &size, &size)
+			"../sprites/Player/N1_Player.xpm", &size, &size);
 	player.Up2 = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/Player/N3_Player.xpm", &size, &size)
+			"../sprites/Player/N3_Player.xpm", &size, &size);
 }
 
 void	gamestart_map(t_game *game)
@@ -86,11 +86,11 @@ void	gamestart_map(t_game *game)
 	game->img.exit = mlx_xpm_file_to_image(game->mlx,
 			"../sprites/WB/exit.xpm", &size, &size);
 	game->img.W_wall = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/Ewall.xpm", &size, &size);
+			"../sprites/WB/Wwall.xpm", &size, &size);
 	game->img.S_wall = mlx_xpm_file_to_image(game->mlx,
 			"../sprites/WB/Swall.xpm", &size, &size);
 	game->img.E_wall = mlx_xpm_file_to_image(game->mlx,
-			"../sprites/WB/Wwall.xpm", &size, &size);
+			"../sprites/WB/Ewall.xpm", &size, &size);
 	game->img.N_wall = mlx_xpm_file_to_image(game->mlx,
 			"../sprites/WB/Nwall.xpm", &size, &size);
 	game->img.NW_corner = mlx_xpm_file_to_image(game->mlx,

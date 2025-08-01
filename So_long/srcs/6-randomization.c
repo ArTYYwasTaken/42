@@ -32,26 +32,33 @@ void	bolder_rand(t_map *map, int y, int x)
 		map->grid[y][x] = '3';
 }
 
+void	randomize_cell(t_map *map, t_collectable *col, int y, int x, int *i)
+{
+	if (map->grid[y][x] == 'C')
+		poke_rand(col, y, x, i);
+	if (map->grid[y][x] == '1')
+		bolder_rand(map, y, x);
+}
+
 void	randomization(t_map *map, t_collectable *col, int *col_count)
 {
-	srand(time(NULL));
-	int	i;
-	int	x;
-	int	y;
+	static int	seeded;
+	int			i;
+	int			x;
+	int			y;
 
+	if (!seeded)
+	{
+		srand(time(NULL));
+		seeded = 1;
+	}
 	i = 0;
 	y = 1;
 	while (y < map->height - 1)
 	{
 		x = 1;
 		while (x < map->width - 1)
-		{
-			if (map->grid[y][x] == 'C')
-				poke_rand(col, y, x, &i);
-			if (map->grid[y][x] == '1')
-				bolder_rand(map, y, x);
-			x++;
-		}
+			randomize_cell(map, col, y, x++, &i);
 		y++;
 	}
 	*col_count = i;

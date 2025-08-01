@@ -66,7 +66,7 @@ int mv_path(t_map *map)
 
 	mapdup = malloc(sizeof(t_map));
 	if (!mapdup)
-		return (print_error("Failed to allocate mapdup"), free(mapdup), 0);
+		return (print_error("Failed to allocate mapdup"), 0);
 	mapdup->grid = malloc((map->height + 1) * sizeof(char *));
 	if (!mapdup->grid)
 		return (print_error("Failed to allocate mapdup grid"), free(mapdup), 0);
@@ -82,6 +82,5 @@ int mv_path(t_map *map)
 	mapdup->player_y = map->player_y;
 	floodfill = mv_floodfill(mapdup, mapdup->player_x, mapdup->player_y,
 				mapdup->col);
-	ft_printf("%d\n", floodfill);
 	return (clean_map(mapdup), floodfill);
 }

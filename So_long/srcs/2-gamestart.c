@@ -12,7 +12,7 @@
 
 #include "so_long.h"
 
-int map_fileformat(char *mapfile)
+int	map_fileformat(char *mapfile)
 {
 	char	*pastdot;
 	
@@ -24,7 +24,7 @@ int map_fileformat(char *mapfile)
 	return (1);
 }
 
-int map_getheight(char *mapfile)
+int	map_getheight(char *mapfile)
 {
 	int		fd;
 	char	*line;
@@ -45,10 +45,11 @@ int map_getheight(char *mapfile)
 	return (close (fd), count);
 }
 
-void displaygrid(t_map *map)
+void	displaygrid(t_map *map)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while(map->grid[i])
 	{
 		ft_printf("%s\t%d\n", map->grid[i], ft_strlen(map->grid[i]));
