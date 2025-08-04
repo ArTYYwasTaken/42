@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
-# include "../libs/Libft/includes/libft.h"
+# include "../../libs/Libft/includes/libft.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <mlx.h>
@@ -67,8 +67,8 @@ typedef struct s_player
 	t_sprite	Right0;
 	t_sprite	Right1;
 	t_sprite	Right2;
-	int			x;
-	int			y;
+	// int			x;
+	// int			y;
 
 } t_player;
 

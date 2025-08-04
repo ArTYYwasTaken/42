@@ -10,12 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 t_sprite	wall_placement(t_image img,t_map *map, int y, int x)
 {
-	t_sprite	wall;
-
 	if(x == 0 && y == 0)
 		return (img.NW_corner);
 	else if (x == map->width - 1 && y == 0)

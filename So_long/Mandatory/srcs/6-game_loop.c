@@ -12,29 +12,35 @@
 
 #include "so_long.h"
 
-void	animate_pokemon(t_collectable *collectables, int pokecount, t_image img)
+t_sprite	wall_placement(t_image img,t_map *map, int y, int x)
 {
-	int	i;
-	int	poke_type;
-	int	frame_count;
-
-	i = 0;
-	while (i < pokecount)
-	{
-		poke_type = collectables[i].pokemon_type;
-		frame_count = 1;
-		if (poke_type == 0)
-			frame_count = img.dialga.frame_count;
-		else if (poke_type == 1)
-			frame_count = img.palkia.frame_count;
-		else if (poke_type == 2)
-			frame_count = img.giratina.frame_count;
-		collectables[i].frame = (collectables[i].frame + 1) % frame_count;
-		i++;
-	}
+	if(x == 0 && y == 0)
+		return (img.NW_corner);
+	else if (x == map->width - 1 && y == 0)
+		return (img.NE_corner);
+	else if (y == 0)
+		return (img.N_wall);
+	else if (y == map->height - 1)
+		return (img.S_wall);
+	else if (x == 0)
+		return (img.W_wall);
+	else if (x == map->width - 1)
+		return (img.E_wall);
+	else
+		return (img.bolder);
 }
 
-void	draw_map_row(t_game *game, t_collectable *col, int y)
+void	draw_sprite(t_game *game, t_sprite sprite, int y, int x)
+{
+	int	pxl_x;
+	int	pxl_y;
+
+	pxl_x = x * PX;
+	pxl_y = y * PX;
+	mlx_put_image_to_window(game->mlx, game->win, sprite, pxl_x, pxl_y);
+}
+
+void	draw_map_row(t_game *game, int y)
 {
 	int			x;
 	t_sprite	sprite;
@@ -44,43 +50,29 @@ void	draw_map_row(t_game *game, t_collectable *col, int y)
 	while (x < game->map->width)
 	{
 		tile = game->map->grid[y][x];
-		if (tile == '1' || tile == '2' || tile == '3')
-			sprite = wall_placement(game->img, game->map, x, y);
+		if (tile == '1')
+			sprite = wall_placement(game->img, game->map, y, x);
 		else if (tile == 'P')
-			sprite = game->player.Down0;
+			sprite = game->img.player;
 		else if (tile == 'E')
 			sprite = game->img.exit;
 		else if (tile == 'C')
-			sprite = poke_tiles(game, col, x, y);
+			sprite = game->img.dialga;
 		else
 			sprite = game->img.floor;
-		draw_sprite(game, sprite, x, y);
+		draw_sprite(game, sprite, y, x);
 		x++;
 	}
 }
 
-void	draw_map(t_game *game, t_collectable *col)
+void	draw_map(t_game *game)
 {
 	int y;
 
 	y = 0;
 	while (y < game->map->height)
 	{
-		draw_map_row(game, col, y, col_count);
+		draw_map_row(game, y);
 		y++;
 	}
-}
-
-int	game_loop(t_game *game)
-{
-	static int animation_timer = 0;
-	
-	animation_timer++;
-	if (animation_timer >= 10)
-	{
-		animate_pokemon(game->collectables, game->map->col, game->img);
-		animation_timer = 0;
-	}
-	draw_map(game, game->collectables);
-	return (0);
 }
