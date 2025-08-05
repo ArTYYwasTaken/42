@@ -2,7 +2,7 @@
 NAME = so_long
 NAME_BONUS = so_long_bonus
 
-# Variables
+# Directories
 MDTDIR = ./Mandatory/
 BONUSDIR = ./Bonus/
 INCDIR = includes/
@@ -10,6 +10,7 @@ SRCDIR = srcs/
 OBJDIR = ./objs/
 LIBSDIR = ./libs/
 LIBFTDIR = $(LIBSDIR)Libft/
+LIBFT = $(LIBFTDIR)libft.a
 MLIBXDIR = $(LIBSDIR)minilibx-linux/
 INC = $(addprefix $(MDT_DIR), $(INC_DIR))
 INC_BONUS = $(addprefix $(BONUS_DIR), $(INC_DIR)) 
@@ -18,7 +19,7 @@ INCLUDE	+= -I $(INC_BONUS)
 
 # Files
 SRC_FILES = 1-so_long.c 2-gamestart.c 3-map_validation.c 4-map_validation2.c 5-file_to_image.c\
-6-game_loop.c 7-key_inputs.c 8-movement.c cleaning_functions.c display_messages.c\
+6-draw_map.c 7-key_inputs.c 8-movement.c cleaning_functions.c display_messages.c\
 game_ending.c win-lose_messages
 
 BONUS_SRC_FILES = 1-so_long_bonus.c 2-gamestart_bonus.c 3-map_validation_bonus.c 4-map_validation2_bonus.c 5-file_to_image_bonus.c\
@@ -65,7 +66,7 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 bonus:	 $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJS_BONUS)
-	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFTDIR)libft.a $(MLX_FLAGS) -o $(NAME_BONUS)
+	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) $(MLX_FLAGS) -o $(NAME_BONUS)
 	@echo "$(PINK)Program $(NAME_BONUS) Compiled!$(DEF_COLOR)"
 
 clean:
@@ -79,7 +80,7 @@ mlxclean:
 	@echo "$(LIGHT_BLUE)MLX deleted$(DEF_COLOR)"
 
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(NAME_BONUS)
 	@$(MAKE) fclean -s -C $(LIBFTDIR)
 	@echo "$(LIGHT_BLUE)so_long pa mrd$(DEF_COLOR)"
 

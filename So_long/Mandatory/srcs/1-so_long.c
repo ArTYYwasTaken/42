@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 	if(!game->win)	
 		return (free_game(game), print_error("Window creation failed"), 1);
 	gamestart_map(game);
-	mlx_loop_hook(game->mlx, game_loop, game);
+	mlx_loop_hook(game->mlx, draw_map, game);
 	mlx_key_hook(game->mlx, key_inputs, game);
 	mlx_loop(game->mlx);
 }
