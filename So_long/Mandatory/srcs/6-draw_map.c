@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   8-poke_anim.c                                      :+:      :+:    :+:   */
+/*   6-draw_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>              +#+  +:+       +#+    */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 01:12:42 by kemontei            #+#    #+#           */
-/*   Updated: 2025/07/29 01:12:42 by kemontei           ###   ########.fr     */
+/*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
+/*   Updated: 2025/08/05 17:18:20 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	draw_map_row(t_game *game, int y)
 	}
 }
 
-void	draw_map(t_game *game)
+int	draw_map(t_game *game)
 {
 	int y;
 
@@ -75,4 +75,5 @@ void	draw_map(t_game *game)
 		draw_map_row(game, y);
 		y++;
 	}
+	return (0);
 }

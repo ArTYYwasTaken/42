@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   9-movement.c                                       :+:      :+:    :+:   */
+/*   8-movement.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>              +#+  +:+       +#+    */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 04:16:50 by kemontei            #+#    #+#           */
-/*   Updated: 2025/07/30 04:16:50 by kemontei           ###   ########.fr     */
+/*   Created: 2025/07/30 04:16:50 by kemontei          #+#    #+#             */
+/*   Updated: 2025/08/05 17:19:56 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void    move_up(t_game *game)
 	    || game->map->grid[y - 1][x] == '1')
     {
 		game->map->moves++;
-        game->map->grid[y][x] = '0'
+        game->map->grid[y][x] = '0';
         y--;
         game->map->grid[y][x] = 'P';
 		print_moves(game);
@@ -44,7 +44,7 @@ void    move_down(t_game *game)
 	    || game->map->grid[y + 1][x] == '1')
     {
 		game->map->moves++;
-        game->map->grid[y][x] = '0'
+        game->map->grid[y][x] = '0';
         y++;
         game->map->grid[y][x] = 'P';
 		print_moves(game);
@@ -65,7 +65,7 @@ void    move_left(t_game *game)
 	|| game->map->grid[y][x - 1] == '1')
     {
 		game->map->moves++;
-        game->map->grid[y][x] = '0'
+        game->map->grid[y][x] = '0';
         x--;
         game->map->grid[y][x] = 'P';
 		print_moves(game);
@@ -86,7 +86,7 @@ void    move_right(t_game *game)
 	|| game->map->grid[y][x + 1] == '1')
     {
 		game->map->moves++;
-        game->map->grid[y][x] = '0'
+        game->map->grid[y][x] = '0';
         x++;
         game->map->grid[y][x] = 'P';
 		print_moves(game);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   1-so_long.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:53 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/18 18:30:42 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:17:53 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ int main(int argc, char **argv)
 	game->map = gamestart(argv[1]);
 	if (!game->map)
 		return (free_game(game), print_error("Failed to load map"), 1);
-	game->collectables = malloc(sizeof(t_collectable) * game->map->col);
-    if (!game->collectables)
-        return (free_game(game), print_error("Collectable alloc failed"), 1);
 	game->mlx = mlx_init();
 	if (!game->mlx)
 		return (free_game(game), print_error("MLX initialization failed"), 1);

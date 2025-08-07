@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/18 19:39:50 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/07 17:01:42 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,18 @@ typedef struct s_player
 {
 	int			player_frame;
 	int			player_frame_count;
-	t_sprite	Down0;
-	t_sprite	Down1;
-	t_sprite	Down2;
-	t_sprite	Up0;
-	t_sprite	Up1;
-	t_sprite	Up2;
-	t_sprite	Left0;
-	t_sprite	Left1;
-	t_sprite	Left2;
-	t_sprite	Right0;
-	t_sprite	Right1;
-	t_sprite	Right2;
+	t_sprite	down0;
+	t_sprite	down1;
+	t_sprite	down2;
+	t_sprite	up0;
+	t_sprite	up1;
+	t_sprite	up2;
+	t_sprite	left0;
+	t_sprite	left1;
+	t_sprite	left2;
+	t_sprite	right0;
+	t_sprite	right1;
+	t_sprite	right2;
 	// int			x;
 	// int			y;
 
@@ -168,7 +168,7 @@ t_sprite	poke_tiles(t_game *game, t_collectable *col, int y, int x);
 //	key_inputs.c
 void		check_col_exit(t_game *game, int y, int x);
 void 		handle_enter(t_game *game, int y, int x);
-void		key_inputs(int keycode, void *param);
+int			key_inputs(int keycode, void *param);
 
 //	movement.c
 void    	move_up(t_game *game);

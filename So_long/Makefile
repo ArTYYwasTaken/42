@@ -3,35 +3,32 @@ NAME = so_long
 NAME_BONUS = so_long_bonus
 
 # Directories
-MDTDIR = ./Mandatory/
-BONUSDIR = ./Bonus/
+MDTDIR = Mandatory/
+BONUSDIR = Bonus/
 INCDIR = includes/
 SRCDIR = srcs/
-OBJDIR = ./objs/
-LIBSDIR = ./libs/
+OBJDIR = objs/
+LIBSDIR = libs/
 LIBFTDIR = $(LIBSDIR)Libft/
 LIBFT = $(LIBFTDIR)libft.a
 MLIBXDIR = $(LIBSDIR)minilibx-linux/
-INC = $(addprefix $(MDT_DIR), $(INC_DIR))
-INC_BONUS = $(addprefix $(BONUS_DIR), $(INC_DIR)) 
-INCLUDE	+= -I $(INC) 
-INCLUDE	+= -I $(INC_BONUS)
+INCLUDE = -I$(MDTDIR)$(INCDIR) -I$(BONUSDIR)$(INCDIR)
 
 # Files
 SRC_FILES = 1-so_long.c 2-gamestart.c 3-map_validation.c 4-map_validation2.c 5-file_to_image.c\
 6-draw_map.c 7-key_inputs.c 8-movement.c cleaning_functions.c display_messages.c\
-game_ending.c win-lose_messages
+game_ending.c win-lose_messages.c
 
 BONUS_SRC_FILES = 1-so_long_bonus.c 2-gamestart_bonus.c 3-map_validation_bonus.c 4-map_validation2_bonus.c 5-file_to_image_bonus.c\
 6-randomization_bonus.c 7-game_loop_bonus.c 8-draw_map_utils_bonus.c 9-key_inputs_bonus.c 10-movement_bonus.c\
 11-movement_animation_bonus.c cleaning_free_game_bonus.c cleaning_functions_bonus.c display_messages_bonus.c game_ending_bonus.c\
 win-lose_messages_bonus.c
 
-SRC = $(addprefix $(MDT_DIR), $(addprefix $(SRCDIR), $(SRC_FILES)))
-SRC_BONUS = $(addprefix $(BONUS_DIR), $(addprefix $(SRCDIR), $(BONUS_SRC_FILES)))
+SRC = $(addprefix $(MDTDIR)$(SRCDIR), $(SRC_FILES))
+SRC_BONUS = $(addprefix $(BONUSDIR)$(SRCDIR), $(BONUS_SRC_FILES))
 
-OBJS = $(addprefix $(OBJDIR), $(notdir $(SRC:.c=.o)))
-OBJS_BONUS = $(addprefix $(OBJDIR), $(notdir $(SRC_BONUS:.c=.o)))
+OBJS = $(addprefix $(OBJDIR), $(SRC_FILES:.c=.o))
+OBJS_BONUS = $(addprefix $(OBJDIR), $(BONUS_SRC_FILES:.c=.o))
 
 # CMD
 CC = cc
@@ -51,21 +48,29 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT)
 	@$(MAKE) -s -C $(LIBFTDIR)
 	@$(MAKE) -s -C $(MLIBXDIR)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFTDIR)libft.a $(MLX_FLAGS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
 	@echo "$(PINK)Program $(NAME) created successfully.$(DEF_COLOR)"
 	@echo "$(LIGHT_BLUE)Objects compiled successfully.$(DEF_COLOR)"
+
+$(LIBFT):
+	@$(MAKE) -s -C $(LIBFTDIR)
 
 mlx:
 	@cd $(LIBSDIR) && git clone https://github.com/42Paris/minilibx-linux.git
 
-$(OBJDIR)%.o: $(SRCDIR)%.c
+$(OBJDIR)%.o: $(MDTDIR)$(SRCDIR)%.c
+	@mkdir -p $(OBJDIR)
+	@$(CC) $(CFLAGS) -c $(INCLUDE) -I$(LIBFTDIR) -I$(MLIBXDIR) $< -o $@
+	@echo "$(WHITE)Compiling...$(DEF_COLOR)"
+
+$(OBJDIR)%.o: $(BONUSDIR)$(SRCDIR)%.c
 	@mkdir -p $(OBJDIR)
 	@$(CC) $(CFLAGS) -c $(INCLUDE) -I$(LIBFTDIR) -I$(MLIBXDIR) $< -o $@
 	@echo "$(WHITE)Compiling...$(DEF_COLOR)"
 
 bonus:	 $(NAME_BONUS)
 
-$(NAME_BONUS): $(OBJS_BONUS)
+$(NAME_BONUS): $(OBJS_BONUS) $(LIBFT)
 	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) $(MLX_FLAGS) -o $(NAME_BONUS)
 	@echo "$(PINK)Program $(NAME_BONUS) Compiled!$(DEF_COLOR)"
 

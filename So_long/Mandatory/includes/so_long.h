@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/18 19:39:50 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:18:54 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,12 @@ void		gamestart_map(t_game *game);
 t_sprite	wall_placement(t_image img,t_map *map, int y, int x);
 void 		draw_sprite(t_game *game, t_sprite sprite, int y, int x);
 void		draw_map_row(t_game *game, int y);
-void 		draw_map(t_game *game);
+int 		draw_map(t_game *game);
 
 //	key_inputs.c
 void		check_col_exit(t_game *game, int y, int x);
 void 		handle_enter(t_game *game, int y, int x);
-void		key_inputs(int keycode, void *param);
+int			key_inputs(int keycode, void *param);
 
 //	movement.c
 void    	move_up(t_game *game);

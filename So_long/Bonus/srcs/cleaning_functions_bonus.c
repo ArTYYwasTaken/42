@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cleaning_functions.c                               :+:      :+:    :+:   */
+/*   cleaning_functions_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>              +#+  +:+       +#+    */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 19:51:28 by kemontei            #+#    #+#           */
-/*   Updated: 2025/07/26 19:51:28 by kemontei           ###   ########.fr     */
+/*   Created: 2025/07/26 19:51:28 by kemontei          #+#    #+#             */
+/*   Updated: 2025/08/05 17:09:50 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,32 +74,32 @@ void	clean_player(t_player *player, void *mlx)
 {
 	if (!player || !mlx)
 		return ;
-	if (player->Down0)
-		mlx_destroy_image(mlx, player->Down0);
-	if (player->Down1)
-		mlx_destroy_image(mlx, player->Down1);
-	if (player->Down2)
-		mlx_destroy_image(mlx, player->Down2);
-	if (player->Left0)
-		mlx_destroy_image(mlx, player->Left0);
-	if (player->Left1)
-		mlx_destroy_image(mlx, player->Left1);
-	if (player->Left2)
-		mlx_destroy_image(mlx, player->Left2);
+	if (player->down0)
+		mlx_destroy_image(mlx, player->down0);
+	if (player->down1)
+		mlx_destroy_image(mlx, player->down1);
+	if (player->down2)
+		mlx_destroy_image(mlx, player->down2);
+	if (player->left0)
+		mlx_destroy_image(mlx, player->left0);
+	if (player->left1)
+		mlx_destroy_image(mlx, player->left1);
+	if (player->left2)
+		mlx_destroy_image(mlx, player->left2);
 }
 
 void	clean_player2(t_player *player, void *mlx)
 {
-	if (player->Right0)
-		mlx_destroy_image(mlx, player->Right0);
-	if (player->Right1)
-		mlx_destroy_image(mlx, player->Right1);
-	if (player->Right2)
-		mlx_destroy_image(mlx, player->Right2);
-	if (player->Up0)
-		mlx_destroy_image(mlx, player->Up0);
-	if (player->Up1)
-		mlx_destroy_image(mlx, player->Up1);
-	if (player->Up2)
-		mlx_destroy_image(mlx, player->Up2);
+	if (player->right0)
+		mlx_destroy_image(mlx, player->right0);
+	if (player->right1)
+		mlx_destroy_image(mlx, player->right1);
+	if (player->right2)
+		mlx_destroy_image(mlx, player->right2);
+	if (player->up0)
+		mlx_destroy_image(mlx, player->up0);
+	if (player->up1)
+		mlx_destroy_image(mlx, player->up1);
+	if (player->up2)
+		mlx_destroy_image(mlx, player->up2);
 }

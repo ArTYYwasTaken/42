@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   8-poke_anim.c                                      :+:      :+:    :+:   */
+/*   7-game_loop_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>              +#+  +:+       +#+    */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 01:12:42 by kemontei            #+#    #+#           */
-/*   Updated: 2025/07/29 01:12:42 by kemontei           ###   ########.fr     */
+/*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
+/*   Updated: 2025/08/05 17:08:11 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	draw_map_row(t_game *game, t_collectable *col, int y)
 		if (tile == '1' || tile == '2' || tile == '3')
 			sprite = wall_placement(game->img, game->map, y, x);
 		else if (tile == 'P')
-			sprite = game->player.Down0;
+			sprite = game->player.down0;
 		else if (tile == 'E')
 			sprite = game->img.exit;
 		else if (tile == 'C')

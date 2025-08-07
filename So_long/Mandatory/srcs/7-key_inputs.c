@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   9-key_inputs.c                                     :+:      :+:    :+:   */
+/*   7-key_inputs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>              +#+  +:+       +#+    */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 05:41:55 by kemontei            #+#    #+#           */
-/*   Updated: 2025/07/30 05:41:55 by kemontei           ###   ########.fr     */
+/*   Created: 2025/07/30 05:41:55 by kemontei          #+#    #+#             */
+/*   Updated: 2025/08/05 17:18:35 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void 	handle_enter(t_game *game, int y, int x)
 		check_col_exit(game, y, x + 1);
 }
 
-void	key_inputs(int keycode, void *param)
+int	key_inputs(int keycode, void *param)
 {
 	t_game *game;
 
@@ -61,4 +61,5 @@ void	key_inputs(int keycode, void *param)
 		game_lost(game);
 		exit(EXIT_SUCCESS);
 	}
+	return (0);
 }
