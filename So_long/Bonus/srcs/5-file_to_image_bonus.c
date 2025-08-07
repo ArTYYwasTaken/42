@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:50:33 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/07 17:12:54 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/07 17:51:29 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,31 +48,31 @@ void	gamestart_poke(t_image *image, t_game *game)
 		print_error("Failed to load Giratina frames");
 }
 
-void	gamestart_player(t_player player, t_game *game, int size)
+void	gamestart_player(t_player *player, t_game *game, int size)
 {
-	player.down0 = mlx_xpm_file_to_image(game->mlx,
+	player->down0 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/S0_Player.xpm", &size, &size);
-	player.down1 = mlx_xpm_file_to_image(game->mlx,
+	player->down1 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/S1_Player.xpm", &size, &size);
-	player.down2 = mlx_xpm_file_to_image(game->mlx,
+	player->down2 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/S3_Player.xpm", &size, &size);
-	player.left0 = mlx_xpm_file_to_image(game->mlx,
+	player->left0 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/W0_Player.xpm", &size, &size);
-	player.left1 = mlx_xpm_file_to_image(game->mlx,
+	player->left1 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/W1_Player.xpm", &size, &size);
-	player.left2 = mlx_xpm_file_to_image(game->mlx,
+	player->left2 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/W3_Player.xpm", &size, &size);
-	player.right0 = mlx_xpm_file_to_image(game->mlx,
+	player->right0 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/E0_Player.xpm", &size, &size);
-	player.right1 = mlx_xpm_file_to_image(game->mlx,
+	player->right1 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/E1_Player.xpm", &size, &size);
-	player.right2 = mlx_xpm_file_to_image(game->mlx,
+	player->right2 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/E3_Player.xpm", &size, &size);
-	player.up0 = mlx_xpm_file_to_image(game->mlx,
+	player->up0 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/N0_Player.xpm", &size, &size);
-	player.up1 = mlx_xpm_file_to_image(game->mlx,
+	player->up1 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/N1_Player.xpm", &size, &size);
-	player.up2 = mlx_xpm_file_to_image(game->mlx,
+	player->up2 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/N3_Player.xpm", &size, &size);
 }
 
@@ -94,13 +94,13 @@ void	gamestart_map(t_game *game)
 	game->img.N_wall = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/Nwall.xpm", &size, &size);
 	game->img.NW_corner = mlx_xpm_file_to_image(game->mlx,
-			"./sprites/WB/NWwall.xpm", &size, &size);
+			"./sprites/WB/NWcorner.xpm", &size, &size);
 	game->img.NE_corner = mlx_xpm_file_to_image(game->mlx,
-			"./sprites/WB/NEwall.xpm", &size, &size);
+			"./sprites/WB/NEcorner.xpm", &size, &size);
 	game->img.bolder_1 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/bolder1.xpm", &size, &size);
 	game->img.bolder_2 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/bolder2.xpm", &size, &size);
 	gamestart_poke(&game->img, game);
-	gamestart_player(game->player, game, size);
+	gamestart_player(&game->player, game, size);
 }

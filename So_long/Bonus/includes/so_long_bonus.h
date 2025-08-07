@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/07 17:01:42 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/07 18:03:02 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,7 +144,7 @@ int			mv_path(t_map *map);
 //	file_to_image.c
 int			pokeframes(t_animated_sprite *pokemon, char *name, t_game *game);
 void		gamestart_poke(t_image *image, t_game *game);
-void		gamestart_player(t_player player, t_game *game, int size);
+void		gamestart_player(t_player *player, t_game *game, int size);
 void		gamestart_map(t_game *game);
 
 //	randomization.c
@@ -154,7 +154,7 @@ void		randomize_cell(t_map *map, t_collectable *col, int y, int x, int *i);
 void		randomization(t_map *map, t_collectable *col, int *col_count);
 
 //	game_loop.c
-void		animate_pokemon(t_collectable *collectables, int pokecount, t_image img);
+void		animate_pokemon(t_collectable *collectables, int pokecount, t_image *img);
 void		draw_map_row(t_game *game, t_collectable *col, int y);
 void 		draw_map(t_game *game, t_collectable *col);
 int			game_loop(t_game *game);
