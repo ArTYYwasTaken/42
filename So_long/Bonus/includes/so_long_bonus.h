@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/07 18:03:02 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 17:15:36 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,6 @@
 # define PX 128
 # define NUM_BOLDERS 2
 # define NUM_POKE 3
-# define W 13
-# define A 0
-# define S 1
-# define D 2
-# define UP 126
-# define DOWN 125
-# define LEFT 123
-# define RIGHT 124
-# define ENTER 36
-# define ESC 53
 
 typedef void* t_sprite;
 
@@ -155,15 +145,15 @@ void		randomization(t_map *map, t_collectable *col, int *col_count);
 
 //	game_loop.c
 void		animate_pokemon(t_collectable *collectables, int pokecount, t_image *img);
-void		draw_map_row(t_game *game, t_collectable *col, int y);
-void 		draw_map(t_game *game, t_collectable *col);
+void		draw_map_row(t_game *game, t_collectable *collectable, int y);
+void 		draw_map(t_game *game, t_collectable *collectable);
 int			game_loop(t_game *game);
 
 //	draw_map_utils.c
 t_sprite	wall_placement(t_image img,t_map *map, int y, int x);
 void 		draw_sprite(t_game *game, t_sprite sprite, int y, int x);
 int 		find_pokemon_index(t_game *game, int x, int y);
-t_sprite	poke_tiles(t_game *game, t_collectable *col, int y, int x);
+t_sprite	poke_tiles(t_game *game, t_collectable *collectable, int y, int x);
 
 //	key_inputs.c
 void		check_col_exit(t_game *game, int y, int x);
@@ -183,7 +173,7 @@ void    	move_animation_left(t_game *game, int y, int x);
 void    	move_animation_right(t_game *game, int y, int x);
 
 // cleaning_free_game.c
-void		free_game(t_game *game);
+int		free_game(t_game *game);
 
 //	cleaning_functions.c
 void		clean_map(t_map *map);

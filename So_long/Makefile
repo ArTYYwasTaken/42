@@ -12,7 +12,8 @@ LIBSDIR = libs/
 LIBFTDIR = $(LIBSDIR)Libft/
 LIBFT = $(LIBFTDIR)libft.a
 MLIBXDIR = $(LIBSDIR)minilibx-linux/
-INCLUDE = -I$(MDTDIR)$(INCDIR) -I$(BONUSDIR)$(INCDIR)
+INCLUDE = -I$(MDTDIR)$(INCDIR)
+INCLUDE_BONUS = -I$(BONUSDIR)$(INCDIR)
 
 # Files
 SRC_FILES = 1-so_long.c 2-gamestart.c 3-map_validation.c 4-map_validation2.c 5-file_to_image.c\
@@ -65,7 +66,7 @@ $(OBJDIR)%.o: $(MDTDIR)$(SRCDIR)%.c
 
 $(OBJDIR)%.o: $(BONUSDIR)$(SRCDIR)%.c
 	@mkdir -p $(OBJDIR)
-	@$(CC) $(CFLAGS) -c $(INCLUDE) -I$(LIBFTDIR) -I$(MLIBXDIR) $< -o $@
+	@$(CC) $(CFLAGS) -c $(INCLUDE_BONUS) -I$(LIBFTDIR) -I$(MLIBXDIR) $< -o $@
 	@echo "$(WHITE)Compiling...$(DEF_COLOR)"
 
 bonus:	 $(NAME_BONUS)

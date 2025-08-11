@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cleaning_function.c                                :+:      :+:    :+:   */
+/*   cleaning_free_game_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 05:26:01 by marvin            #+#    #+#             */
-/*   Updated: 2025/08/01 05:26:01 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/11 16:31:57 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	free_game(t_game *game)
+int	free_game(t_game *game)
 {
 	if (!game)
-		return ;
+		return (0);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
@@ -28,4 +28,6 @@ void	free_game(t_game *game)
 	if (game->map)
 		clean_map(game->map);
 	free(game);
+	exit(-1);
+	return (0);
 }

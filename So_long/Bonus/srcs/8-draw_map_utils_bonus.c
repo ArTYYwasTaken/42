@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 03:25:04 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/07 18:35:43 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 15:45:56 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,21 +58,21 @@ int find_pokemon_index(t_game *game, int x, int y)
 	return (-1);
 }
 
-t_sprite	poke_tiles(t_game *game, t_collectable *col, int y, int x)
+t_sprite	poke_tiles(t_game *game, t_collectable *collectable, int y, int x)
 {
-	int			poke_type;
-	int			i;
+	int	poke_type;
+	int	i;
 
 	i = find_pokemon_index(game, x, y);
 	if (i != -1)
 	{
-		poke_type = col[i].pokemon_type;
+		poke_type = collectable[i].pokemon_type;
 		if (poke_type == 0)
-			return (game->img.dialga.frames[col[i].frame]);
+			return (game->img.dialga.frames[collectable[i].frame]);
 		else if (poke_type == 1)
-			return (game->img.palkia.frames[col[i].frame]);
+			return (game->img.palkia.frames[collectable[i].frame]);
 		else if (poke_type == 2)
-			return (game->img.giratina.frames[col[i].frame]);
+			return (game->img.giratina.frames[collectable[i].frame]);
 	}
 	return (game->img.floor);
 }

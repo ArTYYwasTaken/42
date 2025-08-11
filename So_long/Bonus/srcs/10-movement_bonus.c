@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 04:16:50 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/05 17:06:11 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 18:29:04 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ void    move_up(t_game *game)
 
     y = game->map->player_y;
     x = game->map->player_x;
-    if (game->map->grid[y - 1][x] == 'C' || game->map->grid[y - 1][x] == 'E'
-	    || game->map->grid[y - 1][x] == '1')
+    if (game->map->grid[y - 1][x] == '0')
     {
 		game->map->moves++;
         game->map->grid[y][x] = '0';
@@ -28,7 +27,7 @@ void    move_up(t_game *game)
         game->map->grid[y][x] = 'P';
 		print_moves(game);
     }
-    move_animation_up(game, y, x);
+	move_animation_up(game, y, x);
 	game->map->player_y = y;
 	game->map->player_x = x;
 	game->map->last_input = 'N';
@@ -41,8 +40,7 @@ void    move_down(t_game *game)
 
     y = game->map->player_y;
     x = game->map->player_x;
-    if (game->map->grid[y + 1][x] == 'C' || game->map->grid[y + 1][x] == 'E'
-	    || game->map->grid[y + 1][x] == '1')
+    if (game->map->grid[y + 1][x] == '0')
     {
 		game->map->moves++;
         game->map->grid[y][x] = '0';
@@ -63,8 +61,7 @@ void    move_left(t_game *game)
 
     y = game->map->player_y;
     x = game->map->player_x;
-    if (game->map->grid[y][x - 1] == 'C' || game->map->grid[y][x - 1] == 'E'
-	|| game->map->grid[y][x - 1] == '1')
+    if (game->map->grid[y][x - 1] == '0')
     {
 		game->map->moves++;
         game->map->grid[y][x] = '0';
@@ -85,8 +82,7 @@ void    move_right(t_game *game)
 
     y = game->map->player_y;
     x = game->map->player_x;
-    if (game->map->grid[y][x + 1] == 'C' || game->map->grid[y][x + 1] == 'E'
-	|| game->map->grid[y][x + 1] == '1')
+    if (game->map->grid[y][x + 1] == '0')
     {
 		game->map->moves++;
         game->map->grid[y][x] = '0';

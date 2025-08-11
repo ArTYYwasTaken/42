@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/07 18:56:00 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 17:03:12 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	animate_pokemon(t_collectable *collectables, int pokecount, t_image *img)
 	}
 }
 
-void	draw_map_row(t_game *game, t_collectable *col, int y)
+void	draw_map_row(t_game *game, t_collectable *collectable, int y)
 {
 	int			x;
 	t_sprite	sprite;
@@ -51,7 +51,7 @@ void	draw_map_row(t_game *game, t_collectable *col, int y)
 		else if (tile == 'E')
 			sprite = game->img.exit;
 		else if (tile == 'C')
-			sprite = poke_tiles(game, col, x, y);
+			sprite = poke_tiles(game, collectable, y, x);
 		else
 			sprite = game->img.floor;
 		draw_sprite(game, sprite, y, x);
@@ -59,14 +59,14 @@ void	draw_map_row(t_game *game, t_collectable *col, int y)
 	}
 }
 
-void	draw_map(t_game *game, t_collectable *col)
+void	draw_map(t_game *game, t_collectable *collectable)
 {
 	int y;
 
 	y = 0;
 	while (y < game->map->height)
 	{
-		draw_map_row(game, col, y);
+		draw_map_row(game, collectable, y);
 		y++;
 	}
 }
@@ -76,7 +76,7 @@ int	game_loop(t_game *game)
 	static int animation_timer = 0;
 	
 	animation_timer++;
-	if (animation_timer >= 10)
+	if (animation_timer >= 20)
 	{
 		animate_pokemon(game->collectables, game->map->col, &game->img);
 		animation_timer = 0;

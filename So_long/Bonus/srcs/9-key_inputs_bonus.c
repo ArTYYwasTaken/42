@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 05:41:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/05 17:04:56 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 17:18:15 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,19 @@ int	key_inputs(int keycode, void *param)
 {
 	t_game *game;
 
-	game = (t_game *)param;
-	if (keycode == W || keycode == UP)
+	game = param;
+	printf("AAAAA");
+	if (keycode == XK_w || keycode == XK_Up)
 		move_up(game);
-	else if (keycode == A || keycode == LEFT)
+	else if (keycode == XK_a || keycode == XK_Left)
 		move_left(game);
-	else if (keycode == S || keycode == DOWN)
+	else if (keycode == XK_s || keycode == XK_Down)
 		move_down(game);
-	else if (keycode == D || keycode == RIGHT)
+	else if (keycode == XK_d || keycode == XK_Right)
 		move_right(game);
-	else if (keycode == ENTER)
+	else if (keycode == XK_Return)
 		handle_enter(game, game->map->player_y, game->map->player_x);
-	else if (keycode == ESC)
+	else if (keycode == XK_Escape)
 	{
 		game_lost(game);
 		exit(EXIT_SUCCESS);

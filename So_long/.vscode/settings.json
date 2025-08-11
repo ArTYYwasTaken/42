@@ -4,6 +4,7 @@
 		"libft.h": "c",
 		"so_long_bonus.h": "c",
 		"cmath": "c",
-		"limits": "c"
+		"limits": "c",
+		"x.h": "c"
 	}
 }
