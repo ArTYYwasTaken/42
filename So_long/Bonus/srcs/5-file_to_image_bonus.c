@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:50:33 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 16:56:25 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 21:09:20 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,30 +50,44 @@ void	gamestart_poke(t_image *image, t_game *game)
 
 void	gamestart_player(t_player *player, t_game *game, int size)
 {
-	player->down0 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[DOWN][0] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/S0_Player.xpm", &size, &size);
-	player->down1 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[DOWN][1] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/S1_Player.xpm", &size, &size);
-	player->down2 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[DOWN][2] = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/Player/S0_Player.xpm", &size, &size);
+	player->sprites[DOWN][3] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/S3_Player.xpm", &size, &size);
-	player->left0 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[LEFT][0] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/W0_Player.xpm", &size, &size);
-	player->left1 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[LEFT][1] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/W1_Player.xpm", &size, &size);
-	player->left2 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[LEFT][2] = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/Player/W0_Player.xpm", &size, &size);
+	player->sprites[LEFT][3] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/W3_Player.xpm", &size, &size);
-	player->right0 = mlx_xpm_file_to_image(game->mlx,
+	gamestart_player2(player, game, size);
+}
+
+void	gamestart_player2(t_player *player, t_game *game, int size)
+{
+	player->sprites[RIGHT][0] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/E0_Player.xpm", &size, &size);
-	player->right1 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[RIGHT][1] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/E1_Player.xpm", &size, &size);
-	player->right2 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[RIGHT][2] = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/Player/E0_Player.xpm", &size, &size);
+	player->sprites[RIGHT][3] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/E3_Player.xpm", &size, &size);
-	player->up0 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[UP][0] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/N0_Player.xpm", &size, &size);
-	player->up1 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[UP][1] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/N1_Player.xpm", &size, &size);
-	player->up2 = mlx_xpm_file_to_image(game->mlx,
+	player->sprites[UP][2] = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/Player/N0_Player.xpm", &size, &size);
+	player->sprites[UP][3] = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/Player/N3_Player.xpm", &size, &size);
+	game->player.direction = DOWN;
 }
 
 void	gamestart_map(t_game *game)

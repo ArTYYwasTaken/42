@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 17:03:12 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 21:20:06 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	animate_pokemon(t_collectable *collectables, int pokecount, t_image *img)
 	}
 }
 
-void	draw_map_row(t_game *game, t_collectable *collectable, int y)
+static void	draw_map_row(t_game *game, t_collectable *collectable, int y)
 {
 	int			x;
 	t_sprite	sprite;
@@ -46,8 +46,6 @@ void	draw_map_row(t_game *game, t_collectable *collectable, int y)
 		tile = game->map->grid[y][x];
 		if (tile == '1' || tile == '2' || tile == '3')
 			sprite = wall_placement(game->img, game->map, y, x);
-		else if (tile == 'P')
-			sprite = game->player.down0;
 		else if (tile == 'E')
 			sprite = game->img.exit;
 		else if (tile == 'C')
@@ -59,7 +57,7 @@ void	draw_map_row(t_game *game, t_collectable *collectable, int y)
 	}
 }
 
-void	draw_map(t_game *game, t_collectable *collectable)
+static void	draw_map(t_game *game, t_map *map, t_collectable *collectable)
 {
 	int y;
 
@@ -69,6 +67,8 @@ void	draw_map(t_game *game, t_collectable *collectable)
 		draw_map_row(game, collectable, y);
 		y++;
 	}
+	draw_sprite(game, game->player.sprites[game->player.direction]
+		[game->player.player_frame], map->player_y, map->player_x);
 }
 
 int	game_loop(t_game *game)
@@ -76,11 +76,14 @@ int	game_loop(t_game *game)
 	static int animation_timer = 0;
 	
 	animation_timer++;
-	if (animation_timer >= 20)
+	if (animation_timer >= 50)
 	{
 		animate_pokemon(game->collectables, game->map->col, &game->img);
+		game->player.player_frame++;
+		if (game->player.player_frame >= 4)
+			game->player.player_frame = 0;
 		animation_timer = 0;
 	}
-	draw_map(game, game->collectables);
+	draw_map(game, game->map, game->collectables);
 	return (0);
 }

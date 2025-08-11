@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 05:41:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 19:24:09 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 20:00:56 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,8 @@ void 	handle_enter(t_game *game, int y, int x)
 		check_col_exit(game, y, x + 1);
 }
 
-int	key_inputs(int keycode, void *param)
+int	key_inputs(int keycode, t_game *game)
 {
-	t_game *game;
-
-	game = param;
 	if (keycode == XK_w || keycode == XK_Up)
 		move_up(game);
 	else if (keycode == XK_a || keycode == XK_Left)

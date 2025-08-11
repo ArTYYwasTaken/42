@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 19:05:33 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 21:23:34 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,36 @@ typedef struct animated_sprite
 
 } t_animated_sprite;
 
+typedef enum e_direction
+{
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT,
+}	t_direction;
+
 typedef struct s_player
 {
 	int			player_frame;
 	int			player_frame_count;
-	t_sprite	down0;
-	t_sprite	down1;
-	t_sprite	down2;
-	t_sprite	up0;
-	t_sprite	up1;
-	t_sprite	up2;
-	t_sprite	left0;
-	t_sprite	left1;
-	t_sprite	left2;
-	t_sprite	right0;
-	t_sprite	right1;
-	t_sprite	right2;
+	t_sprite	sprites[4][4];
+	t_direction direction;
+	// t_sprite	down[4];
+	// t_sprite	down[4];
+	// t_sprite	down[4];
+	
+	// t_sprite	down0;
+	// t_sprite	down1;
+	// t_sprite	down2;
+	// t_sprite	up0;
+	// t_sprite	up1;
+	// t_sprite	up2;
+	// t_sprite	left0;
+	// t_sprite	left1;
+	// t_sprite	left2;
+	// t_sprite	right0;
+	// t_sprite	right1;
+	// t_sprite	right2;
 	// int			x;
 	// int			y;
 
@@ -135,6 +149,7 @@ int			mv_path(t_map *map);
 int			pokeframes(t_animated_sprite *pokemon, char *name, t_game *game);
 void		gamestart_poke(t_image *image, t_game *game);
 void		gamestart_player(t_player *player, t_game *game, int size);
+void		gamestart_player2(t_player *player, t_game *game, int size);
 void		gamestart_map(t_game *game);
 
 //	randomization.c
@@ -145,8 +160,6 @@ void		randomization(t_map *map, t_collectable *col, int *col_count);
 
 //	game_loop.c
 void		animate_pokemon(t_collectable *collectables, int pokecount, t_image *img);
-void		draw_map_row(t_game *game, t_collectable *collectable, int y);
-void 		draw_map(t_game *game, t_collectable *collectable);
 int			game_loop(t_game *game);
 
 //	draw_map_utils.c
@@ -159,7 +172,7 @@ t_sprite	poke_tiles(t_game *game, t_collectable *collectable, int y, int x);
 void		remove_collectable(t_game *game, int x, int y);
 void		check_col_exit(t_game *game, int y, int x);
 void 		handle_enter(t_game *game, int y, int x);
-int			key_inputs(int keycode, void *param);
+int			key_inputs(int keycode, t_game *game);
 
 //	movement.c
 void    	move_up(t_game *game);
@@ -168,20 +181,18 @@ void    	move_left(t_game *game);
 void    	move_right(t_game *game);
 
 //	movement_animation.c
-void    	move_animation_up(t_game *game, int y, int x);
-void    	move_animation_down(t_game *game, int y, int x);
-void    	move_animation_left(t_game *game, int y, int x);
-void    	move_animation_right(t_game *game, int y, int x);
+void		move_animation(t_game *game, t_direction direction, int y, int x);
+
 
 // cleaning_free_game.c
-int		free_game(t_game *game);
+void		free_game(t_game *game);
+int			finish_game(t_game *game);
 
 //	cleaning_functions.c
 void		clean_map(t_map *map);
 void		clean_pokeframes(t_animated_sprite *pokemon, int frame);
 void		clean_images(t_image *img, void *mlx);
 void		clean_player(t_player *player, void *mlx);
-void		clean_player2(t_player *player, void *mlx);
 
 //	display_messages.c
 void		print_error(char *msg);

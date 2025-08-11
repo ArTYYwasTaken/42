@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:53 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 16:45:47 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 20:14:05 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int main(int argc, char **argv)
 	gamestart_map(game);
 	mlx_loop_hook(game->mlx, game_loop, game);
 	mlx_key_hook(game->win, key_inputs, game);
-	mlx_hook(game->win, DestroyNotify, StructureNotifyMask, free_game, game);
+	mlx_hook(game->win, DestroyNotify, StructureNotifyMask, finish_game, game);
 	mlx_loop(game->mlx);
 }

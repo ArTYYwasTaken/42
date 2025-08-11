@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game_ending.c                                      :+:      :+:    :+:   */
+/*   game_ending_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>              +#+  +:+       +#+    */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/30 05:44:00 by kemontei            #+#    #+#           */
-/*   Updated: 2025/07/30 05:44:00 by kemontei           ###   ########.fr     */
+/*   Created: 2025/07/30 05:44:00 by kemontei          #+#    #+#             */
+/*   Updated: 2025/08/11 20:15:41 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void    game_won(t_game *game)
 {
-    free_game(game);
     win_message();
     kakashi_thumbsup();
+    free_game(game);
 }
 
 void    game_lost(t_game *game)
 {
-    free_game(game);
     lose_message();
     rope();
     rope2();
+    free_game(game);
 }

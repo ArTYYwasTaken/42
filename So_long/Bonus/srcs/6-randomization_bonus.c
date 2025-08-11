@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 05:48:49 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 18:34:18 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 20:55:53 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	randomization(t_map *map, t_collectable *col, int *col_count)
 	int			x;
 	int			y;
 
-	map->last_move = 0;
 	if (!seeded)
 	{
 		srand(time(NULL));

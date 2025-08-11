@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 19:51:28 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/05 17:09:50 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 20:48:39 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,34 +72,15 @@ void	clean_images(t_image *img, void *mlx)
 
 void	clean_player(t_player *player, void *mlx)
 {
-	if (!player || !mlx)
-		return ;
-	if (player->down0)
-		mlx_destroy_image(mlx, player->down0);
-	if (player->down1)
-		mlx_destroy_image(mlx, player->down1);
-	if (player->down2)
-		mlx_destroy_image(mlx, player->down2);
-	if (player->left0)
-		mlx_destroy_image(mlx, player->left0);
-	if (player->left1)
-		mlx_destroy_image(mlx, player->left1);
-	if (player->left2)
-		mlx_destroy_image(mlx, player->left2);
-}
-
-void	clean_player2(t_player *player, void *mlx)
-{
-	if (player->right0)
-		mlx_destroy_image(mlx, player->right0);
-	if (player->right1)
-		mlx_destroy_image(mlx, player->right1);
-	if (player->right2)
-		mlx_destroy_image(mlx, player->right2);
-	if (player->up0)
-		mlx_destroy_image(mlx, player->up0);
-	if (player->up1)
-		mlx_destroy_image(mlx, player->up1);
-	if (player->up2)
-		mlx_destroy_image(mlx, player->up2);
+	int x;
+	int y;
+	
+	y = 0;
+	while (y < 4)
+	{
+		x = 0;
+		while(x < 4)
+			mlx_destroy_image(mlx, player->sprites[y][x++]);
+		y++;
+	}
 }

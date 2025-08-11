@@ -33,7 +33,7 @@ OBJS_BONUS = $(addprefix $(OBJDIR), $(BONUS_SRC_FILES:.c=.o))
 
 # CMD
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g3
+# CFLAGS = -Wall -Wextra -Werror -g3
 MLX_FLAGS = -L$(MLIBXDIR) -lmlx -lXext -lX11 -lm -lz
 RM = rm -f
 MAKE = make
