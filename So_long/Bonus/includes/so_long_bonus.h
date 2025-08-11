@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 17:15:36 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 19:05:33 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,6 +156,7 @@ int 		find_pokemon_index(t_game *game, int x, int y);
 t_sprite	poke_tiles(t_game *game, t_collectable *collectable, int y, int x);
 
 //	key_inputs.c
+void		remove_collectable(t_game *game, int x, int y);
 void		check_col_exit(t_game *game, int y, int x);
 void 		handle_enter(t_game *game, int y, int x);
 int			key_inputs(int keycode, void *param);

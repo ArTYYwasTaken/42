@@ -6,11 +6,31 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 05:41:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 17:18:15 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/11 19:24:09 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+void	remove_collectable(t_game *game, int x, int y)
+{
+	int	i;
+	int	last;
+
+	i = 0;
+	last = game->map->col - 1;
+	while (i <= last)
+	{
+		if (game->collectables[i].x == x && game->collectables[i].y == y)
+		{
+			if (i != last)
+				game->collectables[i] = game->collectables[last];
+			game->map->col--;
+			break;
+		}
+		i++;
+	}
+}
 
 void	check_col_exit(t_game *game, int y, int x)
 {
@@ -20,7 +40,7 @@ void	check_col_exit(t_game *game, int y, int x)
 	if (*tile == 'C')
 	{
 		*tile = '0';
-		game->map->col--;
+		remove_collectable(game, x ,y);
 	}
 	else if (*tile == 'E')
 	{
@@ -46,7 +66,6 @@ int	key_inputs(int keycode, void *param)
 	t_game *game;
 
 	game = param;
-	printf("AAAAA");
 	if (keycode == XK_w || keycode == XK_Up)
 		move_up(game);
 	else if (keycode == XK_a || keycode == XK_Left)
