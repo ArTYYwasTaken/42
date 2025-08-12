@@ -6,13 +6,13 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 16:06:45 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 17:33:19 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/12 18:25:26 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	map_fileformat(char *mapfile)
+static int	map_fileformat(char *mapfile)
 {
 	char	*pastdot;
 	
@@ -24,7 +24,7 @@ int	map_fileformat(char *mapfile)
 	return (1);
 }
 
-int	map_getheight(char *mapfile)
+static int	map_getheight(char *mapfile)
 {
 	int		fd;
 	char	*line;
@@ -45,7 +45,7 @@ int	map_getheight(char *mapfile)
 	return (close (fd), count);
 }
 
-void	displaygrid(t_map *map)
+static void	displaygrid(t_map *map)
 {
 	int	i;
 
@@ -57,7 +57,7 @@ void	displaygrid(t_map *map)
 	}
 }
 
-t_map *map_gridfill(t_map *map, char *mapfile)
+static t_map *map_gridfill(t_map *map, char *mapfile)
 {
 	int		fd;
 	int		y;

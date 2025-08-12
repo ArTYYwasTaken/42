@@ -6,13 +6,13 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 05:41:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 20:00:56 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/12 18:36:18 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	remove_collectable(t_game *game, int x, int y)
+static void	remove_collectable(t_game *game, int x, int y)
 {
 	int	i;
 	int	last;
@@ -32,7 +32,7 @@ void	remove_collectable(t_game *game, int x, int y)
 	}
 }
 
-void	check_col_exit(t_game *game, int y, int x)
+static void	check_col_exit(t_game *game, int y, int x)
 {
 	char	*tile;
 
@@ -49,7 +49,7 @@ void	check_col_exit(t_game *game, int y, int x)
 	}
 }
 
-void 	handle_enter(t_game *game, int y, int x)
+static void 	handle_enter(t_game *game, int y, int x)
 {
 	if (game->map->last_input == 'N')
 		check_col_exit(game, y - 1, x);
@@ -71,7 +71,7 @@ int	key_inputs(int keycode, t_game *game)
 		move_down(game);
 	else if (keycode == XK_d || keycode == XK_Right)
 		move_right(game);
-	else if (keycode == XK_Return)
+	else if (keycode == XK_Return || keycode == XK_space)
 		handle_enter(game, game->map->player_y, game->map->player_x);
 	else if (keycode == XK_Escape)
 	{

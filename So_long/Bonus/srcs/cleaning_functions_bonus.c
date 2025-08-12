@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 19:51:28 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 20:48:39 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/12 19:04:05 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,18 +49,18 @@ void	clean_images(t_image *img, void *mlx)
 		mlx_destroy_image(mlx, img->floor);
 	if (img->exit)
 		mlx_destroy_image(mlx, img->exit);
-	if (img->W_wall)
-		mlx_destroy_image(mlx, img->W_wall);
-	if (img->S_wall)
-		mlx_destroy_image(mlx, img->S_wall);
-	if (img->E_wall)
-		mlx_destroy_image(mlx, img->E_wall);
-	if (img->N_wall)
-		mlx_destroy_image(mlx, img->N_wall);
-	if (img->NW_corner)
-		mlx_destroy_image(mlx, img->NW_corner);
-	if (img->NE_corner)
-		mlx_destroy_image(mlx, img->NE_corner);
+	if (img->w_wall)
+		mlx_destroy_image(mlx, img->w_wall);
+	if (img->s_wall)
+		mlx_destroy_image(mlx, img->s_wall);
+	if (img->e_wall)
+		mlx_destroy_image(mlx, img->e_wall);
+	if (img->n_wall)
+		mlx_destroy_image(mlx, img->n_wall);
+	if (img->nw_corner)
+		mlx_destroy_image(mlx, img->nw_corner);
+	if (img->ne_corner)
+		mlx_destroy_image(mlx, img->ne_corner);
 	if (img->bolder_1)
 		mlx_destroy_image(mlx, img->bolder_1);
 	if (img->bolder_2)
@@ -75,6 +75,8 @@ void	clean_player(t_player *player, void *mlx)
 	int x;
 	int y;
 	
+	if (!player || !mlx)
+		return ;
 	y = 0;
 	while (y < 4)
 	{

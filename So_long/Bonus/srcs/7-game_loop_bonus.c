@@ -6,13 +6,13 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 21:20:06 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/12 18:29:31 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-void	animate_pokemon(t_collectable *collectables, int pokecount, t_image *img)
+static void	animate_pokemon(t_collectable *collectables, int pokecount, t_image *img)
 {
 	int	i;
 	int	poke_type;

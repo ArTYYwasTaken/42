@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 21:23:34 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/12 19:11:24 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define NUM_BOLDERS 2
 # define NUM_POKE 3
 
-typedef void* t_sprite;
+typedef void*	t_sprite;
 
 typedef struct s_collectable
 {
@@ -32,14 +32,14 @@ typedef struct s_collectable
 	int	pokemon_type;
 	int	frame;
 
-} t_collectable;
+}	t_collectable;
 
 typedef struct animated_sprite
 {
 	t_sprite	*frames;
 	int			frame_count;
 
-} t_animated_sprite;
+}	t_animated_sprite;
 
 typedef enum e_direction
 {
@@ -54,27 +54,9 @@ typedef struct s_player
 	int			player_frame;
 	int			player_frame_count;
 	t_sprite	sprites[4][4];
-	t_direction direction;
-	// t_sprite	down[4];
-	// t_sprite	down[4];
-	// t_sprite	down[4];
-	
-	// t_sprite	down0;
-	// t_sprite	down1;
-	// t_sprite	down2;
-	// t_sprite	up0;
-	// t_sprite	up1;
-	// t_sprite	up2;
-	// t_sprite	left0;
-	// t_sprite	left1;
-	// t_sprite	left2;
-	// t_sprite	right0;
-	// t_sprite	right1;
-	// t_sprite	right2;
-	// int			x;
-	// int			y;
+	t_direction	direction;
 
-} t_player;
+}	t_player;
 
 typedef struct s_image
 {
@@ -83,20 +65,16 @@ typedef struct s_image
 	t_animated_sprite	giratina;
 	t_sprite			exit;
 	t_sprite			floor;
-	t_sprite			W_wall;
-	t_sprite			E_wall;
-	t_sprite			N_wall;
-	t_sprite			S_wall;
-	t_sprite			NW_corner;
-	t_sprite			NE_corner;
-	t_sprite			outSW_corner;
-	t_sprite			outNW_corner;
-	t_sprite			outSE_corner;
-	t_sprite			outNE_corner;
+	t_sprite			w_wall;
+	t_sprite			e_wall;
+	t_sprite			n_wall;
+	t_sprite			s_wall;
+	t_sprite			nw_corner;
+	t_sprite			ne_corner;
 	t_sprite			bolder_1;
 	t_sprite			bolder_2;
-	
-} t_image;
+
+}	t_image;
 
 typedef struct s_map
 {
@@ -112,7 +90,7 @@ typedef struct s_map
 	char		last_input;
 	int			last_move;
 
-} t_map;
+}	t_map;
 
 typedef struct s_game
 {
@@ -124,89 +102,89 @@ typedef struct s_game
 	void			*win;
 	int				exit;
 
-} t_game;
+}	t_game;
 
-// gamestart.c
-int			map_fileformat(char *mapfile);
-int			map_getheight(char *mapfile);
-void		displaygrid(t_map *map);
-t_map		*map_gridfill(t_map *map, char *mapfile);
+/*					gamestart.c 											*/
+/* static int	map_fileformat(char *mapfile);								*/
+/* static int	map_getheight(char *mapfile);								*/
+/* static void	displaygrid(t_map *map);									*/
+/* static t_map	*map_gridfill(t_map *map, char *mapfile);					*/
 t_map		*gamestart(char *mapfile);
 
-//	map_validation.c
-int			mv_exit(t_map *map);
-int			mv_player(t_map *map);
-int			mv_characters(t_map *map);
-int			mv_borders(t_map *map);
+/*					map_validation.c										*/
+/* static int	mv_exit(t_map *map);										*/
+/* static int	mv_player(t_map *map);										*/
+/* static int	mv_characters(t_map *map);									*/
+/* static int	mv_borders(t_map *map);										*/
 int			map_validation(t_map *map);
 
-//	map_validation2.c
+/* 							map_validation2.c 								*/
+/* int	mv_floodfill(t_map *map, int x, int y, int collectables);			*/
 int			mv_collectables(t_map *map);
-int			mv_floodfill(t_map *map, int x, int y, int collectables);
 int			mv_path(t_map *map);
 
-//	file_to_image.c
-int			pokeframes(t_animated_sprite *pokemon, char *name, t_game *game);
-void		gamestart_poke(t_image *image, t_game *game);
+/*								file_to_image.c								*/
+/*	int pokeframes(t_animated_sprite *pokemon, char *name, t_game *game);	*/
+/*	void gamestart_poke(t_image *image, t_game *game);						*/
 void		gamestart_player(t_player *player, t_game *game, int size);
 void		gamestart_player2(t_player *player, t_game *game, int size);
 void		gamestart_map(t_game *game);
 
-//	randomization.c
-void		poke_rand(t_collectable *col, int y, int x, int *i);
-void		bolder_rand(t_map *map, int y, int x);
-void		randomize_cell(t_map *map, t_collectable *col, int y, int x, int *i);
+/*								randomization.c								 */
+/* void	poke_rand(t_collectable *col, int y, int x, int *i);				 */
+/* void	bolder_rand(t_map *map, int y, int x);								 */
+/* void	randomize_cell(t_map *map, t_collectable *col, int y, int x, int *i) */
 void		randomization(t_map *map, t_collectable *col, int *col_count);
 
-//	game_loop.c
-void		animate_pokemon(t_collectable *collectables, int pokecount, t_image *img);
+/*								game_loop.c									*/
+/* void	animate_pokemon(t_collectable *collectables, 						*/
+/*						int pokecount, t_image *img);						*/
 int			game_loop(t_game *game);
 
-//	draw_map_utils.c
-t_sprite	wall_placement(t_image img,t_map *map, int y, int x);
-void 		draw_sprite(t_game *game, t_sprite sprite, int y, int x);
-int 		find_pokemon_index(t_game *game, int x, int y);
+/*								draw_map_utils.c							*/
+t_sprite	wall_placement(t_image img, t_map *map, int y, int x);
+void		draw_sprite(t_game *game, t_sprite sprite, int y, int x);
+int			find_pokemon_index(t_game *game, int x, int y);
 t_sprite	poke_tiles(t_game *game, t_collectable *collectable, int y, int x);
 
-//	key_inputs.c
-void		remove_collectable(t_game *game, int x, int y);
-void		check_col_exit(t_game *game, int y, int x);
-void 		handle_enter(t_game *game, int y, int x);
+/*						key_inputs.c							*/
+/* static void	remove_collectable(t_game *game, int x, int y);	*/
+/* static void	check_col_exit(t_game *game, int y, int x);		*/
+/* static void 	handle_enter(t_game *game, int y, int x);		*/
 int			key_inputs(int keycode, t_game *game);
 
-//	movement.c
-void    	move_up(t_game *game);
-void    	move_down(t_game *game);
-void    	move_left(t_game *game);
-void    	move_right(t_game *game);
+/*						movement.c								*/
+void		move_up(t_game *game);
+void		move_down(t_game *game);
+void		move_left(t_game *game);
+void		move_right(t_game *game);
 
-//	movement_animation.c
+/*					movement_animation.c						*/
 void		move_animation(t_game *game, t_direction direction, int y, int x);
 
-
-// cleaning_free_game.c
+/*					cleaning_free_game.c						*/
 void		free_game(t_game *game);
 int			finish_game(t_game *game);
 
-//	cleaning_functions.c
+/*					cleaning_functions.c						*/
 void		clean_map(t_map *map);
 void		clean_pokeframes(t_animated_sprite *pokemon, int frame);
 void		clean_images(t_image *img, void *mlx);
 void		clean_player(t_player *player, void *mlx);
 
-//	display_messages.c
+/*					display_messages.c							*/
 void		print_error(char *msg);
 void		print_moves(t_game *game);
 
-//	game_ending.c
-void    	game_won(t_game *game);
-void    	game_lost(t_game *game);
+/*					game_ending.c								*/
+void		game_won(t_game *game);
+void		game_lost(t_game *game);
 
-//	win-lose_messages.c
+/*					win-lose_messages.c							*/
 void		win_message(void);
-void    	kakashi_thumbsup(void);
+void		kakashi_thumbsup(void);
 void		lose_message(void);
-void    	rope(void);
+void		rope(void);
 void		rope2(void);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:50:33 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 21:09:20 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/12 19:04:09 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	pokeframes(t_animated_sprite *pokemon, char *name, t_game *game)
+static int	pokeframes(t_animated_sprite *pokemon, char *name, t_game *game)
 {
 	int		i;
 	int		size;
@@ -35,7 +35,7 @@ int	pokeframes(t_animated_sprite *pokemon, char *name, t_game *game)
 	return (1);
 }
 
-void	gamestart_poke(t_image *image, t_game *game)
+static void	gamestart_poke(t_image *image, t_game *game)
 {
 	image->dialga.frame_count = 119;
 	image->palkia.frame_count = 79;
@@ -99,17 +99,17 @@ void	gamestart_map(t_game *game)
 			"./sprites/WB/floor.xpm", &size, &size);
 	game->img.exit = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/exit.xpm", &size, &size);
-	game->img.W_wall = mlx_xpm_file_to_image(game->mlx,
+	game->img.w_wall = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/Wwall.xpm", &size, &size);
-	game->img.S_wall = mlx_xpm_file_to_image(game->mlx,
+	game->img.s_wall = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/Swall.xpm", &size, &size);
-	game->img.E_wall = mlx_xpm_file_to_image(game->mlx,
+	game->img.e_wall = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/Ewall.xpm", &size, &size);
-	game->img.N_wall = mlx_xpm_file_to_image(game->mlx,
+	game->img.n_wall = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/Nwall.xpm", &size, &size);
-	game->img.NW_corner = mlx_xpm_file_to_image(game->mlx,
+	game->img.nw_corner = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/NWcorner.xpm", &size, &size);
-	game->img.NE_corner = mlx_xpm_file_to_image(game->mlx,
+	game->img.ne_corner = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/NEcorner.xpm", &size, &size);
 	game->img.bolder_1 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/bolder1.xpm", &size, &size);

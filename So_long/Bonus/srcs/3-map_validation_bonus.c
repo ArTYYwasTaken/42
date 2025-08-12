@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_validation.c                                   :+:      :+:    :+:   */
+/*   3-map_validation_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 18:22:44 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/14 17:25:06 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/12 18:26:36 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int	mv_exit(t_map *map)
+static int	mv_exit(t_map *map)
 {
 	int	y;
 	int	x;
@@ -41,7 +41,7 @@ int	mv_exit(t_map *map)
 	return (1);
 }
 
-int	mv_player(t_map *map)
+static int	mv_player(t_map *map)
 {
 	int	y;
 	int	x;
@@ -70,7 +70,7 @@ int	mv_player(t_map *map)
 	return (1);
 }
 
-int	mv_characters(t_map *map)
+static int	mv_characters(t_map *map)
 {
 	int	y;
 	int	x;
@@ -94,7 +94,7 @@ int	mv_characters(t_map *map)
 	return (1);
 }
 
-int	mv_borders(t_map *map)
+static int	mv_borders(t_map *map)
 {
 	int	x;
 	int	y;

@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 03:25:04 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/11 19:22:52 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/12 19:04:12 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 t_sprite	wall_placement(t_image img,t_map *map, int y, int x)
 {
 	if(x == 0 && y == 0)
-		return (img.NW_corner);
+		return (img.nw_corner);
 	else if (x == map->width - 1 && y == 0)
-		return (img.NE_corner);
+		return (img.ne_corner);
 	else if (y == 0)
-		return (img.N_wall);
+		return (img.n_wall);
 	else if (y == map->height - 1)
-		return (img.S_wall);
+		return (img.s_wall);
 	else if (x == 0)
-		return (img.W_wall);
+		return (img.w_wall);
 	else if (x == map->width - 1)
-		return (img.E_wall);
+		return (img.e_wall);
 	else if (map->grid[y][x] == '2')
 		return (img.bolder_1);
 	else if (map->grid[y][x] == '3')
