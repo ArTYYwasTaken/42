@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   win-lose_functions.c                               :+:      :+:    :+:   */
+/*   win-lose_messages_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>              +#+  +:+       +#+    */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/29 01:48:33 by kemontei            #+#    #+#           */
-/*   Updated: 2025/07/29 01:48:33 by kemontei           ###   ########.fr     */
+/*   Created: 2025/07/29 01:48:33 by kemontei          #+#    #+#             */
+/*   Updated: 2025/08/14 22:00:52 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 void	win_message(void)
 {
+	ft_printf("\033[1;93m");
 	ft_printf("__   _______ ____ ____ ___ ____  _ \n");
 	ft_printf("\\ \\ / / ____/ ___/ ___|_ _|  _ \\| |\n");
 	ft_printf(" \\ V /|  _| \\___ \\___ \\| || |_) | |\n");
 	ft_printf("  | | | |___ ___) |__) | ||  _ <|_|\n");
 	ft_printf("  |_| |_____|____/____/___|_| \\_(_)\n");
+	ft_printf("\033[0m");
 	ft_printf("\n");
 	ft_printf("\n");
 }
@@ -52,6 +54,7 @@ void    kakashi_thumbsup(void)
 
 void	lose_message(void)
 {
+	ft_printf("\033[0;91m");
 	ft_printf("                                    _      _                _ ");
 	ft_printf("    \n");
 	ft_printf(" _   _  ___  _   _   ___ _   _  ___| | __ | |__  _ __ _   _| |");
@@ -66,6 +69,7 @@ void	lose_message(void)
 	ft_printf("    \n");
 	ft_printf("\n");
 	ft_printf("\n");
+	ft_printf("\033[0m");
 }
 
 void    rope(void)
