@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 19:30:09 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/12 18:39:19 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/14 14:36:36 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	print_moves(t_game *game)
 
 	moves = ft_itoa(game->map->moves);
 	ft_printf("I would say about %s moves\n", moves);
+	mlx_string_put(game->mlx, game->win, 500, 600, 0x000000, moves);
 	free (moves);
 }

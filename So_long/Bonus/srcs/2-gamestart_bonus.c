@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 16:06:45 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/12 18:25:26 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/14 14:45:07 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,8 @@ t_map *gamestart(char *mapfile)
 		return (print_error("Failed to load map"), clean_map(map), NULL);
 	if (!map_validation(map))
 		return (print_error("Failed map validation"), clean_map(map), NULL);
+	if (map->height > 8 || map->width > 15)
+		return (print_error("Height/Width surpasses monitor resolution"),
+				clean_map(map), NULL);
 	return (map);
 }

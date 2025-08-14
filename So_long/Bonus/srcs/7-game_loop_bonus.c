@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/12 18:29:31 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/14 21:38:03 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,16 +73,22 @@ static void	draw_map(t_game *game, t_map *map, t_collectable *collectable)
 
 int	game_loop(t_game *game)
 {
-	static int animation_timer = 0;
+	static int poke_timer = 0;
+	static int player_timer = 0;
 	
-	animation_timer++;
-	if (animation_timer >= 50)
+	poke_timer++;
+	player_timer++;
+	if (poke_timer >= 20)
 	{
 		animate_pokemon(game->collectables, game->map->col, &game->img);
+		poke_timer = 0;
+	}
+	if (player_timer >= 2)
+	{
 		game->player.player_frame++;
 		if (game->player.player_frame >= 4)
 			game->player.player_frame = 0;
-		animation_timer = 0;
+		player_timer = 0;
 	}
 	draw_map(game, game->map, game->collectables);
 	return (0);
