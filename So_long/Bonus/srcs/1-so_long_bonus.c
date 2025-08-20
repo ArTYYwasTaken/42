@@ -43,6 +43,9 @@ int main(int argc, char **argv)
 	game->collectables = malloc(sizeof(t_collectable) * game->map->col);
 	if (!game->collectables)
 		return (print_error("Collectable alloc failed"), free_game(game), 1);
-	randomization(game->map, game->collectables, &game->map->col);
+	game->enemies = malloc(sizeof(t_enemy) * game->map->enemies);
+	if (!game->enemies)
+		return (print_error("Enemy alloc failed"), free_game(game), 1);
+	randomization(game->map, game->collectables, &game->map->col, &game->map->enemies);
 	mlx_main(game);
 }

@@ -34,5 +34,6 @@ int main(int argc, char **argv)
 	gamestart_map(game);
 	mlx_loop_hook(game->mlx, draw_map, game);
 	mlx_key_hook(game->mlx, key_inputs, game);
+	mlx_hook(game->win, DestroyNotify, StructureNotifyMask, finish_game, game);
 	mlx_loop(game->mlx);
 }

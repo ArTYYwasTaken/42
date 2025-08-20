@@ -64,7 +64,7 @@ void	free_game(t_game *game)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
 		mlx_destroy_display(game->mlx);
-	clean_images(game, game->mlx);
+	clean_images(&game, game->mlx);
 	if (game->map)
 		clean_map(game->map);
 	free(game);

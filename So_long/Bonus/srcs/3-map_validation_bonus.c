@@ -85,7 +85,8 @@ static int	mv_characters(t_map *map)
 				&& map->grid[y][x] != '0'
 				&& map->grid[y][x] != 'C'
 				&& map->grid[y][x] != 'E'
-				&& map->grid[y][x] != 'P')
+				&& map->grid[y][x] != 'P'
+				&& map->grid[y][x] != 'X')
 				return (0);
 			x++;
 		}

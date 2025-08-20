@@ -41,22 +41,19 @@ void 	handle_enter(t_game *game, int y, int x)
 		check_col_exit(game, y, x + 1);
 }
 
-int	key_inputs(int keycode, void *param)
+int	key_inputs(int keycode, t_game *game)
 {
-	t_game *game;
-
-	game = (t_game *)param;
-	if (keycode == W || keycode == UP)
+	if (keycode == XK_w || keycode == XK_Up)
 		move_up(game);
-	else if (keycode == A || keycode == LEFT)
+	else if (keycode == XK_a || keycode == XK_Left)
 		move_left(game);
-	else if (keycode == S || keycode == DOWN)
+	else if (keycode == XK_s || keycode == XK_Down)
 		move_down(game);
-	else if (keycode == D || keycode == RIGHT)
+	else if (keycode == XK_d || keycode == XK_Right)
 		move_right(game);
-	else if (keycode == ENTER)
+	else if (keycode == XK_Return || keycode == XK_space)
 		handle_enter(game, game->map->player_y, game->map->player_x);
-	else if (keycode == ESC)
+	else if (keycode == XK_Escape)
 	{
 		game_lost(game);
 		exit(EXIT_SUCCESS);

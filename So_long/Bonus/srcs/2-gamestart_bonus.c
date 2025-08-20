@@ -45,6 +45,28 @@ static int	map_getheight(char *mapfile)
 	return (close (fd), count);
 }
 
+static void map_enemycount(t_map *map)
+{
+	int	y;
+	int	x;
+	int	enemies;
+	
+	y = 1;
+	enemies = 0;
+	while (y < map->height - 1)
+	{
+		x = 1;
+		while (x < map->width - 1)
+		{
+			if (map->grid[y][x] == 'X')
+				enemies++;
+			x++;
+		}
+		y++;
+	}
+	map->enemies = enemies;
+}
+
 static void	displaygrid(t_map *map)
 {
 	int	i;
@@ -105,5 +127,6 @@ t_map *gamestart(char *mapfile)
 	if (map->height > 8 || map->width > 15)
 		return (print_error("Height/Width surpasses monitor resolution"),
 				clean_map(map), NULL);
+	map_enemycount(map);
 	return (map);
 }

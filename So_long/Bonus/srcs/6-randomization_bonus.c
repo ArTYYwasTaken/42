@@ -12,12 +12,21 @@
 
 #include "so_long_bonus.h"
 
-static void	poke_rand(t_collectable *col, int y, int x, int *i)
+static void	poke_rand(t_collectable *collectable, int y, int x, int *i)
 {
-		col[*i].x = x;
-		col[*i].y = y;
-		col[*i].pokemon_type = rand() % NUM_POKE;
-		col[*i].frame = 0;
+		collectable[*i].x = x;
+		collectable[*i].y = y;
+		collectable[*i].pokemon_type = rand() % NUM_POKE;
+		collectable[*i].frame = 0;
+		(*i)++;
+}
+
+static void	enemy_rand(t_enemy *enemy, int y, int x, int *i)
+{
+		enemy[*i].x = x;
+		enemy[*i].y = y;
+		enemy[*i].enemy_type = rand() % NUM_ENEMY;
+		enemy[*i].frame = 0;
 		(*i)++;
 }
 
@@ -32,18 +41,21 @@ static void	bolder_rand(t_map *map, int y, int x)
 		map->grid[y][x] = '3';
 }
 
-static void	randomize_cell(t_map *map, t_collectable *col, int y, int x, int *i)
+static void	randomize_cell(t_game *game, int y, int x, int *col_i, int *enem_i)
 {
-	if (map->grid[y][x] == 'C')
-		poke_rand(col, y, x, i);
-	if (map->grid[y][x] == '1')
-		bolder_rand(map, y, x);
+	if (game->map->grid[y][x] == 'C')
+		poke_rand(game->collectables, y, x, col_i);
+	if (game->map->grid[y][x] == 'X')
+		enemy_rand(game->enemies, y, x, enem_i);
+	if (game->map->grid[y][x] == '1')
+		bolder_rand(game->map, y, x);
 }
 
-void	randomization(t_map *map, t_collectable *col, int *col_count)
+void	randomization(t_game *game, t_map *map, int *collectable_count, int *enemy_count)
 {
 	static int	seeded;
-	int			i;
+	int			col_i;
+	int			enem_i;
 	int			x;
 	int			y;
 
@@ -52,14 +64,16 @@ void	randomization(t_map *map, t_collectable *col, int *col_count)
 		srand(time(NULL));
 		seeded = 1;
 	}
-	i = 0;
+	col_i = 0;
+	enem_i = 0;
 	y = 1;
 	while (y < map->height - 1)
 	{
 		x = 1;
 		while (x < map->width - 1)
-			randomize_cell(map, col, y, x++, &i);
+			randomize_cell(game, y, x++, &col_i, &enem_i;);
 		y++;
 	}
-	*col_count = i;
+	*collectable_count = col_i;
+	*enemy_count = enem_i;
 }

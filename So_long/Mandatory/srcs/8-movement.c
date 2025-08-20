@@ -19,10 +19,9 @@ void    move_up(t_game *game)
 
     y = game->map->player_y;
     x = game->map->player_x;
-    if (game->map->grid[y - 1][x] == 'C' || game->map->grid[y - 1][x] == 'E'
-	    || game->map->grid[y - 1][x] == '1')
+    if (game->map->grid[y - 1][x] == '0')
     {
-		game->map->moves++;
+		    game->map->moves++;
         game->map->grid[y][x] = '0';
         y--;
         game->map->grid[y][x] = 'P';
@@ -40,8 +39,7 @@ void    move_down(t_game *game)
 
     y = game->map->player_y;
     x = game->map->player_x;
-    if (game->map->grid[y + 1][x] == 'C' || game->map->grid[y + 1][x] == 'E'
-	    || game->map->grid[y + 1][x] == '1')
+    if (game->map->grid[y - 1][x] == '0')
     {
 		game->map->moves++;
         game->map->grid[y][x] = '0';
@@ -61,8 +59,7 @@ void    move_left(t_game *game)
 
     y = game->map->player_y;
     x = game->map->player_x;
-    if (game->map->grid[y][x - 1] == 'C' || game->map->grid[y][x - 1] == 'E'
-	|| game->map->grid[y][x - 1] == '1')
+    if (game->map->grid[y - 1][x] == '0')
     {
 		game->map->moves++;
         game->map->grid[y][x] = '0';
@@ -82,8 +79,7 @@ void    move_right(t_game *game)
 
     y = game->map->player_y;
     x = game->map->player_x;
-    if (game->map->grid[y][x + 1] == 'C' || game->map->grid[y][x + 1] == 'E'
-	|| game->map->grid[y][x + 1] == '1')
+    if (game->map->grid[y - 1][x] == '0')
     {
 		game->map->moves++;
         game->map->grid[y][x] = '0';

@@ -12,6 +12,22 @@
 
 #include "so_long_bonus.h"
 
+void	clean_map(t_map *map)
+{
+	size_t	i;
+
+	i = 0;
+	if (!map)
+		return ;
+	if (map->grid)
+	{
+		while (map->grid[i])
+			free(map->grid[i++]);
+		free(map->grid);
+	}
+	free(map);
+}
+
 void	free_game(t_game *game)
 {
 	if (!game)

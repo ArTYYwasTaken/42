@@ -12,42 +12,6 @@
 
 #include "so_long_bonus.h"
 
-static int	pokeframes(t_animated_sprite *pokemon, char *name, t_game *game)
-{
-	int		i;
-	int		size;
-	char	filename[128];
-
-	size = PX;
-	i = 0;
-	pokemon->frames = malloc(sizeof(t_sprite) * pokemon->frame_count);
-	if (!pokemon->frames)
-		return (print_error("Failed to allocate poke frames"), 0);
-	while (i < pokemon->frame_count)
-	{
-		sprintf(filename, "./sprites/Pokemons/%s/%s_%d.xpm", name, name, i);
-		pokemon->frames[i] = mlx_xpm_file_to_image(game->mlx, filename,
-				&size, &size);
-		if (!pokemon->frames[i])
-			return (clean_pokeframes(pokemon, i), 0);
-		i++;
-	}
-	return (1);
-}
-
-static void	gamestart_poke(t_image *image, t_game *game)
-{
-	image->dialga.frame_count = 119;
-	image->palkia.frame_count = 79;
-	image->giratina.frame_count = 79;
-	if (!pokeframes(&image->dialga, "dialga", game))
-		print_error("Failed to load Dialga frames");
-	if (!pokeframes(&image->palkia, "palkia", game))
-		print_error("Failed to load Palkia frames");
-	if (!pokeframes(&image->giratina, "giratina", game))
-		print_error("Failed to load Giratina frames");
-}
-
 void	gamestart_player(t_player *player, t_game *game, int size)
 {
 	player->sprites[DOWN][0] = mlx_xpm_file_to_image(game->mlx,
@@ -90,11 +54,8 @@ void	gamestart_player2(t_player *player, t_game *game, int size)
 	game->player.direction = DOWN;
 }
 
-void	gamestart_map(t_game *game)
+static void	gamestart_wb(t_image *image, t_game *game, int size)
 {
-	int	size;
-
-	size = PX;
 	game->img.floor = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/floor.xpm", &size, &size);
 	game->img.exit = mlx_xpm_file_to_image(game->mlx,
@@ -115,6 +76,15 @@ void	gamestart_map(t_game *game)
 			"./sprites/WB/bolder1.xpm", &size, &size);
 	game->img.bolder_2 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/bolder2.xpm", &size, &size);
-	gamestart_poke(&game->img, game);
+}
+
+void	gamestart_map(t_game *game)
+{
+	int	size;
+
+	size = PX;
+	gamestart_poke(&game->img, game, size);
+	gamestart_enemies(&game->img, game, size);
 	gamestart_player(&game->player, game, size);
+	gamestart_wb(&game->img, game, size);
 }

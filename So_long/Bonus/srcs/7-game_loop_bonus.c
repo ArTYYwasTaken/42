@@ -12,7 +12,8 @@
 
 #include "so_long_bonus.h"
 
-static void	animate_pokemon(t_collectable *collectables, int pokecount, t_image *img)
+static void	animate_pokemon(t_collectable *collectables, int pokecount,
+							t_image *img)
 {
 	int	i;
 	int	poke_type;
@@ -34,7 +35,36 @@ static void	animate_pokemon(t_collectable *collectables, int pokecount, t_image 
 	}
 }
 
-static void	draw_map_row(t_game *game, t_collectable *collectable, int y)
+static void	animate_enemy(t_enemy *enemy, int enemycount, t_image *img)
+{
+	int	i;
+	int	enemy_type;
+	int	frame_count;
+
+	i = 0;
+	while (i < enemycount)
+	{
+		enemy_type = enemy[i].enemy_type;
+		frame_count = 1;
+		if (enemy_type == 0)
+			frame_count = img->colress.frame_count;
+		else if (enemy_type == 1)
+			frame_count = img->ghetsis.frame_count;
+		else if (enemy_type == 2)
+			frame_count = img->n.frame_count;
+		else if (enemy_type == 3)
+			frame_count = img->plasmaF.frame_count;
+		else if (enemy_type == 4)
+			frame_count = img->plasmaM.frame_count;
+		else if (enemy_type == 5)
+			frame_count = img->scientist.frame_count;
+		enemy[i].frame = (enemy[i].frame + 1) % frame_count;
+		i++;
+	}
+}
+
+static void	draw_map_row(t_game *game, t_collectable *collectable,
+						t_enemy *enemy, int y)
 {
 	int			x;
 	t_sprite	sprite;
@@ -50,6 +80,8 @@ static void	draw_map_row(t_game *game, t_collectable *collectable, int y)
 			sprite = game->img.exit;
 		else if (tile == 'C')
 			sprite = poke_tiles(game, collectable, y, x);
+		else if (tile == 'X')
+			sprite = enemy_tiles(game, enemy, y, x);
 		else
 			sprite = game->img.floor;
 		draw_sprite(game, sprite, y, x);
@@ -57,14 +89,14 @@ static void	draw_map_row(t_game *game, t_collectable *collectable, int y)
 	}
 }
 
-static void	draw_map(t_game *game, t_map *map, t_collectable *collectable)
+static void	draw_map(t_game *game, t_map *map)
 {
 	int y;
 
 	y = 0;
 	while (y < game->map->height)
 	{
-		draw_map_row(game, collectable, y);
+		draw_map_row(game, game->collectables, game->enemies, y);
 		y++;
 	}
 	draw_sprite(game, game->player.sprites[game->player.direction]
@@ -73,11 +105,13 @@ static void	draw_map(t_game *game, t_map *map, t_collectable *collectable)
 
 int	game_loop(t_game *game)
 {
-	static int poke_timer = 0;
-	static int player_timer = 0;
-	
+	static int	poke_timer = 0;
+	static int	player_timer = 0;
+	static int	enemy_timer = 0;
+
 	poke_timer++;
 	player_timer++;
+	enemy_timer++;
 	if (poke_timer >= 20)
 	{
 		animate_pokemon(game->collectables, game->map->col, &game->img);
@@ -90,6 +124,10 @@ int	game_loop(t_game *game)
 			game->player.player_frame = 0;
 		player_timer = 0;
 	}
-	draw_map(game, game->map, game->collectables);
-	return (0);
+	if (enemy_timer >= 20)
+	{
+		animate_enemy(game->enemies, game->map->enemies, &game->img);
+		enemy_timer = 0;
+	}
+	(draw_map(game, game->map), return (0));
 }

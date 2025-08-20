@@ -32,6 +32,26 @@ static void	remove_collectable(t_game *game, int x, int y)
 	}
 }
 
+static void	remove_enemy(t_game *game, int x, int y)
+{
+	int	i;
+	int	last;
+
+	i = 0;
+	last = game->map->enemies - 1;
+	while (i <= last)
+	{
+		if (game->enemies[i].x == x && game->enemies[i].y == y)
+		{
+			if (i != last)
+				game->enemies[i] = game->enemies[last];
+			game->map->enemies--;
+			break;
+		}
+		i++;
+	}
+}
+
 static void	check_col_exit(t_game *game, int y, int x)
 {
 	char	*tile;
@@ -47,6 +67,8 @@ static void	check_col_exit(t_game *game, int y, int x)
 		if (game->map->col == 0)
 			game_won(game);
 	}
+	else if (*tile == 'X')
+		game_lost(game);
 }
 
 static void 	handle_enter(t_game *game, int y, int x)

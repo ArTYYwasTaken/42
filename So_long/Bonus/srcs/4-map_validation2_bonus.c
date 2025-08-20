@@ -42,7 +42,7 @@ static int mv_floodfill(t_map *map, int x, int y, int collectables)
 	static int	col;
 	static int	exit;
 
-	if (map->grid[y][x] == '1')
+	if (map->grid[y][x] == '1' || map->grid[y][x] == 'X')
 		return (0);
 	if (map->grid[y][x] == 'C')
 		col++;

@@ -12,21 +12,6 @@
 
 #include "so_long_bonus.h"
 
-void	clean_map(t_map *map)
-{
-	size_t	i;
-
-	i = 0;
-	if (!map)
-		return ;
-	if (map->grid)
-	{
-		while (map->grid[i])
-			free(map->grid[i++]);
-		free(map->grid);
-	}
-	free(map);
-}
 
 void	clean_pokeframes(t_animated_sprite *pokemon, int frame)
 {
@@ -41,10 +26,37 @@ void	clean_pokeframes(t_animated_sprite *pokemon, int frame)
 	pokemon->frames = NULL;
 }
 
+void	clean_enemyframes(t_animated_sprite *enemy, int frame)
+{
+	int	i;
+
+	i = 0;
+	if (!enemy || !enemy->frames)
+		return ;
+	while (i < frame)
+		free(enemy->frames[i++]);
+	free(enemy->frames);
+	enemy->frames = NULL;
+}
+
 void	clean_images(t_image *img, void *mlx)
 {
 	if (!img || !mlx)
 		return ;
+	clean_worldbuilding(&img, mlx);
+	clean_pokeframes(&img->dialga, img->dialga.frame_count);
+	clean_pokeframes(&img->palkia, img->palkia.frame_count);
+	clean_pokeframes(&img->giratina, img->giratina.frame_count);
+	clean_enemyframes(&img->colress, img->colress.frame_count);
+	clean_enemyframes(&img->ghetsis, img->ghetsis.frame_count);
+	clean_enemyframes(&img->n, img->n.frame_count);
+	clean_enemyframes(&img->plasmaF, img->plasmaF.frame_count);
+	clean_enemyframes(&img->plasmaM, img->plasmaM.frame_count);
+	clean_enemyframes(&img->scientist, img->scientist.frame_count);
+}
+	
+void	clean_worldbuilding(t_image *img, void *mlx)
+{
 	if (img->floor)
 		mlx_destroy_image(mlx, img->floor);
 	if (img->exit)
@@ -65,9 +77,6 @@ void	clean_images(t_image *img, void *mlx)
 		mlx_destroy_image(mlx, img->bolder_1);
 	if (img->bolder_2)
 		mlx_destroy_image(mlx, img->bolder_2);
-	clean_pokeframes(&img->dialga, img->dialga.frame_count);
-	clean_pokeframes(&img->palkia, img->palkia.frame_count);
-	clean_pokeframes(&img->giratina, img->giratina.frame_count);
 }
 
 void	clean_player(t_player *player, void *mlx)
