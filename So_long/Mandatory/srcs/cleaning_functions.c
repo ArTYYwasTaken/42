@@ -36,18 +36,18 @@ void	clean_images(t_game *game, void *mlx)
 		mlx_destroy_image(mlx, game->img.floor);
 	if (game->img.exit)
 		mlx_destroy_image(mlx, game->img.exit);
-	if (game->img.W_wall)
-		mlx_destroy_image(mlx, game->img.W_wall);
-	if (game->img.S_wall)
-		mlx_destroy_image(mlx, game->img.S_wall);
-	if (game->img.E_wall)
-		mlx_destroy_image(mlx, game->img.E_wall);
-	if (game->img.N_wall)
-		mlx_destroy_image(mlx, game->img.N_wall);
-	if (game->img.NW_corner)
-		mlx_destroy_image(mlx, game->img.NW_corner);
-	if (game->img.NE_corner)
-		mlx_destroy_image(mlx, game->img.NE_corner);
+	if (game->img.w_wall)
+		mlx_destroy_image(mlx, game->img.w_wall);
+	if (game->img.s_wall)
+		mlx_destroy_image(mlx, game->img.s_wall);
+	if (game->img.e_wall)
+		mlx_destroy_image(mlx, game->img.e_wall);
+	if (game->img.n_wall)
+		mlx_destroy_image(mlx, game->img.n_wall);
+	if (game->img.nw_corner)
+		mlx_destroy_image(mlx, game->img.nw_corner);
+	if (game->img.ne_corner)
+		mlx_destroy_image(mlx, game->img.ne_corner);
 	if (game->img.bolder)
 		mlx_destroy_image(mlx, game->img.bolder);
 	if (game->img.dialga)
@@ -60,12 +60,19 @@ void	free_game(t_game *game)
 {
 	if (!game)
 		return ;
+	clean_images(&game, game->mlx);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
 		mlx_destroy_display(game->mlx);
-	clean_images(&game, game->mlx);
 	if (game->map)
 		clean_map(game->map);
 	free(game);
+	exit (0);
+}
+
+int	finish_game(t_game *game)
+{
+	free_game(game);
+	return (0);
 }

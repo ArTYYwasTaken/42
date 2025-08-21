@@ -76,6 +76,8 @@ static void	gamestart_wb(t_image *image, t_game *game, int size)
 			"./sprites/WB/bolder1.xpm", &size, &size);
 	game->img.bolder_2 = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/bolder2.xpm", &size, &size);
+	game->img.gameboy = mlx_xpm_file_to_image(game->mlx,
+			"./sprites/WB/gameboy.xpm", &size, &size);
 }
 
 void	gamestart_map(t_game *game)

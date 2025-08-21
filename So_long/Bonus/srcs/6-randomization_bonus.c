@@ -51,7 +51,8 @@ static void	randomize_cell(t_game *game, int y, int x, int *col_i, int *enem_i)
 		bolder_rand(game->map, y, x);
 }
 
-void	randomization(t_game *game, t_map *map, int *collectable_count, int *enemy_count)
+void	randomization(t_game *game, t_map *map, int *collectable_count,
+						int *enemy_count)
 {
 	static int	seeded;
 	int			col_i;

@@ -18,6 +18,8 @@ t_sprite	wall_placement(t_image img,t_map *map, int y, int x)
 		return (img.nw_corner);
 	else if (x == map->width - 1 && y == 0)
 		return (img.ne_corner);
+	else if (x == 0 && y == map->height - 1)
+		return (img.gameboy);
 	else if (y == 0)
 		return (img.n_wall);
 	else if (y == map->height - 1)

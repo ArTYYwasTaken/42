@@ -17,7 +17,8 @@ void	print_error(char *msg)
 	char	*header;
 
 	header = "\033[1;31m🛑Error\033[0m\n";
-	write(2, header, ft_strlen(header));
+	// write(2, header, ft_strlen(header));
+	ft_putstr_fd(header, 2);
 	ft_putstr_fd(msg, 2);
 	write(2, "\n", 1);
 }

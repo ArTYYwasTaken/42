@@ -21,17 +21,17 @@ void	gamestart_map(t_game *game)
 			"./sprites/WB/floor.xpm", &size, &size);
 	game->img.exit = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/exit.xpm", &size, &size);
-	game->img.W_wall = mlx_xpm_file_to_image(game->mlx,
+	game->img.w_wall = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/Wwall.xpm", &size, &size);
-	game->img.S_wall = mlx_xpm_file_to_image(game->mlx,
+	game->img.s_wall = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/Swall.xpm", &size, &size);
-	game->img.E_wall = mlx_xpm_file_to_image(game->mlx,
+	game->img.e_wall = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/Ewall.xpm", &size, &size);
-	game->img.N_wall = mlx_xpm_file_to_image(game->mlx,
+	game->img.n_wall = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/Nwall.xpm", &size, &size);
-	game->img.NW_corner = mlx_xpm_file_to_image(game->mlx,
+	game->img.nw_corner = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/NWwall.xpm", &size, &size);
-	game->img.NE_corner = mlx_xpm_file_to_image(game->mlx,
+	game->img.ne_corner = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/NEwall.xpm", &size, &size);
 	game->img.bolder = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/bolder1.xpm", &size, &size);

@@ -90,6 +90,7 @@ typedef struct s_image
 	t_sprite			ne_corner;
 	t_sprite			bolder_1;
 	t_sprite			bolder_2;
+	t_sprite			gameboy;
 
 }	t_image;
 

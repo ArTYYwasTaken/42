@@ -12,7 +12,7 @@
 
 #include "so_long_bonus.h"
 
-static void mlx_main(t_game *game)
+static void	mlx_main(t_game *game)
 {
 	game->mlx = mlx_init();
 	if (!game->mlx)
@@ -46,6 +46,7 @@ int main(int argc, char **argv)
 	game->enemies = malloc(sizeof(t_enemy) * game->map->enemies);
 	if (!game->enemies)
 		return (print_error("Enemy alloc failed"), free_game(game), 1);
-	randomization(game->map, game->collectables, &game->map->col, &game->map->enemies);
+	randomization(game->map, game->collectables, &game->map->col,
+					&game->map->enemies);
 	mlx_main(game);
 }

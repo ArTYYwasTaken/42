@@ -37,12 +37,12 @@ typedef struct s_image
 {
 	t_sprite			exit;
 	t_sprite			floor;
-	t_sprite			W_wall;
-	t_sprite			E_wall;
-	t_sprite			N_wall;
-	t_sprite			S_wall;
-	t_sprite			NW_corner;
-	t_sprite			NE_corner;
+	t_sprite			w_wall;
+	t_sprite			e_wall;
+	t_sprite			n_wall;
+	t_sprite			s_wall;
+	t_sprite			nw_corner;
+	t_sprite			ne_corner;
 	t_sprite			bolder;
 	t_sprite			dialga;
 	t_sprite			player;
@@ -106,7 +106,7 @@ int 		draw_map(t_game *game);
 //	key_inputs.c
 void		check_col_exit(t_game *game, int y, int x);
 void 		handle_enter(t_game *game, int y, int x);
-int			key_inputs(int keycode, void *param);
+int			key_inputs(int keycode, t_game *game);
 
 //	movement.c
 void    	move_up(t_game *game);
@@ -118,6 +118,7 @@ void    	move_right(t_game *game);
 void		clean_map(t_map *map);
 void		clean_images(t_game *game, void *mlx);
 void		free_game(t_game *game);
+int			finish_game(t_game *game);
 
 //	display_messages.c
 void		print_error(char *msg);

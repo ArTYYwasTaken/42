@@ -43,7 +43,7 @@ void	free_game(t_game *game)
 	if (game->map)
 		clean_map(game->map);
 	free(game);
-	exit(0);
+	exit (0);
 }
 
 int	finish_game(t_game *game)
