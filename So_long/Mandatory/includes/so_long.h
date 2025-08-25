@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/14 21:28:13 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 20:15:41 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,6 @@
 # include <time.h>
 
 # define PX 128
-# define W 13
-# define A 0
-# define S 1
-# define D 2
-# define UP 126
-# define DOWN 125
-# define LEFT 123
-# define RIGHT 124
-# define ENTER 36
-# define ESC 53
 
 typedef void* t_sprite;
 
@@ -78,7 +68,6 @@ typedef struct s_game
 // gamestart.c
 int			map_fileformat(char *mapfile);
 int			map_getheight(char *mapfile);
-void		displaygrid(t_map *map);
 t_map		*map_gridfill(t_map *map, char *mapfile);
 t_map		*gamestart(char *mapfile);
 

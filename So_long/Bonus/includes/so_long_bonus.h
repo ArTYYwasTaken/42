@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/14 21:37:50 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 16:37:14 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,10 +201,10 @@ void		free_game(t_game *game);
 int			finish_game(t_game *game);
 
 /*					cleaning_functions.c							*/
-void		clean_pokeframes(t_animated_sprite *pokemon, int frame);
-void		clean_enemyframes(t_animated_sprite *enemy, int frame);
-void		clean_images(t_image *img, void *mlx);
+void		clean_pokeframes(t_animated_sprite *pokemon, int frame, void *mlx);
+void		clean_enemyframes(t_animated_sprite *enemy, int frame, void *mlx);
 void		clean_worldbuilding(t_image *img, void *mlx);
+void		clean_images(t_image *img, void *mlx);
 void		clean_player(t_player *player, void *mlx);
 
 /*					display_messages.c							*/

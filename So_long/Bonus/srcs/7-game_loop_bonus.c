@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/14 21:38:03 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:09:34 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,17 +117,17 @@ int	game_loop(t_game *game)
 		animate_pokemon(game->collectables, game->map->col, &game->img);
 		poke_timer = 0;
 	}
-	if (player_timer >= 2)
+	if (player_timer >= 50)
 	{
 		game->player.player_frame++;
 		if (game->player.player_frame >= 4)
 			game->player.player_frame = 0;
 		player_timer = 0;
 	}
-	if (enemy_timer >= 20)
+	if (enemy_timer >= 50)
 	{
 		animate_enemy(game->enemies, game->map->enemies, &game->img);
 		enemy_timer = 0;
 	}
-	(draw_map(game, game->map), return (0));
+	return (draw_map(game, game->map), 0);
 }

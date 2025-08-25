@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/04 18:22:44 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/12 18:26:36 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:07:29 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static int	mv_exit(t_map *map)
 	}
 	if (count != 1)
 		return (0);
-	ft_printf("--//exit/--\nx:%d\ty:%d\n\n", map->exit_x, map->exit_y);
 	return (1);
 }
 
@@ -66,7 +65,6 @@ static int	mv_player(t_map *map)
 	}
 	if (count != 1)
 		return (0);
-	ft_printf("--//player/--\nx:%d\ty:%d\n", map->player_x, map->player_y);
 	return (1);
 }
 

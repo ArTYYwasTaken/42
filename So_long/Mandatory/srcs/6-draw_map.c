@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/07 17:27:14 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 19:48:19 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ void	draw_map_row(t_game *game, int y)
 		tile = game->map->grid[y][x];
 		if (tile == '1')
 			sprite = wall_placement(game->img, game->map, y, x);
-		else if (tile == 'P')
-			sprite = game->img.player;
 		else if (tile == 'E')
 			sprite = game->img.exit;
 		else if (tile == 'C')
@@ -75,5 +73,6 @@ int	draw_map(t_game *game)
 		draw_map_row(game, y);
 		y++;
 	}
+	draw_sprite(game, game->img.player, game->map->player_y, game->map->player_x);
 	return (0);
 }

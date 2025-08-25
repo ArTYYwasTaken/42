@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleaning_functions.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kemontei <kemontei@student.42.fr>              +#+  +:+       +#+    */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 19:51:28 by kemontei            #+#    #+#           */
-/*   Updated: 2025/07/26 19:51:28 by kemontei           ###   ########.fr     */
+/*   Created: 2025/07/26 19:51:28 by kemontei          #+#    #+#             */
+/*   Updated: 2025/08/25 20:18:28 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ void	free_game(t_game *game)
 {
 	if (!game)
 		return ;
-	clean_images(&game, game->mlx);
+	clean_images(game, game->mlx);
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
-		mlx_destroy_display(game->mlx);
+		(mlx_destroy_display(game->mlx), free(game->mlx));
 	if (game->map)
 		clean_map(game->map);
 	free(game);

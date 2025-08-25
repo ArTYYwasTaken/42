@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gamestart.c                                        :+:      :+:    :+:   */
+/*   2-gamestart.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 16:06:45 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/16 21:06:06 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 20:16:48 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,18 +45,6 @@ int	map_getheight(char *mapfile)
 	return (close (fd), count);
 }
 
-void	displaygrid(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	while(map->grid[i])
-	{
-		ft_printf("%s\t%d\n", map->grid[i], ft_strlen(map->grid[i]));
-		i++;	
-	}
-}
-
 t_map *map_gridfill(t_map *map, char *mapfile)
 {
 	int		fd;
@@ -78,7 +66,6 @@ t_map *map_gridfill(t_map *map, char *mapfile)
 		map->grid[y++] = line;
 	}
 	map->width = ft_strlen(map->grid[0]);
-	displaygrid(map);
 	return (close (fd), map);
 }
 

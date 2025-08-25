@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:50:33 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/14 21:30:10 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 14:46:44 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ void	gamestart_map(t_game *game)
 	int	size;
 
 	size = PX;
-	gamestart_poke(&game->img, game, size);
-	gamestart_enemies(&game->img, game, size);
+	gamestart_poke(&game->img, game);
+	gamestart_enemies(&game->img, game);
 	gamestart_player(&game->player, game, size);
 	gamestart_wb(&game->img, game, size);
 }

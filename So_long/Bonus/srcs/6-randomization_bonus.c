@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 05:48:49 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/14 21:30:42 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 15:12:00 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	randomization(t_game *game, t_map *map, int *collectable_count,
 	{
 		x = 1;
 		while (x < map->width - 1)
-			randomize_cell(game, y, x++, &col_i, &enem_i;);
+			randomize_cell(game, y, x++, &col_i, &enem_i);
 		y++;
 	}
 	*collectable_count = col_i;

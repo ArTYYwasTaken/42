@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:53 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/12 18:11:02 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:04:34 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 		return (print_error("Invalid Number of Arguments"), 1);
-	game = malloc(sizeof(t_game));
+	game = ft_calloc(1, sizeof(t_game));
 	if (!game)
 		return (print_error("Failed to allocate game"), 1);
 	game->map = gamestart(argv[1]);
@@ -46,7 +46,6 @@ int main(int argc, char **argv)
 	game->enemies = malloc(sizeof(t_enemy) * game->map->enemies);
 	if (!game->enemies)
 		return (print_error("Enemy alloc failed"), free_game(game), 1);
-	randomization(game->map, game->collectables, &game->map->col,
-					&game->map->enemies);
+	randomization(game, game->map, &game->map->col, &game->map->enemies);
 	mlx_main(game);
 }

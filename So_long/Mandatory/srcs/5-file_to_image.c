@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:50:33 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/07 17:15:49 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 19:38:20 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	gamestart_map(t_game *game)
 	game->img.n_wall = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/Nwall.xpm", &size, &size);
 	game->img.nw_corner = mlx_xpm_file_to_image(game->mlx,
-			"./sprites/WB/NWwall.xpm", &size, &size);
+			"./sprites/WB/NWcorner.xpm", &size, &size);
 	game->img.ne_corner = mlx_xpm_file_to_image(game->mlx,
-			"./sprites/WB/NEwall.xpm", &size, &size);
+			"./sprites/WB/NEcorner.xpm", &size, &size);
 	game->img.bolder = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/bolder1.xpm", &size, &size);
 	game->img.player = mlx_xpm_file_to_image(game->mlx,

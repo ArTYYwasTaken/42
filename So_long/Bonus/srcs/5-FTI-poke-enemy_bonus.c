@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   6-FTI-poke-enemy.c                                 :+:      :+:    :+:   */
+/*   5-FTI-poke-enemy_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 02:29:22 by marvin            #+#    #+#             */
-/*   Updated: 2025/08/20 02:29:22 by marvin           ###   ########.fr       */
+/*   Updated: 2025/08/25 17:32:08 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	pokeframes(t_animated_sprite *pokemon, char *name, t_game *game)
 		pokemon->frames[i] = mlx_xpm_file_to_image(game->mlx, filename,
 				&size, &size);
 		if (!pokemon->frames[i])
-			return (clean_pokeframes(pokemon, i), 0);
+			return (clean_pokeframes(pokemon, i, game->mlx), 0);
 		i++;
 	}
 	return (1);
@@ -65,7 +65,7 @@ int	enemyframes(t_animated_sprite *enemy, char *name, t_game *game)
 		enemy->frames[i] = mlx_xpm_file_to_image(game->mlx, filename,
 				&size, &size);
 		if (!enemy->frames[i])
-			return (clean_enemyframes(enemy, i), 0);
+			return (clean_enemyframes(enemy, i, game->mlx), 0);
 		i++;
 	}
 	return (1);
@@ -79,16 +79,16 @@ void	gamestart_enemies(t_image *image, t_game *game)
 	image->plasmaF.frame_count = 12;
 	image->plasmaM.frame_count = 18;
 	image->scientist.frame_count = 23;
-	if (!pokeframes(&image->colress, "colress", game))
+	if (!enemyframes(&image->colress, "colress", game))
 		print_error("Failed to load Colress frames");
-	if (!pokeframes(&image->ghetsis, "ghetsis", game))
+	if (!enemyframes(&image->ghetsis, "ghetsis", game))
 		print_error("Failed to load Ghetsis frames");
-	if (!pokeframes(&image->n, "n", game))
+	if (!enemyframes(&image->n, "n", game))
 		print_error("Failed to load N frames");
-	if (!pokeframes(&image->plasmaF, "plasmaF", game))
+	if (!enemyframes(&image->plasmaF, "plasmaF", game))
 		print_error("Failed to load Plasma Female frames");
-	if (!pokeframes(&image->plasmaM, "plasmaM", game))
+	if (!enemyframes(&image->plasmaM, "plasmaM", game))
 		print_error("Failed to load Plasma male frames");
-	if (!pokeframes(&image->scientist, "scientist", game))
+	if (!enemyframes(&image->scientist, "scientist", game))
 		print_error("Failed to load Scientist frames");
 }

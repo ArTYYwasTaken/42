@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 16:06:45 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/14 14:45:07 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 17:07:14 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,6 @@ static void map_enemycount(t_map *map)
 	map->enemies = enemies;
 }
 
-static void	displaygrid(t_map *map)
-{
-	int	i;
-
-	i = 0;
-	while(map->grid[i])
-	{
-		ft_printf("%s\t%d\n", map->grid[i], ft_strlen(map->grid[i]));
-		i++;	
-	}
-}
-
 static t_map *map_gridfill(t_map *map, char *mapfile)
 {
 	int		fd;
@@ -100,7 +88,6 @@ static t_map *map_gridfill(t_map *map, char *mapfile)
 		map->grid[y++] = line;
 	}
 	map->width = ft_strlen(map->grid[0]);
-	displaygrid(map);
 	return (close (fd), map);
 }
 

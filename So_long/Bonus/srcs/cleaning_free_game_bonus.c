@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 05:26:01 by marvin            #+#    #+#             */
-/*   Updated: 2025/08/12 18:07:30 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/25 16:54:40 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,11 @@ void	free_game(t_game *game)
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->mlx)
-		mlx_destroy_display(game->mlx);
+		(mlx_destroy_display(game->mlx), free(game->mlx));
 	if (game->collectables)
 		free(game->collectables);
+	if (game->enemies)
+		free(game->enemies);
 	if (game->map)
 		clean_map(game->map);
 	free(game);
