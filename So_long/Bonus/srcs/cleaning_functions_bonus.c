@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 19:51:28 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/28 17:49:56 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 19:14:48 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	clean_pokeframes(t_animated_sprite *pokemon, int frame, void *mlx)
 	int	i;
 
 	i = 0;
-	if (!pokemon || !pokemon->frames)
+	if (!pokemon || !mlx || !pokemon->frames)
 		return ;
 	while (i < frame)
 		mlx_destroy_image(mlx, pokemon->frames[i++]);
@@ -30,7 +30,7 @@ void	clean_enemyframes(t_animated_sprite *enemy, int frame, void *mlx)
 	int	i;
 
 	i = 0;
-	if (!enemy || !enemy->frames)
+	if (!enemy || !mlx || !enemy->frames)
 		return ;
 	while (i < frame)
 		mlx_destroy_image(mlx, enemy->frames[i++]);
@@ -40,6 +40,8 @@ void	clean_enemyframes(t_animated_sprite *enemy, int frame, void *mlx)
 
 void	clean_worldbuilding(t_image *img, void *mlx)
 {
+	if (!img || !mlx)
+		return ;
 	if (img->floor)
 		mlx_destroy_image(mlx, img->floor);
 	if (img->exit)
@@ -92,7 +94,11 @@ void	clean_player(t_player *player, void *mlx)
 	{
 		x = 0;
 		while (x < 4)
-			mlx_destroy_image(mlx, player->sprites[y][x++]);
+		{
+			if (player->sprites[y][x])
+				mlx_destroy_image(mlx, player->sprites[y][x]);
+			x++;
+		}
 		y++;
 	}
 }
