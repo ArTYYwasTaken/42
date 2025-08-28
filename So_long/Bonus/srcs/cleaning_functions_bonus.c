@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 19:51:28 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 16:36:53 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:29:34 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ void	clean_images(t_image *img, void *mlx)
 	clean_enemyframes(&img->colress, img->colress.frame_count, mlx);
 	clean_enemyframes(&img->ghetsis, img->ghetsis.frame_count, mlx);
 	clean_enemyframes(&img->n, img->n.frame_count, mlx);
-	clean_enemyframes(&img->plasmaF, img->plasmaF.frame_count, mlx);
-	clean_enemyframes(&img->plasmaM, img->plasmaM.frame_count, mlx);
+	clean_enemyframes(&img->f_plasma, img->f_plasma.frame_count, mlx);
+	clean_enemyframes(&img->m_plasma, img->m_plasma.frame_count, mlx);
 	clean_enemyframes(&img->scientist, img->scientist.frame_count, mlx);
 }
 

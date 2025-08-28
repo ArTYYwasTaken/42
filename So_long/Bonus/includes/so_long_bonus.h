@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 16:37:14 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:28:45 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ typedef enum e_direction
 	DOWN,
 	LEFT,
 	RIGHT,
-
 }	t_direction;
 
 typedef struct s_player
@@ -77,8 +76,8 @@ typedef struct s_image
 	t_animated_sprite	colress;
 	t_animated_sprite	ghetsis;
 	t_animated_sprite	n;
-	t_animated_sprite	plasmaF;
-	t_animated_sprite	plasmaM;
+	t_animated_sprite	f_plasma;
+	t_animated_sprite	m_plasma;
 	t_animated_sprite	scientist;
 	t_sprite			exit;
 	t_sprite			floor;
@@ -160,7 +159,8 @@ void		gamestart_enemies(t_image *image, t_game *game);
 /* void	bolder_rand(t_map *map, int y, int x);								 */
 /* void	randomize_cell(t_map *map, t_collectable *col, int y, int x, int *i);*/
 /* void	enemy_rand(t_enemy *enemy, int y, int x, int *i);					 */
-void		randomization(t_game *game, t_map *map, int *col_count, int *enemy_count);
+void		randomization(t_game *game, t_map *map, int *col_count,
+				int *enemy_count);
 
 /*								game_loop.c									*/
 /* void	animate_pokemon(t_collectable *collectables,						*/
@@ -209,7 +209,8 @@ void		clean_player(t_player *player, void *mlx);
 
 /*					display_messages.c							*/
 void		print_error(char *msg);
-void		print_moves(t_game *game);
+void		print_moves_screen(t_game *game);
+void		print_moves_terminal(t_game *game);
 
 /*					game_ending.c								*/
 void		game_won(t_game *game);

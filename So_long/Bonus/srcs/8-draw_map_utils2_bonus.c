@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 02:35:50 by marvin            #+#    #+#             */
-/*   Updated: 2025/08/25 15:14:28 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:29:16 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ t_sprite	enemy_tiles(t_game *game, t_enemy *enemy, int y, int x)
 		else if (enemy_type == 2)
 			return (game->img.n.frames[enemy[i].frame]);
 		else if (enemy_type == 3)
-			return (game->img.plasmaF.frames[enemy[i].frame]);
+			return (game->img.f_plasma.frames[enemy[i].frame]);
 		else if (enemy_type == 4)
-			return (game->img.plasmaM.frames[enemy[i].frame]);
+			return (game->img.m_plasma.frames[enemy[i].frame]);
 		else if (enemy_type == 5)
 			return (game->img.scientist.frames[enemy[i].frame]);
 	}

@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 02:29:22 by marvin            #+#    #+#             */
-/*   Updated: 2025/08/25 17:32:08 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:28:30 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	gamestart_enemies(t_image *image, t_game *game)
 	image->colress.frame_count = 36;
 	image->ghetsis.frame_count = 56;
 	image->n.frame_count = 11;
-	image->plasmaF.frame_count = 12;
-	image->plasmaM.frame_count = 18;
+	image->f_plasma.frame_count = 12;
+	image->m_plasma.frame_count = 18;
 	image->scientist.frame_count = 23;
 	if (!enemyframes(&image->colress, "colress", game))
 		print_error("Failed to load Colress frames");
@@ -85,9 +85,9 @@ void	gamestart_enemies(t_image *image, t_game *game)
 		print_error("Failed to load Ghetsis frames");
 	if (!enemyframes(&image->n, "n", game))
 		print_error("Failed to load N frames");
-	if (!enemyframes(&image->plasmaF, "plasmaF", game))
+	if (!enemyframes(&image->f_plasma, "f_plasma", game))
 		print_error("Failed to load Plasma Female frames");
-	if (!enemyframes(&image->plasmaM, "plasmaM", game))
+	if (!enemyframes(&image->m_plasma, "m_plasma", game))
 		print_error("Failed to load Plasma male frames");
 	if (!enemyframes(&image->scientist, "scientist", game))
 		print_error("Failed to load Scientist frames");

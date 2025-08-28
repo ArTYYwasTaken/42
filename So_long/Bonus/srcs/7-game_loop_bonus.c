@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 17:09:34 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:29:02 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ static void	animate_enemy(t_enemy *enemy, int enemycount, t_image *img)
 		else if (enemy_type == 2)
 			frame_count = img->n.frame_count;
 		else if (enemy_type == 3)
-			frame_count = img->plasmaF.frame_count;
+			frame_count = img->f_plasma.frame_count;
 		else if (enemy_type == 4)
-			frame_count = img->plasmaM.frame_count;
+			frame_count = img->m_plasma.frame_count;
 		else if (enemy_type == 5)
 			frame_count = img->scientist.frame_count;
 		enemy[i].frame = (enemy[i].frame + 1) % frame_count;
@@ -129,5 +129,7 @@ int	game_loop(t_game *game)
 		animate_enemy(game->enemies, game->map->enemies, &game->img);
 		enemy_timer = 0;
 	}
-	return (draw_map(game, game->map), 0);
+	draw_map(game, game->map);
+	print_moves_screen(game);
+	return (0);
 }

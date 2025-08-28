@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 18:50:33 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 14:46:44 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:21:54 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	gamestart_player2(t_player *player, t_game *game, int size)
 	game->player.direction = DOWN;
 }
 
-static void	gamestart_wb(t_image *image, t_game *game, int size)
+static void	gamestart_wb(t_game *game, int size)
 {
 	game->img.floor = mlx_xpm_file_to_image(game->mlx,
 			"./sprites/WB/floor.xpm", &size, &size);
@@ -88,5 +88,5 @@ void	gamestart_map(t_game *game)
 	gamestart_poke(&game->img, game);
 	gamestart_enemies(&game->img, game);
 	gamestart_player(&game->player, game, size);
-	gamestart_wb(&game->img, game, size);
+	gamestart_wb(game, size);
 }

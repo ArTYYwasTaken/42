@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 05:41:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/12 18:36:18 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:34:02 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,7 @@ static void	remove_collectable(t_game *game, int x, int y)
 			if (i != last)
 				game->collectables[i] = game->collectables[last];
 			game->map->col--;
-			break;
-		}
-		i++;
-	}
-}
-
-static void	remove_enemy(t_game *game, int x, int y)
-{
-	int	i;
-	int	last;
-
-	i = 0;
-	last = game->map->enemies - 1;
-	while (i <= last)
-	{
-		if (game->enemies[i].x == x && game->enemies[i].y == y)
-		{
-			if (i != last)
-				game->enemies[i] = game->enemies[last];
-			game->map->enemies--;
-			break;
+			break ;
 		}
 		i++;
 	}
@@ -60,7 +40,7 @@ static void	check_col_exit(t_game *game, int y, int x)
 	if (*tile == 'C')
 	{
 		*tile = '0';
-		remove_collectable(game, x ,y);
+		remove_collectable(game, x , y);
 	}
 	else if (*tile == 'E')
 	{

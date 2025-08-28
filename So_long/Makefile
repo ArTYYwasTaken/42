@@ -16,11 +16,11 @@ INCLUDE = -I$(MDTDIR)$(INCDIR)
 INCLUDE_BONUS = -I$(BONUSDIR)$(INCDIR)
 
 # Files
-SRC_FILES = 1-so_long.c 2-gamestart.c 3-map_validation.c 4-map_validation2.c 5-file_to_image.c\
+SRC_FILES = 1-PokeLong.c 2-gamestart.c 3-map_validation.c 4-map_validation2.c 5-file_to_image.c\
 6-draw_map.c 7-key_inputs.c 8-movement.c cleaning_functions.c display_messages.c\
 game_ending.c win-lose_messages.c
 
-BONUS_SRC_FILES = 1-so_long_bonus.c 2-gamestart_bonus.c 3-map_validation_bonus.c 4-map_validation2_bonus.c 5-file_to_image_bonus.c\
+BONUS_SRC_FILES = 1-PokeLong_bonus.c 2-gamestart_bonus.c 3-map_validation_bonus.c 4-map_validation2_bonus.c 5-file_to_image_bonus.c\
 5-FTI-poke-enemy_bonus.c 6-randomization_bonus.c 7-game_loop_bonus.c 8-draw_map_utils_bonus.c 8-draw_map_utils2_bonus.c\
 9-key_inputs_bonus.c 10-movement_bonus.c cleaning_free_game_bonus.c cleaning_functions_bonus.c\
 display_messages_bonus.c game_ending_bonus.c win-lose_messages_bonus.c
@@ -33,7 +33,7 @@ OBJS_BONUS = $(addprefix $(OBJDIR), $(BONUS_SRC_FILES:.c=.o))
 
 # CMD
 CC = cc
-# CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g3
 MLX_FLAGS = -L$(MLIBXDIR) -lmlx -lXext -lX11 -lm -lz
 RM = rm -f
 MAKE = make
