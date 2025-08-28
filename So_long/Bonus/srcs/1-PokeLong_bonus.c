@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1-so_long_bonus.c                                  :+:      :+:    :+:   */
+/*   1-PokeLong_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:53 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 17:04:34 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:48:06 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	mlx_main(t_game *game)
 	if (!game->mlx)
 		return (print_error("MLX initialization failed"), free_game(game));
 	game->win = mlx_new_window(game->mlx, game->map->width * PX,
-					game->map->height * PX, "PokeLong");
-	if(!game->win)	
+			game->map->height * PX, "PokeLong");
+	if (!game->win)
 		return (print_error("Window creation failed"), free_game(game));
 	gamestart_map(game);
 	mlx_loop_hook(game->mlx, game_loop, game);
@@ -28,7 +28,7 @@ static void	mlx_main(t_game *game)
 	mlx_loop(game->mlx);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_game	*game;
 

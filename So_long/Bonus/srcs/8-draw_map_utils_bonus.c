@@ -6,15 +6,15 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 03:25:04 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 15:34:05 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:43:17 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-t_sprite	wall_placement(t_image img,t_map *map, int y, int x)
+t_sprite	wall_placement(t_image img, t_map *map, int y, int x)
 {
-	if(x == 0 && y == 0)
+	if (x == 0 && y == 0)
 		return (img.nw_corner);
 	else if (x == map->width - 1 && y == 0)
 		return (img.ne_corner);
@@ -46,7 +46,7 @@ void	draw_sprite(t_game *game, t_sprite sprite, int y, int x)
 	mlx_put_image_to_window(game->mlx, game->win, sprite, pxl_x, pxl_y);
 }
 
-int find_pokemon_index(t_game *game, int x, int y)
+int	find_pokemon_index(t_game *game, int x, int y)
 {
 	int	i;
 

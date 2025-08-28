@@ -6,13 +6,13 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 02:35:50 by marvin            #+#    #+#             */
-/*   Updated: 2025/08/28 17:29:16 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:42:41 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
 
-int find_enemy_index(t_game *game, int x, int y)
+int	find_enemy_index(t_game *game, int x, int y)
 {
 	int	i;
 

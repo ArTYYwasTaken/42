@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 16:06:45 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 17:07:14 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:47:19 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static int	map_fileformat(char *mapfile)
 {
 	char	*pastdot;
-	
+
 	pastdot = ft_strrchr(mapfile, '.');
 	if (!pastdot)
 		return (0);
@@ -29,7 +29,7 @@ static int	map_getheight(char *mapfile)
 	int		fd;
 	char	*line;
 	int		count;
-	
+
 	fd = open(mapfile, O_RDONLY);
 	if (fd < 0)
 		return (print_error("Invalid fd"), 0);
@@ -45,12 +45,12 @@ static int	map_getheight(char *mapfile)
 	return (close (fd), count);
 }
 
-static void map_enemycount(t_map *map)
+static void	map_enemycount(t_map *map)
 {
 	int	y;
 	int	x;
 	int	enemies;
-	
+
 	y = 1;
 	enemies = 0;
 	while (y < map->height - 1)
@@ -67,7 +67,7 @@ static void map_enemycount(t_map *map)
 	map->enemies = enemies;
 }
 
-static t_map *map_gridfill(t_map *map, char *mapfile)
+static t_map	*map_gridfill(t_map *map, char *mapfile)
 {
 	int		fd;
 	int		y;
@@ -91,10 +91,10 @@ static t_map *map_gridfill(t_map *map, char *mapfile)
 	return (close (fd), map);
 }
 
-t_map *gamestart(char *mapfile)
+t_map	*gamestart(char *mapfile)
 {
 	t_map	*map;
-	
+
 	map = malloc(sizeof(t_map));
 	if (!map)
 		return (print_error("Failed to allocate map"), free(map), NULL);
@@ -113,7 +113,7 @@ t_map *gamestart(char *mapfile)
 		return (print_error("Failed map validation"), clean_map(map), NULL);
 	if (map->height > 8 || map->width > 15)
 		return (print_error("Height/Width surpasses monitor resolution"),
-				clean_map(map), NULL);
+			clean_map(map), NULL);
 	map_enemycount(map);
 	return (map);
 }

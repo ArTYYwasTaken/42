@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 05:41:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/28 17:34:02 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:42:06 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	check_col_exit(t_game *game, int y, int x)
 	if (*tile == 'C')
 	{
 		*tile = '0';
-		remove_collectable(game, x , y);
+		remove_collectable(game, x, y);
 	}
 	else if (*tile == 'E')
 	{
@@ -51,7 +51,7 @@ static void	check_col_exit(t_game *game, int y, int x)
 		game_lost(game);
 }
 
-static void 	handle_enter(t_game *game, int y, int x)
+static void	handle_enter(t_game *game, int y, int x)
 {
 	if (game->map->last_input == 'N')
 		check_col_exit(game, y - 1, x);

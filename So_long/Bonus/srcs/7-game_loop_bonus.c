@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/28 17:29:02 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/28 17:44:26 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static void	draw_map_row(t_game *game, t_collectable *collectable,
 
 static void	draw_map(t_game *game, t_map *map)
 {
-	int y;
+	int	y;
 
 	y = 0;
 	while (y < game->map->height)
@@ -100,7 +100,7 @@ static void	draw_map(t_game *game, t_map *map)
 		y++;
 	}
 	draw_sprite(game, game->player.sprites[game->player.direction]
-		[game->player.player_frame], map->player_y, map->player_x);
+	[game->player.player_frame], map->player_y, map->player_x);
 }
 
 int	game_loop(t_game *game)
@@ -129,7 +129,5 @@ int	game_loop(t_game *game)
 		animate_enemy(game->enemies, game->map->enemies, &game->img);
 		enemy_timer = 0;
 	}
-	draw_map(game, game->map);
-	print_moves_screen(game);
-	return (0);
+	return (draw_map(game, game->map), print_moves_screen(game), 0);
 }
