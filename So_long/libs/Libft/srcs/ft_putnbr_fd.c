@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 20:40:53 by kemontei          #+#    #+#             */
-/*   Updated: 2025/06/24 16:58:32 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:40:59 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(n % 10 + 48, fd);
 	}
 }
-

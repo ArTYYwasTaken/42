@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:53 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/28 19:28:05 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:46:33 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,17 @@ static void	mlx_main(t_game *game)
 		return (print_error("Height/Width surpasses monitor resolution"),
 			free_game(game));
 	game->win = mlx_new_window(game->mlx, win_w, win_h, "PokeLong");
-	if (!game->win)	
+	if (!game->win)
 		return (print_error("Window creation failed"), free_game(game));
 	gamestart_map(game);
+	game->map->moves = 0;
 	mlx_loop_hook(game->mlx, draw_map, game);
 	mlx_key_hook(game->win, key_inputs, game);
 	mlx_hook(game->win, DestroyNotify, StructureNotifyMask, finish_game, game);
 	mlx_loop(game->mlx);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_game	*game;
 

@@ -6,15 +6,15 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 01:12:42 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 19:48:19 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:48:50 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_sprite	wall_placement(t_image img,t_map *map, int y, int x)
+t_sprite	wall_placement(t_image img, t_map *map, int y, int x)
 {
-	if(x == 0 && y == 0)
+	if (x == 0 && y == 0)
 		return (img.nw_corner);
 	else if (x == map->width - 1 && y == 0)
 		return (img.ne_corner);
@@ -65,7 +65,7 @@ void	draw_map_row(t_game *game, int y)
 
 int	draw_map(t_game *game)
 {
-	int y;
+	int	y;
 
 	y = 0;
 	while (y < game->map->height)
@@ -73,6 +73,7 @@ int	draw_map(t_game *game)
 		draw_map_row(game, y);
 		y++;
 	}
-	draw_sprite(game, game->img.player, game->map->player_y, game->map->player_x);
+	draw_sprite(game, game->img.player, game->map->player_y,
+		game->map->player_x);
 	return (0);
 }

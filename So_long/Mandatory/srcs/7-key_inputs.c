@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 05:41:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 19:47:55 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:49:06 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_col_exit(t_game *game, int y, int x)
 	}
 }
 
-void 	handle_enter(t_game *game, int y, int x)
+void	handle_enter(t_game *game, int y, int x)
 {
 	if (game->map->last_input == 'N')
 		check_col_exit(game, y - 1, x);

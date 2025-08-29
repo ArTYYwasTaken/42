@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:57 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 20:15:41 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:45:43 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 # define PX 128
 
-typedef void* t_sprite;
+typedef void*	t_sprite;
 
 typedef struct s_image
 {
@@ -36,8 +36,8 @@ typedef struct s_image
 	t_sprite			bolder;
 	t_sprite			dialga;
 	t_sprite			player;
-	
-} t_image;
+
+}	t_image;
 
 typedef struct s_map
 {
@@ -53,7 +53,7 @@ typedef struct s_map
 	char		last_input;
 	int			last_move;
 
-} t_map;
+}	t_map;
 
 typedef struct s_game
 {
@@ -63,7 +63,7 @@ typedef struct s_game
 	void			*win;
 	int				exit;
 
-} t_game;
+}	t_game;
 
 // gamestart.c
 int			map_fileformat(char *mapfile);
@@ -87,21 +87,21 @@ int			mv_path(t_map *map);
 void		gamestart_map(t_game *game);
 
 //	game_loop.c
-t_sprite	wall_placement(t_image img,t_map *map, int y, int x);
-void 		draw_sprite(t_game *game, t_sprite sprite, int y, int x);
+t_sprite	wall_placement(t_image img, t_map *map, int y, int x);
+void		draw_sprite(t_game *game, t_sprite sprite, int y, int x);
 void		draw_map_row(t_game *game, int y);
-int 		draw_map(t_game *game);
+int			draw_map(t_game *game);
 
 //	key_inputs.c
 void		check_col_exit(t_game *game, int y, int x);
-void 		handle_enter(t_game *game, int y, int x);
+void		handle_enter(t_game *game, int y, int x);
 int			key_inputs(int keycode, t_game *game);
 
 //	movement.c
-void    	move_up(t_game *game);
-void    	move_down(t_game *game);
-void    	move_left(t_game *game);
-void    	move_right(t_game *game);
+void		move_up(t_game *game);
+void		move_down(t_game *game);
+void		move_left(t_game *game);
+void		move_right(t_game *game);
 
 //	cleaning_functions.c
 void		clean_map(t_map *map);
@@ -114,14 +114,14 @@ void		print_error(char *msg);
 void		print_moves(t_game *game);
 
 //	game_ending.c
-void    	game_won(t_game *game);
-void    	game_lost(t_game *game);
+void		game_won(t_game *game);
+void		game_lost(t_game *game);
 
 //	win-lose_messages.c
 void		win_message(void);
-void    	kakashi_thumbsup(void);
+void		kakashi_thumbsup(void);
 void		lose_message(void);
-void    	rope(void);
+void		rope(void);
 void		rope2(void);
 
 #endif

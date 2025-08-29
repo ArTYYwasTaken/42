@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 16:06:45 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 20:16:48 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:47:12 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	map_fileformat(char *mapfile)
 {
 	char	*pastdot;
-	
+
 	pastdot = ft_strrchr(mapfile, '.');
 	if (!pastdot)
 		return (0);
@@ -29,7 +29,7 @@ int	map_getheight(char *mapfile)
 	int		fd;
 	char	*line;
 	int		count;
-	
+
 	fd = open(mapfile, O_RDONLY);
 	if (fd < 0)
 		return (print_error("Invalid fd"), 0);
@@ -45,7 +45,7 @@ int	map_getheight(char *mapfile)
 	return (close (fd), count);
 }
 
-t_map *map_gridfill(t_map *map, char *mapfile)
+t_map	*map_gridfill(t_map *map, char *mapfile)
 {
 	int		fd;
 	int		y;
@@ -69,10 +69,10 @@ t_map *map_gridfill(t_map *map, char *mapfile)
 	return (close (fd), map);
 }
 
-t_map *gamestart(char *mapfile)
+t_map	*gamestart(char *mapfile)
 {
 	t_map	*map;
-	
+
 	map = malloc(sizeof(t_map));
 	if (!map)
 		return (print_error("Failed to allocate map"), free(map), NULL);

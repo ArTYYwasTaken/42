@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 16:15:53 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/28 19:06:56 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:39:31 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void	mlx_main(t_game *game)
 	if (!game->win)
 		return (print_error("Window creation failed"), free_game(game));
 	gamestart_map(game);
+	game->map->moves = 0;
 	mlx_loop_hook(game->mlx, game_loop, game);
 	mlx_key_hook(game->win, key_inputs, game);
 	mlx_hook(game->win, DestroyNotify, StructureNotifyMask, finish_game, game);

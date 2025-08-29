@@ -6,16 +6,16 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 04:16:50 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/25 19:53:10 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:50:11 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    move_up(t_game *game)
+void	move_up(t_game *game)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = game->map->player_y;
 	x = game->map->player_x;
@@ -32,10 +32,10 @@ void    move_up(t_game *game)
 	game->map->last_input = 'N';
 }
 
-void    move_down(t_game *game)
+void	move_down(t_game *game)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = game->map->player_y;
 	x = game->map->player_x;
@@ -52,10 +52,10 @@ void    move_down(t_game *game)
 	game->map->last_input = 'S';
 }
 
-void    move_left(t_game *game)
+void	move_left(t_game *game)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = game->map->player_y;
 	x = game->map->player_x;
@@ -72,10 +72,10 @@ void    move_left(t_game *game)
 	game->map->last_input = 'W';
 }
 
-void    move_right(t_game *game)
+void	move_right(t_game *game)
 {
-	int y;
-	int x;
+	int	y;
+	int	x;
 
 	y = game->map->player_y;
 	x = game->map->player_x;

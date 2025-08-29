@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_validation2.c                                  :+:      :+:    :+:   */
+/*   4-map_validation2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/09 18:48:14 by kemontei          #+#    #+#             */
-/*   Updated: 2025/07/14 17:25:10 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:47:57 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	mv_collectables(t_map *map)
 	int	y;
 	int	x;
 	int	collectables;
-	
+
 	y = 1;
 	collectables = 0;
 	while (y < map->height - 1)
@@ -37,7 +37,7 @@ int	mv_collectables(t_map *map)
 	return (collectables);
 }
 
-int mv_floodfill(t_map *map, int x, int y, int collectables)
+int	mv_floodfill(t_map *map, int x, int y, int collectables)
 {
 	static int	col;
 	static int	exit;
@@ -58,7 +58,7 @@ int mv_floodfill(t_map *map, int x, int y, int collectables)
 	return (0);
 }
 
-int mv_path(t_map *map)
+int	mv_path(t_map *map)
 {
 	t_map	*mapdup;
 	int		y;
@@ -81,6 +81,6 @@ int mv_path(t_map *map)
 	mapdup->player_x = map->player_x;
 	mapdup->player_y = map->player_y;
 	floodfill = mv_floodfill(mapdup, mapdup->player_x, mapdup->player_y,
-				mapdup->col);
+			mapdup->col);
 	return (clean_map(mapdup), floodfill);
 }

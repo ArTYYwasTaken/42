@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 01:48:33 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/28 17:04:13 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:51:23 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	win_message(void)
 	ft_printf("\n");
 }
 
-void    kakashi_thumbsup(void)
+void	kakashi_thumbsup(void)
 {
 	ft_printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠻⡍⢳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n");
 	ft_printf("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⡿⣵⣿⡾⡇⡾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣄⠀⣴⣠⢺⡡⠖⣿⣤⣀⣀⠀⠀⠀⠀\n");
@@ -72,7 +72,7 @@ void	lose_message(void)
 	ft_printf("\033[0m");
 }
 
-void    rope(void)
+void	rope(void)
 {
 	ft_printf("⠀⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⡄⡀⠀⠀⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⡄\n");
 	ft_printf("⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠠⠀⠰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁\n");

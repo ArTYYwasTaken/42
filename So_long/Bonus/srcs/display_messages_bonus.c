@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 19:30:09 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/28 17:19:55 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/08/29 17:13:52 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	print_moves_screen(t_game *game)
 	int		text_width;
 	int		center_x;
 
+	if (!game->win)
+		return ;
 	moves = ft_itoa(game->map->moves);
 	text_width = ft_strlen(moves) * 6;
 	center_x = 1 * PX - 63;
@@ -62,6 +64,8 @@ void	print_moves_terminal(t_game *game)
 {
 	char	*moves;
 
+	if (!game->win)
+		return ;
 	moves = ft_itoa(game->map->moves);
 	if (game->map->moves == 1)
 		ft_printf("I would say about %s move\n", moves);
