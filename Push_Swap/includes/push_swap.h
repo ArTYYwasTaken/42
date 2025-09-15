@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:05:48 by kemontei          #+#    #+#             */
-/*   Updated: 2025/09/01 16:31:05 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/09/15 15:24:25 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 bool	stack_sorted(t_stack *stack_a);
+void    radix_sort(t_stack **stack_a, t_stack **stack_b, int size);
+void    small_sort(t_stack **stack_a, t_stack **stack_b, int size);
 
 
 #endif

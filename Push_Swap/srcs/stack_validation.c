@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_validation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 23:38:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/04 23:38:44 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/15 18:25:52 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ bool	args_validation(char **args)
 			return (print_error("Empty string found"), false);
 		while (args[i][j])
 		{
-			if (!(ft_isdigit(args[i][j]))
-				|| args[i][j] != '-' || args[i][j] != '+')
+			ft_printf("%c\n", args[i][j]);
+			if (!(ft_isdigit(args[i][j])) || args[i][j] != '-' || args[i][j] != '+')
 				return (print_error("Invalid characters found"), false);
 			if (args[i][j] == '-' || args[i][j] == '+')
 				if (ft_isdigit(args[i][j + 1]) )

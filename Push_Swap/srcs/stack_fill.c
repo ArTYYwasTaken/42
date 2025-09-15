@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 19:08:21 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/04 19:08:21 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/15 15:29:04 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	fill_stack(t_stack **stack_a, char **args)
 	{
 		num = ft_atol(args[i]);
 		if (num < INT_MIN || num > INT_MAX || num_len(num) > 10)
-			clear_stack_args(&stack_a, args);
-		stack_new(&stack_a, (int)num);
-		if (!check_num_dups(&stack_a))
+			clear_stack_args(stack_a, args);
+		stack_new(stack_a, (int)num);
+		if (!check_num_dups(stack_a))
 			return (print_error("Failed dup validation"));
 	}
-	indexing(&stack_a);
+	indexing(stack_a);
 }

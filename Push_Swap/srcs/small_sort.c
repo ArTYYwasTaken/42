@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 02:30:21 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/15 02:30:21 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/15 15:26:12 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    small_sort(t_stack **stack_a, t_stack **stack_b, int size)
-{
-
-}
+// void    small_sort(t_stack **stack_a, t_stack **stack_b, int size)
+// {
+// }

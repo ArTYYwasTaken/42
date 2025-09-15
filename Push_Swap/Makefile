@@ -10,7 +10,8 @@ LIBFT = $(LIBFTDIR)libft.a
 INCLUDE = -I$(INCDIR)
 
 # Files
-SRC_FILES = push_swap.c push_swap_utils.c
+SRC_FILES = push_swap.c push_swap_utils.c radix_sort.c small_sort.c stack_fill.c\
+stack_op_push.c stack_op_reverse_rotate.c stack_op_rotate.c stack_op_swap.c stack_related.c stack_validation.c
 SRCS = $(addprefix $(MDTDIR)$(SRCDIR), $(SRC_FILES))
 OBJS = $(addprefix $(OBJDIR), $(SRC_FILES:.c=.o))
 
