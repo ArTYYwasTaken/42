@@ -23,12 +23,35 @@ typedef struct s_stack
 {
 	int				index;
 	int				num;
-	struct s_stack	*previous;
+	struct s_stack	*prev;
 	struct s_stack	*next;
-
+	
 }	t_stack;
 
 void	free_grid(char **grid);
 void	print_error(char *msg);
+long	ft_atol(const char *str);
+int		num_len (long num);
+void	clear_stack_args(t_stack **stack_a, char **args);
+void	fill_stack(t_stack **stack_a, char **args);
+void	stack_new(t_stack **stack, int num);
+t_stack	*stack_last(t_stack *stack);
+size_t	stack_size(t_stack *stack);
+bool	check_num_dups(t_stack **stack);
+bool	args_validation(char **args);
+void	indexing(t_stack **stack);
+void	pa(t_stack **stack_a, t_stack **stack_b);
+void	pb(t_stack **stack_b, t_stack **stack_a);
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
+void	ra(t_stack **stack_a);
+void	rb(t_stack **stack_b);
+void	rr(t_stack **stack_a, t_stack **stack_b);
+void	rra(t_stack **stack_a);
+void	rrb(t_stack **stack_b);
+void	rrr(t_stack **stack_a, t_stack **stack_b);
+bool	stack_sorted(t_stack *stack_a);
+
 
 #endif

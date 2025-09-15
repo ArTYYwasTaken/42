@@ -20,7 +20,7 @@ char	**grid_fill(int argc, char **argv)
 	int		split_index;
 	int		grid_index;
 	
-	grid = malloc (10000 * sizeof(char *));
+	grid = malloc (500 * sizeof(char *));
 	i = 1;
 	grid_index = 0;
 	while (i < argc)
@@ -53,7 +53,14 @@ int main(int argc, char **argv)
 	grid = grid_fill(argc, argv);
 	if (!grid)
 		return (perror("Failed grid fill"), 1);
-	
+	fill_stack(&stack_a, grid);
+	if (!stack_sorted(stack_a))
+	{
+		if (stack_size(stack_a) <= 5)
+			small_sort();
+		else
+			radix_sort();
+	}
 	// int i = 0;
 	// while(grid[i])
 	// {

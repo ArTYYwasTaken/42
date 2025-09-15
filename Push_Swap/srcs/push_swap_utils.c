@@ -12,6 +12,37 @@
 
 #include "push_swap.h"
 
+int	num_len (long num)
+{
+	size_t	count;
+
+	count = 0;
+	while (num > 0)
+	{
+		num /= 10;
+		count++;
+	}
+	return (count);
+}
+
+void	clear_stack_args(t_stack **stack, char **args)
+{
+	t_stack	*temp;
+
+	if (stack)
+	{
+		while(*stack)
+		{
+			temp = (*stack)->next;
+			if (*stack)
+				free(*stack);
+			*stack = temp;
+		}
+	}
+	*stack = NULL;
+	free_grid(args);
+}
+
 void	free_grid(char **grid)
 {
 	size_t	i;
@@ -34,7 +65,7 @@ void	print_error(char *msg)
 	write(2, "\n", 1);
 }
 
-int	ft_atol(const char *str)
+long	ft_atol(const char *str)
 {
 	long	num;
 	long	sign;
