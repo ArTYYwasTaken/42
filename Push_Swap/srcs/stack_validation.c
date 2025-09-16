@@ -23,18 +23,15 @@ bool	args_validation(char **args)
 		j = 0;
 		if (args[i][j] == '\0')
 			return (print_error("Empty string found"), false);
+		if (args[i][j] == '-' || args[i][j] == '+')
+			j++;
+		if (!ft_isdigit(args[i][j]))
+			return (print_error("Missing number after sign"), false);
 		while (args[i][j])
 		{
-			ft_printf("%c\n", args[i][j]);
-			if (!(ft_isdigit(args[i][j])) || args[i][j] != '-' || args[i][j] != '+')
+			if (!ft_isdigit(args[i][j]))
 				return (print_error("Invalid characters found"), false);
-			if (args[i][j] == '-' || args[i][j] == '+')
-				if (ft_isdigit(args[i][j + 1]) )
-					j++;
-			else
-				return (print_error("Missing number after sign"), false);
-			else
-				j++;
+			j++;
 		}
 		i++;
 	}

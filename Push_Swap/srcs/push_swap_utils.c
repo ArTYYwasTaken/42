@@ -12,11 +12,13 @@
 
 #include "push_swap.h"
 
-int	num_len (long num)
+int	num_len(long num)
 {
 	size_t	count;
 
 	count = 0;
+	if (num == 0)
+		return (1);
 	while (num > 0)
 	{
 		num /= 10;
@@ -34,8 +36,7 @@ void	clear_stack_args(t_stack **stack, char **args)
 		while(*stack)
 		{
 			temp = (*stack)->next;
-			if (*stack)
-				free(*stack);
+			free(*stack);
 			*stack = temp;
 		}
 	}

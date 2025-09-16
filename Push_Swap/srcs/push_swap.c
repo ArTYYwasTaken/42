@@ -20,7 +20,7 @@ char	**grid_fill(int argc, char **argv)
 	int		split_index;
 	int		grid_index;
 	
-	grid = malloc (500 * sizeof(char *));
+	grid = malloc (6700 * sizeof(char *));
 	i = 1;
 	grid_index = 0;
 	while (i < argc)
@@ -46,13 +46,13 @@ void	print_nodes(t_stack	*stack_a, t_stack *stack_b)
 	ft_printf("Stack A:\n");
 	while (stack_a)
 	{
-		printf("%d\t%d\n", stack_a->num, stack_a->index);
+		ft_printf("%d\t%d\n", stack_a->num, stack_a->index);
 		stack_a = stack_a->next;
 	}
 	ft_printf("Stack B:\n");
 	while (stack_b)
 	{
-		printf("%d\t%d\n", stack_b->num, stack_b->index);
+		ft_printf("%d\t%d\n", stack_b->num, stack_b->index);
 		stack_b = stack_b->next;
 	}
 }
@@ -62,7 +62,7 @@ int main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	char	**grid;
-	
+
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc < 2)
@@ -75,8 +75,7 @@ int main(int argc, char **argv)
 	if (!stack_sorted(stack_a))
 	{
 		if (stack_size(stack_a) <= 5)
-			// small_sort(&stack_a, &stack_b, stack_size(stack_a));
-			ft_printf("SMALL_SORT");
+			small_sort(&stack_a, &stack_b, stack_size(stack_a));
 		else
 			radix_sort(&stack_a, &stack_b, stack_size(stack_a));
 	}

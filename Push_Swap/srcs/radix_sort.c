@@ -18,13 +18,13 @@ void    radix_sort(t_stack **stack_a, t_stack **stack_b, int size)
     int i;
     int j;
 
-    index = (*stack_a)->index;
     i = 0;
-    while(!stack_sorted(*stack_a))
+    while (!stack_sorted(*stack_a))
     {
         j = 0;
-        while(j < size)
+        while (j < size)
         {
+            index = (*stack_a)->index;
             if (((index >> i) & 1) == 1)
                 ra(stack_a);
             else
