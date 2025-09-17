@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:05:48 by kemontei          #+#    #+#             */
-/*   Updated: 2025/09/15 15:24:25 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/09/17 18:24:55 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ typedef struct s_stack
 	int				num;
 	struct s_stack	*prev;
 	struct s_stack	*next;
-	
+
 }	t_stack;
 
 void	free_grid(char **grid);
 void	print_error(char *msg);
 long	ft_atol(const char *str);
-int		num_len (long num);
+int		num_len(long num);
 void	clear_stack_args(t_stack **stack_a, char **args);
 void	fill_stack(t_stack **stack_a, char **args);
 void	stack_new(t_stack **stack, int num);
 t_stack	*stack_last(t_stack *stack);
 size_t	stack_size(t_stack *stack);
-bool	check_num_dups(t_stack **stack);
+bool	check_num_dups(t_stack *stack);
 bool	args_validation(char **args);
 void	indexing(t_stack **stack);
 void	pa(t_stack **stack_a, t_stack **stack_b);
@@ -52,8 +52,6 @@ void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 bool	stack_sorted(t_stack *stack_a);
-void    radix_sort(t_stack **stack_a, t_stack **stack_b, int size);
-void    small_sort(t_stack **stack_a, t_stack **stack_b, int size);
-
-
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, int size);
+void	small_sort(t_stack **stack_a, t_stack **stack_b, int size);
 #endif

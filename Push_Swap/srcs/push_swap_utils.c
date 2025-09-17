@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:38:27 by kemontei          #+#    #+#             */
-/*   Updated: 2025/09/15 15:34:52 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/09/17 18:29:49 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	clear_stack_args(t_stack **stack, char **args)
 
 	if (stack)
 	{
-		while(*stack)
+		while (*stack)
 		{
 			temp = (*stack)->next;
 			free(*stack);
@@ -47,7 +47,7 @@ void	clear_stack_args(t_stack **stack, char **args)
 void	free_grid(char **grid)
 {
 	size_t	i;
-	
+
 	if (!grid)
 		return ;
 	i = 0;

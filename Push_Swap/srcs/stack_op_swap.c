@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_op_push.c                                    :+:      :+:    :+:   */
+/*   stack_op_swap.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 03:49:39 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/13 03:49:39 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/17 18:26:56 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	sa(t_stack **stack_a)
 {
-	t_stack *first;
-	t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (!stack_a || !(*stack_a) || !(*stack_a)->next)
-		return;
+		return ;
 	first = *stack_a;
 	second = first->next;
 	first->next = second->next;
@@ -33,11 +33,11 @@ void	sa(t_stack **stack_a)
 
 void	sb(t_stack **stack_b)
 {
-	t_stack *first;
-	t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
 	if (!stack_b || !(*stack_b) || !(*stack_b)->next)
-		return;
+		return ;
 	first = *stack_b;
 	second = first->next;
 	first->next = second->next;

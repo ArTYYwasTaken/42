@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_op_reverse_rotate.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 03:50:53 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/13 03:50:53 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/17 18:45:12 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void	rra(t_stack **stack_a)
 {
 	t_stack	*last;
 
-		if (!stack_a || !(*stack_a) || !(*stack_a)->next)
-			return;
+	if (!stack_a || !(*stack_a) || !(*stack_a)->next)
+		return ;
 	last = stack_last(*stack_a);
-	last->prev->next = NULL;
 	last->next = (*stack_a);
+	last->prev->next = NULL;
 	(*stack_a)->prev = last;
 	(*stack_a) = last;
 	ft_putstr_fd("rra\n", 1);
@@ -30,8 +30,8 @@ void	rrb(t_stack **stack_b)
 {
 	t_stack	*last;
 
-		if (!stack_b || !(*stack_b) || !(*stack_b)->next)
-			return;
+	if (!stack_b || !(*stack_b) || !(*stack_b)->next)
+		return ;
 	last = stack_last(*stack_b);
 	last->prev->next = NULL;
 	last->next = (*stack_b);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_operations2.c                                :+:      :+:    :+:   */
+/*   stack_op_rotate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 20:34:18 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/11 20:34:18 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/17 18:26:36 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ra(t_stack **stack_a)
 {
-	t_stack *head;
-	t_stack *last;
+	t_stack	*head;
+	t_stack	*last;
 
 	if (!stack_a || !(*stack_a) || !(*stack_a)->next)
 		return ;
@@ -31,8 +31,8 @@ void	ra(t_stack **stack_a)
 
 void	rb(t_stack **stack_b)
 {
-	t_stack *head;
-	t_stack *last;
+	t_stack	*head;
+	t_stack	*last;
 
 	if (!stack_b || !(*stack_b) || (*stack_b)->next)
 		return ;

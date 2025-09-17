@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 19:08:21 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/15 15:29:04 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/09/17 18:25:35 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_stack	*stack_last(t_stack *stack)
 
 void	stack_new(t_stack **stack, int num)
 {
-	t_stack *new_node;
+	t_stack	*new_node;
 
 	if (!stack)
 		return ;
@@ -74,14 +74,15 @@ void	fill_stack(t_stack **stack_a, char **args)
 	if (!args_validation(args))
 		return (print_error("Failed args validation"));
 	i = 0;
-	while(args[i])
+	while (args[i])
 	{
 		num = ft_atol(args[i]);
 		if (num < INT_MIN || num > INT_MAX || num_len(num) > 10)
 			clear_stack_args(stack_a, args);
 		stack_new(stack_a, (int)num);
-		if (!check_num_dups(stack_a))
+		if (!check_num_dups(*stack_a))
 			return (print_error("Failed dup validation"));
+		i++;
 	}
 	indexing(stack_a);
 }

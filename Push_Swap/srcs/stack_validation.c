@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 23:38:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/15 18:25:52 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/09/17 17:38:39 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,23 @@ bool	args_validation(char **args)
 	return (true);
 }
 
-bool	check_num_dups(t_stack **stack)
+bool	check_num_dups(t_stack *stack)
 {
 	t_stack	*temp;
 
 	if (!stack)
 		return (print_error("NULL stack passed when checking dups"), false);
-	temp = *stack;
-	while (*stack)
+	temp = stack;
+	while (stack)
 	{
-		temp = (*stack)->next;
+		temp = (stack)->next;
 		while (temp)
 		{
-			if (temp->num == (*stack)->num)
+			if (temp->num == (stack)->num)
 				return (print_error("Duplicate number found"), false);
 			temp = temp->next;
 		}
-		*stack = (*stack)->next;
+		stack = (stack)->next;
 	}
 	return (true);
 }

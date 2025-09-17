@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*   stack_op_push.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 17:20:58 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/11 17:20:58 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/17 18:25:48 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	pb(t_stack **stack_b, t_stack **stack_a)
 	t_stack	*first;
 
 	if (!stack_a || !(*stack_a))
-		return;
+		return ;
 	first = (*stack_a);
 	(*stack_a) = (*stack_a)->next;
 	if (*stack_a)
