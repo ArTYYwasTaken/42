@@ -28,11 +28,12 @@ typedef struct s_stack
 
 }	t_stack;
 
-void	free_grid(char **grid);
 void	print_error(char *msg);
 long	ft_atol(const char *str);
 int		num_len(long num);
-void	clear_stack_args(t_stack **stack_a, char **args);
+void	free_grid(char **grid);
+void	clear_stack(t_stack **stack_a);
+void	clean_push(t_stack **stack_a, t_stack **stack_b, char **args);
 void	fill_stack(t_stack **stack_a, char **args);
 void	stack_new(t_stack **stack, int num);
 t_stack	*stack_last(t_stack *stack);

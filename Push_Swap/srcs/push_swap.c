@@ -52,6 +52,26 @@ char	**grid_fill(int argc, char **argv)
 // 	ft_printf("\n");
 // }
 
+void	print_nodes(t_stack *stack, const char *name)
+{
+	int count = 0;
+	t_stack *tmp = stack;
+	ft_printf("\nStack %s:\n", name ? name : "A");
+	ft_printf("-----------------------------\n");
+	ft_printf("|  Number  |  Index  |\n");
+	ft_printf("-----------------------------\n");
+	while (tmp)
+	{
+		ft_printf("| %7d | %7d |\n", tmp->num, tmp->index);
+		tmp = tmp->next;
+		count++;
+	}
+	ft_printf("-----------------------------\n");
+	ft_printf("Total nodes: %d\n\n", count);
+	if (count == 0)
+		ft_printf("(Stack is empty)\n\n");
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
@@ -75,5 +95,6 @@ int	main(int argc, char **argv)
 			radix_sort(&stack_a, &stack_b, stack_size(stack_a));
 	}
 	// print_nodes(stack_a);
+	clean_push(stack_a, stack_b, grid);
 	return (0);
 }

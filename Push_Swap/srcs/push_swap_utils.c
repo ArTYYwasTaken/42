@@ -27,7 +27,7 @@ int	num_len(long num)
 	return (count);
 }
 
-void	clear_stack_args(t_stack **stack, char **args)
+void	clear_stack(t_stack **stack)
 {
 	t_stack	*temp;
 
@@ -41,7 +41,6 @@ void	clear_stack_args(t_stack **stack, char **args)
 		}
 	}
 	*stack = NULL;
-	free_grid(args);
 }
 
 void	free_grid(char **grid)
@@ -54,6 +53,16 @@ void	free_grid(char **grid)
 	while (grid[i])
 		free(grid[i++]);
 	free (grid);
+}
+
+void	clean_push(t_stack **stack_a, t_stack **stack_b, char **args)
+{
+	if (stack_a && *stack_a)
+		clear_stack(stack_a);
+	if (stack_b && *stack_b)
+		clear_stack(stack_b);
+	if (args)
+		free_grid(args);
 }
 
 void	print_error(char *msg)

@@ -50,17 +50,17 @@ void	stack_new(t_stack **stack, int num)
 void	indexing(t_stack **stack)
 {
 	t_stack	*current;
-	t_stack	*next;
+	t_stack	*compare;
 
 	current = (*stack);
 	while (current)
 	{
-		next = (*stack);
-		while (next)
+		compare = (*stack);
+		while (compare)
 		{
-			if (current->num > next->num)
+			if (current->num > compare->num)
 				current->index++;
-			next = next->next;
+			compare = compare->next;
 		}
 		current = current->next;
 	}
@@ -78,10 +78,11 @@ void	fill_stack(t_stack **stack_a, char **args)
 	{
 		num = ft_atol(args[i]);
 		if (num < INT_MIN || num > INT_MAX || num_len(num) > 10)
-			clear_stack_args(stack_a, args);
+			(clear_stack(stack_a), free_grid(args));
 		stack_new(stack_a, (int)num);
 		if (!check_num_dups(*stack_a))
-			return (print_error("Failed dup validation"));
+			return (clear_stack(stack_a), free_grid(args),
+				print_error("Failed dup validation"));
 		i++;
 	}
 	indexing(stack_a);
