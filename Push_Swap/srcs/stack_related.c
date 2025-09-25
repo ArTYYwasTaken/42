@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_related.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/05 05:39:16 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/05 05:39:16 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/18 18:49:37 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,20 @@ bool	stack_sorted(t_stack *stack_a)
 	else
 		return (false);
 	return (true);
+}
+
+void	clear_stack(t_stack **stack)
+{
+	t_stack	*temp;
+
+	if (stack)
+	{
+		while (*stack)
+		{
+			temp = (*stack)->next;
+			free(*stack);
+			*stack = temp;
+		}
+	}
+	*stack = NULL;
 }

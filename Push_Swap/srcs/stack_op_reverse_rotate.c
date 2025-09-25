@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 03:50:53 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/17 18:45:12 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/09/18 17:40:25 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ void	rra(t_stack **stack_a)
 	if (!stack_a || !(*stack_a) || !(*stack_a)->next)
 		return ;
 	last = stack_last(*stack_a);
-	last->next = (*stack_a);
 	last->prev->next = NULL;
+	last->next = (*stack_a);
 	(*stack_a)->prev = last;
+	last->prev = NULL;
 	(*stack_a) = last;
 	ft_putstr_fd("rra\n", 1);
 }
@@ -36,6 +37,7 @@ void	rrb(t_stack **stack_b)
 	last->prev->next = NULL;
 	last->next = (*stack_b);
 	(*stack_b)->prev = last;
+	last->prev = NULL;
 	(*stack_b) = last;
 	ft_putstr_fd("rrb\n", 1);
 }

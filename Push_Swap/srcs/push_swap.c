@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:25:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/09/17 18:33:14 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/09/18 18:52:12 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ char	**grid_fill(int argc, char **argv)
 	while (i < argc)
 	{
 		if (argv[i][0] == '\0')
-			return (print_error("Empty string caught in verification"), NULL);
+			return (print_error(), NULL);
 		split = ft_split(argv[i], ' ');
 		if (!split)
-			return (print_error("Failed splitting"), free_grid(split), NULL);
+			return (print_error(), free_grid(split), NULL);
 		split_index = 0;
 		while (split[split_index])
 			grid[grid_index++] = ft_strdup(split[split_index++]);
@@ -39,18 +39,6 @@ char	**grid_fill(int argc, char **argv)
 	grid[grid_index] = NULL;
 	return (grid);
 }
-
-// void	print_nodes(t_stack	*stack_a)
-// {
-// 	ft_printf("\nStack A:\n");
-// 	ft_printf("--//Number//--\t--//Index//--\n");
-// 	while (stack_a)
-// 	{
-// 		ft_printf("%d\t\t%d\n", stack_a->num, stack_a->index);
-// 		stack_a = stack_a->next;
-// 	}
-// 	ft_printf("\n");
-// }
 
 void	print_nodes(t_stack *stack, const char *name)
 {
@@ -62,7 +50,7 @@ void	print_nodes(t_stack *stack, const char *name)
 	ft_printf("-----------------------------\n");
 	while (tmp)
 	{
-		ft_printf("| %7d | %7d |\n", tmp->num, tmp->index);
+		ft_printf("| %d\t   |\t%d    |\n", tmp->num, tmp->index);
 		tmp = tmp->next;
 		count++;
 	}
@@ -81,12 +69,12 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc < 2)
-		return (print_error("Invalid number of arguments"), 1);
+		return (print_error(), 1);
 	grid = grid_fill(argc, argv);
 	if (!grid)
-		return (print_error("Failed grid fill"), 1);
+		return (print_error(), 1);
 	fill_stack(&stack_a, grid);
-	// print_nodes(stack_a);
+	print_nodes(stack_a, "A");
 	if (!stack_sorted(stack_a))
 	{
 		if (stack_size(stack_a) <= 5)
@@ -94,7 +82,7 @@ int	main(int argc, char **argv)
 		else
 			radix_sort(&stack_a, &stack_b, stack_size(stack_a));
 	}
-	// print_nodes(stack_a);
-	clean_push(stack_a, stack_b, grid);
+	print_nodes(stack_a, "A");
+	clean_push(&stack_a, &stack_b, grid);
 	return (0);
 }

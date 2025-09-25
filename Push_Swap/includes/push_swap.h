@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:05:48 by kemontei          #+#    #+#             */
-/*   Updated: 2025/09/17 18:24:55 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:26:05 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_stack
 
 }	t_stack;
 
-void	print_error(char *msg);
+void	print_error();
 long	ft_atol(const char *str);
 int		num_len(long num);
 void	free_grid(char **grid);

@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 19:08:21 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/17 18:25:35 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:04:54 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_stack	*stack_last(t_stack *stack)
 void	stack_new(t_stack **stack, int num)
 {
 	t_stack	*new_node;
+	t_stack	*last;
 
 	if (!stack)
 		return ;
@@ -42,8 +43,9 @@ void	stack_new(t_stack **stack, int num)
 	}
 	else
 	{
-		(stack_last(*stack)->next) = new_node;
-		new_node->prev = stack_last(*stack);
+		last = stack_last(*stack);
+		last->next = new_node;
+		new_node->prev = last;
 	}
 }
 
@@ -72,7 +74,7 @@ void	fill_stack(t_stack **stack_a, char **args)
 	size_t	i;
 
 	if (!args_validation(args))
-		return (print_error("Failed args validation"));
+		return (print_error());
 	i = 0;
 	while (args[i])
 	{
@@ -81,8 +83,7 @@ void	fill_stack(t_stack **stack_a, char **args)
 			(clear_stack(stack_a), free_grid(args));
 		stack_new(stack_a, (int)num);
 		if (!check_num_dups(*stack_a))
-			return (clear_stack(stack_a), free_grid(args),
-				print_error("Failed dup validation"));
+			return (clear_stack(stack_a), print_error());
 		i++;
 	}
 	indexing(stack_a);

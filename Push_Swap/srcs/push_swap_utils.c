@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:38:27 by kemontei          #+#    #+#             */
-/*   Updated: 2025/09/17 18:29:49 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:13:08 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,6 @@ int	num_len(long num)
 	return (count);
 }
 
-void	clear_stack(t_stack **stack)
-{
-	t_stack	*temp;
-
-	if (stack)
-	{
-		while (*stack)
-		{
-			temp = (*stack)->next;
-			free(*stack);
-			*stack = temp;
-		}
-	}
-	*stack = NULL;
-}
-
 void	free_grid(char **grid)
 {
 	size_t	i;
@@ -51,7 +35,8 @@ void	free_grid(char **grid)
 		return ;
 	i = 0;
 	while (grid[i])
-		free(grid[i++]);
+		if (grid[i])
+			free(grid[i++]);
 	free (grid);
 }
 
@@ -65,14 +50,12 @@ void	clean_push(t_stack **stack_a, t_stack **stack_b, char **args)
 		free_grid(args);
 }
 
-void	print_error(char *msg)
+void	print_error(void)
 {
 	char	*header;
 
 	header = "\033[1;31m🛑Error\033[0m\n";
 	ft_putstr_fd(header, 2);
-	ft_putstr_fd(msg, 2);
-	write(2, "\n", 1);
 }
 
 long	ft_atol(const char *str)
