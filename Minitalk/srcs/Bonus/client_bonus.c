@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 06:39:25 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/13 16:23:03 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/10/13 16:24:37 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	send_signals(int pid, unsigned char c)
 	unsigned char	bit;
 
 	i = 7;
-	while(i >= 0)
+	while (i >= 0)
 	{
 		bit = c >> i;
 		if (bit & 1)
@@ -42,7 +42,7 @@ void	server_signal(int signal)
 		ft_printf("0\n");
 }
 
-int main(int argc, char  *argv[])
+int	main(int argc, char *argv[])
 {
 	pid_t	server_pid;
 	char	*message;
@@ -58,7 +58,7 @@ int main(int argc, char  *argv[])
 	server_pid = ft_atoi(argv[1]);
 	message = argv[2];
 	i = 0;
-	while(message[i])
+	while (message[i])
 		send_signals(server_pid, message[i++]);
 	send_signals(server_pid, '\0');
 }

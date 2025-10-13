@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 02:31:12 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/13 16:23:13 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/10/13 16:27:13 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 void	handle_signals(int signal)
 {
 	static unsigned char	c;
-	static int	bit_index;
+	static int				bit_index;
 
 	c |= (signal == SIGUSR1);
 	bit_index++;
