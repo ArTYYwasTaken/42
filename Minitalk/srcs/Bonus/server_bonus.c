@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 08:09:37 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/02 08:09:37 by marvin           ###   ########.fr       */
+/*   Updated: 2025/10/13 15:34:14 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	handle_signals(int signal, siginfo_t *info, void *context)
 	static unsigned char	c;
 	static int	bit_index;
 
+	(void)context;
 	c |= (signal == SIGUSR1);
 	bit_index++;
 	if (bit_index == 8)
