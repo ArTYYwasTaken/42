@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 06:39:25 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/13 16:27:41 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/10/14 19:57:14 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	send_signals(int pid, unsigned char c)
 		else
 			kill(pid, SIGUSR2);
 		i--;
+		usleep(100);
 	}
 }
 
