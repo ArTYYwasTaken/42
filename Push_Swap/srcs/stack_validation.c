@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 23:38:44 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/18 18:53:03 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/10/14 19:31:17 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ bool	args_validation(char **args)
 	{
 		j = 0;
 		if (args[i][j] == '\0')
-			return (print_error(), false);
+			return (false);
 		if (args[i][j] == '-' || args[i][j] == '+')
 			j++;
 		if (!ft_isdigit(args[i][j]))
-			return (print_error(), false);
+			return (false);
 		while (args[i][j])
 		{
 			if (!ft_isdigit(args[i][j]))
-				return (print_error(), false);
+				return (false);
 			j++;
 		}
 		i++;
@@ -43,7 +43,7 @@ bool	check_num_dups(t_stack *stack)
 	t_stack	*temp;
 
 	if (!stack)
-		return (print_error(), false);
+		return (false);
 	temp = stack;
 	while (stack)
 	{
@@ -51,7 +51,7 @@ bool	check_num_dups(t_stack *stack)
 		while (temp)
 		{
 			if (temp->num == (stack)->num)
-				return (print_error(), false);
+				return (false);
 			temp = temp->next;
 		}
 		stack = (stack)->next;

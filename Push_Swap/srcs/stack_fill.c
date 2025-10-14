@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 19:08:21 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/18 19:04:54 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/10/14 19:55:30 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ t_stack	*stack_last(t_stack *stack)
 	if (!stack)
 		return (NULL);
 	while (stack->next)
-	{
 		stack = stack->next;
-	}
 	return (stack);
 }
 
@@ -80,10 +78,10 @@ void	fill_stack(t_stack **stack_a, char **args)
 	{
 		num = ft_atol(args[i]);
 		if (num < INT_MIN || num > INT_MAX || num_len(num) > 10)
-			(clear_stack(stack_a), free_grid(args));
+			return (print_error());
 		stack_new(stack_a, (int)num);
 		if (!check_num_dups(*stack_a))
-			return (clear_stack(stack_a), print_error());
+			return (print_error());
 		i++;
 	}
 	indexing(stack_a);

@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:25:55 by kemontei          #+#    #+#             */
-/*   Updated: 2025/09/18 18:52:12 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/10/13 16:38:59 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ char	**grid_fill(int argc, char **argv)
 	while (i < argc)
 	{
 		if (argv[i][0] == '\0')
-			return (print_error(), NULL);
+			return (NULL);
 		split = ft_split(argv[i], ' ');
 		if (!split)
-			return (print_error(), free_grid(split), NULL);
+			return (free_grid(split), NULL);
 		split_index = 0;
 		while (split[split_index])
 			grid[grid_index++] = ft_strdup(split[split_index++]);
@@ -74,7 +74,7 @@ int	main(int argc, char **argv)
 	if (!grid)
 		return (print_error(), 1);
 	fill_stack(&stack_a, grid);
-	print_nodes(stack_a, "A");
+	// print_nodes(stack_a, "A");
 	if (!stack_sorted(stack_a))
 	{
 		if (stack_size(stack_a) <= 5)
@@ -82,7 +82,7 @@ int	main(int argc, char **argv)
 		else
 			radix_sort(&stack_a, &stack_b, stack_size(stack_a));
 	}
-	print_nodes(stack_a, "A");
+	// print_nodes(stack_a, "A");
 	clean_push(&stack_a, &stack_b, grid);
 	return (0);
 }
