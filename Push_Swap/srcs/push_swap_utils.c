@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:38:27 by kemontei          #+#    #+#             */
-/*   Updated: 2025/10/14 19:48:39 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/10/17 18:00:45 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	free_grid(char **grid)
 	if (!grid)
 		return ;
 	i = 0;
-	while (grid[i]) 
+	while (grid[i])
 		free(grid[i++]);
 	free (grid);
 }

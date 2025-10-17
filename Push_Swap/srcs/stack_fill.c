@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 19:08:21 by marvin            #+#    #+#             */
-/*   Updated: 2025/10/14 19:55:30 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/10/17 17:54:29 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,23 +66,24 @@ void	indexing(t_stack **stack)
 	}
 }
 
-void	fill_stack(t_stack **stack_a, char **args)
+bool	fill_stack(t_stack **stack_a, char **args)
 {
 	long	num;
 	size_t	i;
 
 	if (!args_validation(args))
-		return (print_error());
+		return (print_error(), false);
 	i = 0;
 	while (args[i])
 	{
 		num = ft_atol(args[i]);
 		if (num < INT_MIN || num > INT_MAX || num_len(num) > 10)
-			return (print_error());
+			return (print_error(), false);
 		stack_new(stack_a, (int)num);
 		if (!check_num_dups(*stack_a))
-			return (print_error());
+			return (print_error(), false);
 		i++;
 	}
 	indexing(stack_a);
+	return (true);
 }

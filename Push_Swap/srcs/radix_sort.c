@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 20:13:16 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/18 19:35:23 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/10/17 16:59:44 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	int	index;
-	int	i;
-	int	j;
+	int				index;
+	unsigned char	bit;
+	int				i;
+	int				j;
 
 	i = 0;
 	while (!stack_sorted(*stack_a))
@@ -25,7 +26,8 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int size)
 		while (j < size)
 		{
 			index = (*stack_a)->index;
-			if (((index >> i) & 1) == 1)
+			bit = index >> i;
+			if ((bit & 1) == 1)
 				ra(stack_a);
 			else
 				pb(stack_b, stack_a);

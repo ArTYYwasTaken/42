@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:05:48 by kemontei          #+#    #+#             */
-/*   Updated: 2025/09/18 19:26:05 by kemontei         ###   ########.fr       */
+/*   Updated: 2025/10/17 17:54:42 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int		num_len(long num);
 void	free_grid(char **grid);
 void	clear_stack(t_stack **stack_a);
 void	clean_push(t_stack **stack_a, t_stack **stack_b, char **args);
-void	fill_stack(t_stack **stack_a, char **args);
+bool	fill_stack(t_stack **stack_a, char **args);
 void	stack_new(t_stack **stack, int num);
 t_stack	*stack_last(t_stack *stack);
 size_t	stack_size(t_stack *stack);
