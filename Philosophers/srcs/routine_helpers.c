@@ -6,18 +6,18 @@
 /*   By: kelle <kelle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 00:00:00 by copilot           #+#    #+#             */
-/*   Updated: 2026/03/26 00:10:15 by kelle            ###   ########.fr       */
+/*   Updated: 2026/04/07 03:15:16 by kelle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-bool	routine_should_stop(t_data *data)
+bool	sim_should_stop(t_data *data)
 {
 	bool	stop;
 
 	pthread_mutex_lock(&data->state_mutex);
-	stop = data->philo_died;
+	stop = data->stop_simulation;
 	pthread_mutex_unlock(&data->state_mutex);
 	return (stop);
 }
@@ -41,27 +41,31 @@ void	print_status(t_philo *philo, char *status)
 {
 	long	timestamp;
 	char	*color;
+	t_data	*data;
 
-	pthread_mutex_lock(&philo->data->print_mutex);
-	if (!routine_should_stop(philo->data))
+	data = philo->data;
+	pthread_mutex_lock(&data->state_mutex);
+	if (!data->stop_simulation)
 	{
-		timestamp = get_timestamp() - philo->data->start_time;
+		pthread_mutex_lock(&data->print_mutex);
+		timestamp = get_timestamp() - data->start_time;
 		color = get_status_color(status);
 		printf("%ld %d %s%s%s", timestamp, philo->id, color, status, DEF_COLOR);
+		pthread_mutex_unlock(&data->print_mutex);
 	}
-	pthread_mutex_unlock(&philo->data->print_mutex);
+	pthread_mutex_unlock(&data->state_mutex);
 }
 
-void	precise_sleep(t_data *data, int time_in_ms)
+void	sleep_ms_interruptible(t_data *data, int time_in_ms)
 {
 	long	start;
 
 	start = get_timestamp();
-	while (!routine_should_stop(data) && (get_timestamp() - start) < time_in_ms)
+	while (!sim_should_stop(data) && (get_timestamp() - start) < time_in_ms)
 		usleep(500);
 }
 
-void	desync_philo(t_philo *philo)
+void	stagger_philo(t_philo *philo)
 {
 	int	thinking_time;
 
@@ -72,5 +76,5 @@ void	desync_philo(t_philo *philo)
 		return ;
 	if (thinking_time > philo->data->time_to_die / 2)
 		thinking_time = philo->data->time_to_die / 2;
-	precise_sleep(philo->data, thinking_time / 2);
+	sleep_ms_interruptible(philo->data, thinking_time / 2);
 }

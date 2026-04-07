@@ -6,7 +6,7 @@
 /*   By: kelle <kelle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/23 04:05:00 by kelle             #+#    #+#             */
-/*   Updated: 2026/03/26 00:26:47 by kelle            ###   ########.fr       */
+/*   Updated: 2026/04/07 03:15:16 by kelle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,17 @@ static bool	initialize_data(char **argv, t_data *data)
 		return (false);
 	if (data->philo_amount > 200)
 		return (print_error("Philo amount must be below 200"), false);
-	data->meal_amount = 0;
-	data->meals_limiter = false;
+	data->meals_required = 0;
+	data->has_meal_limit = false;
 	if (argv[5])
 	{
-		if (!parse_positive_int(argv[5], &data->meal_amount))
+		if (!parse_positive_int(argv[5], &data->meals_required))
 			return (false);
-		data->meals_limiter = true;
+		data->has_meal_limit = true;
 	}
 	data->fork_amount = data->philo_amount;
 	data->start_time = get_timestamp();
-	data->philo_died = false;
+	data->stop_simulation = false;
 	return (true);
 }
 
@@ -90,10 +90,10 @@ static void	initialize_philos(t_data *data)
 		set_forks(data, i, &left, &right);
 		philo->left_fork = left;
 		philo->right_fork = right;
-		philo->death_at = data->start_time + data->time_to_die;
+		philo->death_deadline_ms = data->start_time + data->time_to_die;
 		philo->meals_eaten = 0;
-		philo->eating = false;
-		philo->max_meals = false;
+		philo->is_eating = false;
+		philo->reached_meal_limit = false;
 		philo->data = data;
 		i++;
 	}

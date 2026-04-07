@@ -6,7 +6,7 @@
 /*   By: kelle <kelle@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 23:39:52 by kelle             #+#    #+#             */
-/*   Updated: 2026/03/26 00:26:47 by kelle            ###   ########.fr       */
+/*   Updated: 2026/04/07 03:15:16 by kelle            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@
 # define RED "\033[0;91m"
 # define GREEN "\033[0;92m"
 
-typedef struct s_philosopers
+typedef struct s_philosopher
 {
 	int				id;
 	int				meals_eaten;
-	long			death_at;
-	bool			eating;
-	bool			max_meals;
+	long			death_deadline_ms;
+	bool			is_eating;
+	bool			reached_meal_limit;
 	struct s_data	*data;
 	pthread_t		thread;
 	pthread_mutex_t	meal_mutex;
@@ -55,10 +55,10 @@ typedef struct s_data
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
-	int				meal_amount;
+	int				meals_required;
 	long			start_time;
-	bool			meals_limiter;
-	bool			philo_died;
+	bool			has_meal_limit;
+	bool			stop_simulation;
 	pthread_t		monitor_thread;
 	pthread_mutex_t	print_mutex;
 	pthread_mutex_t	state_mutex;
@@ -93,10 +93,10 @@ void	cleanup_data(t_data *data, t_cleanup cleanup);
 
 void	*philo_routine(void *arg);
 void	*monitor_routine(void *arg);
-bool	routine_should_stop(t_data *data);
+bool	sim_should_stop(t_data *data);
 void	print_status(t_philo *philo, char *status);
-void	precise_sleep(t_data *data, int time_in_ms);
-void	desync_philo(t_philo *philo);
+void	sleep_ms_interruptible(t_data *data, int time_in_ms);
+void	stagger_philo(t_philo *philo);
 bool	take_forks_and_eat(t_philo *philo);
 
 void	ft_putstr_fd(char *s, int fd);

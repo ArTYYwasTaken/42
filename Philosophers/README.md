@@ -30,7 +30,7 @@ make re
 
 ### Run
 ```bash
-./philo philosophers time_to_die time_to_eat time_to_sleep [number_of_times_each_philosopher_must_eat]
+./philo philosophers time_to_die time_to_eat time_to_sleep [meals_required]
 ```
 
 - All arguments must be **positive integers**.
