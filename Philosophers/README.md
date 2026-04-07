@@ -1,4 +1,4 @@
-*This project has been created as part of the 42 curriculum by kelle.*
+*This project has been created as part of the 42 curriculum by kemontei.*
 
 ## Description
 **Philosophers** is an implementation of the classic *Dining Philosophers* concurrency problem.
@@ -58,10 +58,6 @@ The program prints timestamped status lines:
 
 ### References
 - 42 subject PDF (included): `subject/en.subject.pdf`
-- Dining Philosophers problem (overview): https://en.wikipedia.org/wiki/Dining_philosophers_problem
-- POSIX Threads Programming: https://hpc-tutorials.llnl.gov/posix/
-- `pthread_mutex_*` man page (Linux): https://man7.org/linux/man-pages/man3/pthread_mutex_lock.3p.html
-- `usleep` / time functions (Linux): https://man7.org/linux/man-pages/man3/usleep.3.html
 
 ### AI usage disclosure
 - **GitHub Copilot Chat** (model: **GPT-5.2**) was used to draft this `README.md` based on the existing codebase (binary name, CLI arguments, and constraints).
