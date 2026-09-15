@@ -6,7 +6,7 @@
 /*   By: kemontei <kemontei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 16:06:45 by kemontei          #+#    #+#             */
-/*   Updated: 2025/08/28 18:53:16 by kemontei         ###   ########.fr       */
+/*   Updated: 2026/04/16 18:12:53 by kemontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	map_fileformat(char *mapfile)
 	pastdot = ft_strrchr(mapfile, '.');
 	if (!pastdot)
 		return (0);
-	if (ft_strncmp(pastdot, ".ber", 4))
+	if (ft_strncmp(pastdot, ".ber", 5))
 		return (0);
 	return (1);
 }
